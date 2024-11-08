@@ -22,6 +22,19 @@
 #include "usart.h"
 #include "gpio.h"
 #include "stdio.h"
+#include <inttypes.h>
+
+//code to enable scanf redirection functions
+#ifdef __GNUC__
+#define GETCHAR_PROTOTYPE int __io_getchar(void)
+#else
+#define GETCHAR_PROTOTYPE int fgetc(FILE *f)
+#endif
+
+uint32_t tare = 0;
+float knownOriginal = 1;  // in milli gram
+float knownHX711 = 1;
+int weight = 0;
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -63,16 +76,25 @@ void SystemClock_Config(void);
 #define SCK_PIN GPIO_PIN_5
 #define SCK_PORT GPIOB
 
-
+//Code to enable printf statements
 int _write(int file, char *data, int len) {
     HAL_UART_Transmit(&huart2, (uint8_t*)data, len, HAL_MAX_DELAY); // Replace &huart2 with your UART instance
     return len;
 }
-// was orginally 0 but this value is the weight of the load cell with nothing on it
-uint32_t tare = 8388408;
-float knownOriginal = 1;  // in milli gram
-float knownHX711 = 1;
-int weight;
+
+GETCHAR_PROTOTYPE
+{
+  uint8_t ch = 0;
+
+  /* Clear the Overrun flag just before receiving the first character */
+  __HAL_UART_CLEAR_OREFLAG(&huart2);
+
+  /* Wait for reception of a character on the USART RX line and echo this
+   * character on console */
+  HAL_UART_Receive(&huart2, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
 
 void microDelay(uint16_t delay)
 {
@@ -109,8 +131,8 @@ int32_t getHX711(void)
 
 int weigh()
 {
-  int32_t  total = 0;
-  int32_t  samples = 50;
+  int64_t  total = 0;
+  int32_t  samples = 150;
   int milligram;
   float coefficient;
   for(uint16_t i=0 ; i<samples ; i++)
@@ -119,8 +141,21 @@ int weigh()
   }
   int32_t average = (int32_t)(total / samples);
   coefficient = knownOriginal / knownHX711;
-  milligram = (int)(average-tare)*coefficient;
+  milligram = (int)((average - tare)*1000)*coefficient;
   return milligram;
+}
+
+int32_t weighRaw()
+{
+  int64_t  total = 0;
+  int32_t  samples = 150;
+
+  for(uint16_t i=0 ; i<samples ; i++)
+  {
+      total += getHX711();
+  }
+  int32_t average = (int32_t)(total / samples);
+  return average;
 }
 
 /* USER CODE END 0 */
@@ -129,57 +164,99 @@ int weigh()
   * @brief  The application entry point.
   * @retval int
   */
+
+void setTare(){
+	printf("Gathering initial Tare of Load Cell...\n\r");
+
+	for(uint16_t i = 0; i < 4; i++){
+		int weight_temp = weighRaw();
+		printf("%d\n\r", weight_temp);
+		HAL_Delay(10);
+	}
+
+	HAL_Delay(100);
+	int weight_tare = weighRaw();
+
+	tare = weight_tare;
+
+	printf("Tare Set: %d\n\r", weight_tare);
+}
+
+void setOffset(){
+	printf("Input the weight of the object in miligrams\n\r");
+	float tempOffsetWeight = 0;
+	scanf("%f", &tempOffsetWeight);
+
+	knownOriginal = tempOffsetWeight;
+
+	printf("Setting weight of the HX711 readable weight...\n\r");
+
+	HAL_Delay(10);
+	int weight_offset = weighRaw();
+	HAL_Delay(10);
+
+	printf("Read weight: %d\n\r", weight_offset);
+	knownHX711 = weight_offset;
+
+}
+
 int main(void)
 {
 
-  /* USER CODE BEGIN 1 */
+	/* USER CODE BEGIN 1 */
 
-  /* USER CODE END 1 */
+	//disables internal buffering for input stream for scanf
+	setvbuf(stdin, NULL, _IONBF, 0);
+	/* USER CODE END 1 */
 
-  /* MCU Configuration--------------------------------------------------------*/
+	/* MCU Configuration--------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	HAL_Init();
 
-  /* USER CODE BEGIN Init */
+	/* USER CODE BEGIN Init */
 
-  /* USER CODE END Init */
+	/* USER CODE END Init */
 
-  /* Configure the system clock */
-  SystemClock_Config();
+	/* Configure the system clock */
+	SystemClock_Config();
 
-  /* USER CODE BEGIN SysInit */
+	/* USER CODE BEGIN SysInit */
 
-  /* USER CODE END SysInit */
+	/* USER CODE END SysInit */
 
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_USART2_UART_Init();
-  MX_TIM2_Init();
-  /* USER CODE BEGIN 2 */
-  printf("Hello from STM32 UART!\n\r");
+	/* Initialize all configured peripherals */
+	MX_GPIO_Init();
+	MX_USART2_UART_Init();
+	MX_TIM2_Init();
+	/* USER CODE BEGIN 2 */
+	printf("Hello from STM32 UART!\n\r");
 
-		HAL_TIM_Base_Start(&htim2);
-		HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_SET);
-		HAL_Delay(10);
-		HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_RESET);
-		HAL_Delay(10);
+	HAL_TIM_Base_Start(&htim2);
+	HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_SET);
+	HAL_Delay(10);
+	HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_RESET);
+	HAL_Delay(10);
 
-  /* USER CODE END 2 */
+	/* USER CODE END 2 */
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-	  weight = weigh();
+	/* Infinite loop */
+	/* USER CODE BEGIN WHILE */
 
-	  printf("weight = %d\n\r", weight);
-	  HAL_Delay(1000);
-    /* USER CODE END WHILE */
+	setTare();
+	setOffset();
 
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
+
+	while (1){
+		weight = weigh();
+
+		printf("weight = %d\n\r", weight);
+		HAL_Delay(1000);
+		/* USER CODE END WHILE */
+
+		/* USER CODE BEGIN 3 */
+	}
+	/* USER CODE END 3 */
 }
 
 /**
