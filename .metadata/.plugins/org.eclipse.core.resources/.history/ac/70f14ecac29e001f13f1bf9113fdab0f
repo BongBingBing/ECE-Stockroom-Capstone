@@ -32,7 +32,7 @@
 
 /*Global Variables*/
 uint32_t tare = 0;
-float knownOriginal = 1;  // in milli-gram
+float knownOriginal = 1;  // in milli gram
 float knownHX711 = 1;
 int weight = 0;
 
@@ -212,14 +212,10 @@ void setOffset(){
 
 void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
   if(control){
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, A);
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, B);
-    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, C);
+
   } 
   else{
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, A);
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, B);
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, C);
+
   }
 }
 
@@ -287,9 +283,9 @@ int main(void)
 
 
 	for(uint16_t i = 0; i <= 3; i++){
-		A_mast = MuxCombos[i].A;
-		B_mast = MuxCombos[i].B;
-		C_mast = MuxCombos[i].C;
+		A_mast = MuxCombos.A[i];
+		B_mast = MuxCombos.B[i];
+		C_mast = MuxCombos.C[i];
 
     muxSET(A_mast, B_mast, C_mast, 1);
 
@@ -301,13 +297,13 @@ int main(void)
 		  knownHX711 = 1;
 		  weight = 0;
 
-		  A_slave = MuxCombos[k].A;
-		  B_slave = MuxCombos[k].B;
-		  C_slave = MuxCombos[k].C;
+		  A_slave = MuxCombos.A[k];
+		  B_slave = MuxCombos.B[k];
+		  C_slave = MuxCombos.C[k];
 
 		  muxSET(A_slave, B_slave, C_slave, 0);
 
-		  setTare();
+		  stTare();
 		  setOffset();
 
 		  uint16_t count = 0;
@@ -318,8 +314,6 @@ int main(void)
 		  	weight = weigh();
 
 		  	printf("Weight: %d", weight);
-
-        HAL_Delay(100)
 
 		  	count++;
 		  }

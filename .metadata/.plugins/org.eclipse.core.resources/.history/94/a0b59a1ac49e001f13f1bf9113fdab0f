@@ -32,7 +32,7 @@
 
 /*Global Variables*/
 uint32_t tare = 0;
-float knownOriginal = 1;  // in milli-gram
+float knownOriginal = 1;  // in milli gram
 float knownHX711 = 1;
 int weight = 0;
 
@@ -212,14 +212,10 @@ void setOffset(){
 
 void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
   if(control){
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, A);
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, B);
-    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, C);
+
   } 
   else{
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, A);
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, B);
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, C);
+
   }
 }
 
@@ -318,8 +314,6 @@ int main(void)
 		  	weight = weigh();
 
 		  	printf("Weight: %d", weight);
-
-        HAL_Delay(100)
 
 		  	count++;
 		  }
