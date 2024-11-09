@@ -22,6 +22,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "stdio.h"
+#include <inttypes.h>
 
 //code to enable scanf redirection functions
 #ifdef __GNUC__
@@ -306,18 +307,9 @@ int main(void)
 		  stTare();
 		  setOffset();
 
-		  uint16_t count = 0;
+		  weight = weigh();
 
-	  	printf("Row: %d, Drawer: %d\n\r", i, k);
-
-		  while(count <= 9){
-		  	weight = weigh();
-
-		  	printf("Weight: %d", weight);
-
-		  	count++;
-		  }
-
+		  printf("Row: %d, Drawer: %d, Weight: %d\n\r", i, k, weight);
 		}
 	}
 

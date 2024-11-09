@@ -22,6 +22,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "stdio.h"
+#include <inttypes.h>
 
 //code to enable scanf redirection functions
 #ifdef __GNUC__
@@ -280,6 +281,15 @@ int main(void)
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while(1){
+		/* Reset Initial Variables */
+
+
+
+
+
+
+
+
 
 
 	for(uint16_t i = 0; i <= 3; i++){
@@ -290,9 +300,7 @@ int main(void)
     muxOutput(A_mast, B_mast, C_mast, 1);
 
 		for(uint16_t k = 0; k <= 6; k++){
-
-			/* Reset Initial Variables */
-			tare = 0;
+		  tare = 0;
 		  knownOriginal = 1;  // in milli-gram
 		  knownHX711 = 1;
 		  weight = 0;
@@ -306,18 +314,9 @@ int main(void)
 		  stTare();
 		  setOffset();
 
-		  uint16_t count = 0;
+		  weight = weigh();
 
-	  	printf("Row: %d, Drawer: %d\n\r", i, k);
-
-		  while(count <= 9){
-		  	weight = weigh();
-
-		  	printf("Weight: %d", weight);
-
-		  	count++;
-		  }
-
+		  printf("Row: %d, Drawer: %d, Weight: %d\n\r", i, k, weight);
 		}
 	}
 
