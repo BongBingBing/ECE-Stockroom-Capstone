@@ -751,6 +751,7 @@ Finished building: default.size.stdout
  
 Finished building: test_cases.list
  
+<<<<<<< HEAD
 13:42:08 **** Incremental Build of configuration Debug for project test_cases ****
 make -j4 all 
 arm-none-eabi-gcc "../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xE -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal.d" -MT"Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal.o"
@@ -776,6 +777,14 @@ arm-none-eabi-gcc "../Core/Src/stm32l1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -D
 ../Core/Src/main.c:213:52: error: unknown type name 'bool'
   213 | void muxOutput(uint16_t A, uint16_t B, uint16_t C, bool control){
       |                                                    ^~~~
+=======
+12:44:52 **** Incremental Build of configuration Debug for project test_cases ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xE -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:213:49: error: unknown type name 'bool'
+  213 | void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
+      |                                                 ^~~~
+>>>>>>> cf6ebce7fd08920d7dbf27c307749ebaa807a610
 ../Core/Src/main.c:25:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
    24 | #include "stdio.h"
   +++ |+#include <stdbool.h>
@@ -877,9 +886,15 @@ arm-none-eabi-gcc "../Core/Src/stm32l1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -D
 ../Core/Src/main.c:288:35: error: request for member 'C' in something not a structure or union
   288 |                 C_mast = MuxCombos.C[i];
       |                                   ^
+<<<<<<< HEAD
 ../Core/Src/main.c:290:5: warning: implicit declaration of function 'muxOutput' [-Wimplicit-function-declaration]
   290 |     muxOutput(A_mast, B_mast, C_mast, 1);
       |     ^~~~~~~~~
+=======
+../Core/Src/main.c:290:5: warning: implicit declaration of function 'muxSET' [-Wimplicit-function-declaration]
+  290 |     muxSET(A_mast, B_mast, C_mast, 1);
+      |     ^~~~~~
+>>>>>>> cf6ebce7fd08920d7dbf27c307749ebaa807a610
 ../Core/Src/main.c:300:38: error: request for member 'A' in something not a structure or union
   300 |                   A_slave = MuxCombos.A[k];
       |                                      ^
@@ -894,6 +909,7 @@ arm-none-eabi-gcc "../Core/Src/stm32l1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -D
       |                   ^~~~~~
       |                   setTare
 make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+<<<<<<< HEAD
 make: *** Waiting for unfinished jobs....
 "make -j4 all" terminated with exit code 2. Build might be incomplete.
 13:54:44 **** Build of configuration Debug for project write_ex ****
@@ -940,3 +956,190 @@ arm-none-eabi-size  write_ex.elf
    7572	     12	   1644	   9228	   240c	write_ex.elf
 Finished building: default.size.stdout
  
+=======
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+12:47:19 **** Incremental Build of configuration Debug for project test_cases ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xE -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:213:49: error: unknown type name 'bool'
+  213 | void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
+      |                                                 ^~~~
+../Core/Src/main.c:25:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+   24 | #include "stdio.h"
+  +++ |+#include <stdbool.h>
+   25 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:286:35: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  286 |                 A_mast = MuxCombos.A[i];
+      |                                   ^
+      |                                   ->
+../Core/Src/main.c:287:35: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  287 |                 B_mast = MuxCombos.B[i];
+      |                                   ^
+      |                                   ->
+../Core/Src/main.c:288:35: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  288 |                 C_mast = MuxCombos.C[i];
+      |                                   ^
+      |                                   ->
+../Core/Src/main.c:290:5: warning: implicit declaration of function 'muxSET' [-Wimplicit-function-declaration]
+  290 |     muxSET(A_mast, B_mast, C_mast, 1);
+      |     ^~~~~~
+../Core/Src/main.c:300:38: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  300 |                   A_slave = MuxCombos.A[k];
+      |                                      ^
+      |                                      ->
+../Core/Src/main.c:301:38: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  301 |                   B_slave = MuxCombos.B[k];
+      |                                      ^
+      |                                      ->
+../Core/Src/main.c:302:38: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  302 |                   C_slave = MuxCombos.C[k];
+      |                                      ^
+      |                                      ->
+../Core/Src/main.c:306:19: warning: implicit declaration of function 'stTare'; did you mean 'setTare'? [-Wimplicit-function-declaration]
+  306 |                   stTare();
+      |                   ^~~~~~
+      |                   setTare
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+12:48:15 **** Incremental Build of configuration Debug for project test_cases ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xE -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:213:49: error: unknown type name 'bool'
+  213 | void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
+      |                                                 ^~~~
+../Core/Src/main.c:25:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+   24 | #include "stdio.h"
+  +++ |+#include <stdbool.h>
+   25 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:290:5: warning: implicit declaration of function 'muxSET' [-Wimplicit-function-declaration]
+  290 |     muxSET(A_mast, B_mast, C_mast, 1);
+      |     ^~~~~~
+../Core/Src/main.c:300:38: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  300 |                   A_slave = MuxCombos.A[k];
+      |                                      ^
+      |                                      ->
+../Core/Src/main.c:301:38: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  301 |                   B_slave = MuxCombos.B[k];
+      |                                      ^
+      |                                      ->
+../Core/Src/main.c:302:38: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  302 |                   C_slave = MuxCombos.C[k];
+      |                                      ^
+      |                                      ->
+../Core/Src/main.c:306:19: warning: implicit declaration of function 'stTare'; did you mean 'setTare'? [-Wimplicit-function-declaration]
+  306 |                   stTare();
+      |                   ^~~~~~
+      |                   setTare
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+12:48:31 **** Incremental Build of configuration Debug for project test_cases ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xE -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:213:49: error: unknown type name 'bool'
+  213 | void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
+      |                                                 ^~~~
+../Core/Src/main.c:25:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+   24 | #include "stdio.h"
+  +++ |+#include <stdbool.h>
+   25 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:290:5: warning: implicit declaration of function 'muxSET' [-Wimplicit-function-declaration]
+  290 |     muxSET(A_mast, B_mast, C_mast, 1);
+      |     ^~~~~~
+../Core/Src/main.c:300:38: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  300 |                   A_slave = MuxCombos.A[k];
+      |                                      ^
+      |                                      ->
+../Core/Src/main.c:301:38: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  301 |                   B_slave = MuxCombos.B[k];
+      |                                      ^
+      |                                      ->
+../Core/Src/main.c:302:38: error: '(const struct MuxCombo *)&MuxCombos' is a pointer; did you mean to use '->'?
+  302 |                   C_slave = MuxCombos.C[k];
+      |                                      ^
+      |                                      ->
+../Core/Src/main.c:306:19: warning: implicit declaration of function 'stTare'; did you mean 'setTare'? [-Wimplicit-function-declaration]
+  306 |                   stTare();
+      |                   ^~~~~~
+      |                   setTare
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+12:49:42 **** Incremental Build of configuration Debug for project test_cases ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xE -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:213:49: error: unknown type name 'bool'
+  213 | void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
+      |                                                 ^~~~
+../Core/Src/main.c:25:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+   24 | #include "stdio.h"
+  +++ |+#include <stdbool.h>
+   25 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:290:5: warning: implicit declaration of function 'muxSET' [-Wimplicit-function-declaration]
+  290 |     muxSET(A_mast, B_mast, C_mast, 1);
+      |     ^~~~~~
+../Core/Src/main.c:306:19: warning: implicit declaration of function 'stTare'; did you mean 'setTare'? [-Wimplicit-function-declaration]
+  306 |                   stTare();
+      |                   ^~~~~~
+      |                   setTare
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+12:57:41 **** Incremental Build of configuration Debug for project test_cases ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xE -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'weigh':
+../Core/Src/main.c:141:17: error: 'knownOriginal' undeclared (first use in this function)
+  141 |   coefficient = knownOriginal / knownHX711;
+      |                 ^~~~~~~~~~~~~
+../Core/Src/main.c:141:17: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:141:33: error: 'knownHX711' undeclared (first use in this function)
+  141 |   coefficient = knownOriginal / knownHX711;
+      |                                 ^~~~~~~~~~
+../Core/Src/main.c:142:32: error: 'tare' undeclared (first use in this function)
+  142 |   milligram = (int)((average - tare)*1000)*coefficient;
+      |                                ^~~~
+../Core/Src/main.c: In function 'setTare':
+../Core/Src/main.c:178:9: error: 'tare' undeclared (first use in this function); did you mean 'setTare'?
+  178 |         tare = weight_tare;
+      |         ^~~~
+      |         setTare
+../Core/Src/main.c: In function 'setOffset':
+../Core/Src/main.c:188:9: error: 'knownOriginal' undeclared (first use in this function)
+  188 |         knownOriginal = tempOffsetWeight;
+      |         ^~~~~~~~~~~~~
+../Core/Src/main.c:197:9: error: 'knownHX711' undeclared (first use in this function)
+  197 |         knownHX711 = weight_offset;
+      |         ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:201:49: error: unknown type name 'bool'
+  201 | void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
+      |                                                 ^~~~
+../Core/Src/main.c:25:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+   24 | #include "stdio.h"
+  +++ |+#include <stdbool.h>
+   25 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:292:5: warning: implicit declaration of function 'muxSET' [-Wimplicit-function-declaration]
+  292 |     muxSET(A_mast, B_mast, C_mast, 1);
+      |     ^~~~~~
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+12:58:14 **** Incremental Build of configuration Debug for project test_cases ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L152xE -c -I../Core/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc -I../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:213:49: error: unknown type name 'bool'
+  213 | void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
+      |                                                 ^~~~
+../Core/Src/main.c:25:1: note: 'bool' is defined in header '<stdbool.h>'; did you forget to '#include <stdbool.h>'?
+   24 | #include "stdio.h"
+  +++ |+#include <stdbool.h>
+   25 | 
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:290:5: warning: implicit declaration of function 'muxSET' [-Wimplicit-function-declaration]
+  290 |     muxSET(A_mast, B_mast, C_mast, 1);
+      |     ^~~~~~
+make: *** [Core/Src/subdir.mk:43: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+>>>>>>> cf6ebce7fd08920d7dbf27c307749ebaa807a610
