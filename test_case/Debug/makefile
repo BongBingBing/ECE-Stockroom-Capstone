@@ -60,8 +60,13 @@ all: main-build
 main-build: test_case.elf secondary-outputs
 
 # Tool invocations
+<<<<<<< HEAD:test_case/Debug/makefile
 test_case.elf test_case.map: $(OBJS) $(USER_OBJS) C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-gcc -o "test_case.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+=======
+test_cases.elf test_cases.map: $(OBJS) $(USER_OBJS) C:\Users\buchi\Desktop\Capstone\ECE-Stockroom-Capstone\test_cases\STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "test_cases.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\buchi\Desktop\Capstone\ECE-Stockroom-Capstone\test_cases\STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_cases.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+>>>>>>> 19eee56a0a20e18314704494c1765dc1f5a35e2e:test_cases/Debug/makefile
 	@echo 'Finished building target: $@'
 	@echo ' '
 
