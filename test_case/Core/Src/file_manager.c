@@ -1,0 +1,65 @@
+/*
+ * file_manager.c
+ *
+ *  Created on: Nov 24, 2024
+ *      Author: andyb
+ */
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+#include "gpio.h"
+#include "usart.h"
+
+#include <file_manager.h>
+
+#define FILENAME_SIZE 512
+#define MAX_FILELINE 1024
+
+FILE *drawerconfig, *temp;
+
+const char filename[FILENAME_SIZE];
+const char temp_filename[FILENAME_SIZE];
+
+char buffer[MAX_FILELINE];
+char addon[MAX_FILELINE];
+
+void saveCalFactor(float calFactor, int row, int drawer, uint32_t Tare){
+
+
+	drawerConfig = fopen(filename, "a");
+	if (drawerConfig == NULL){
+		printf("Could not open file\n\r");
+	}
+	else{
+		snprintf(buffer, sizeof(buffer),"Row:%d;Drawer:%d;CalFactor:%f;Tare:%d", row, drawer, calFactor, Tare);
+		fputs(buffer, drawerConfig);
+	}
+}
+
+char* getFileInfo(){
+
+	static char array[4];
+
+	Drawer drawer;
+
+	drawerConfig = fopen(filename, "r");
+	if (drawerConfig == NULL){
+		printf("Could not open file\n\r");
+	}
+	else{
+		char fileLine = fgets(buffer, MAX_FILELINE, drawerConfig);
+		char* token = strtok(fileLine, ";");
+
+		for(int i = 0; i <= 3; i++){
+			char* temp_token = strtok(fileLine )
+		}
+
+
+
+
+	}
+
+
+	return array;
+}

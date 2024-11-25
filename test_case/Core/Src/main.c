@@ -17,36 +17,24 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+
+#include "stdio.h"
+#include "stdbool.h"
 #include "main.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
+
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include "stdio.h"
-#include <stdbool.h>
-//code to enable scanf redirection functions
-#ifdef __GNUC__
-#define GETCHAR_PROTOTYPE int __io_getchar(void)
-#else
-#define GETCHAR_PROTOTYPE int fgetc(FILE *f)
-#endif
+#include <calibration_function.h>
+#include <main_function.h>
+#include <mux_manager.h>
+#include <weight_manager.h>
 
-/*Global Variables*/
-uint32_t tare = 0;
-float knownOriginal = 1;  // in milli-gram
-float knownHX711 = 1;
-int weight = 0;
-
-uint16_t A_mast;
-uint16_t B_mast;
-uint16_t C_mast;
-
-uint16_t A_slave;
-uint16_t B_slave;
-uint16_t C_slave;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -84,175 +72,6 @@ void SystemClock_Config(void);
 #define SCK_PIN GPIO_PIN_5
 #define SCK_PORT GPIOB
 
-//Code to enable printf statements
-int _write(int file, char *data, int len) {
-    HAL_UART_Transmit(&huart2, (uint8_t*)data, len, HAL_MAX_DELAY); // Replace &huart2 with your UART instance
-    return len;
-}
-
-GETCHAR_PROTOTYPE
-{
-  uint8_t ch = 0;
-
-  /* Clear the Overrun flag just before receiving the first character */
-  __HAL_UART_CLEAR_OREFLAG(&huart2);
-
-  /* Wait for reception of a character on the USART RX line and echo this
-   * character on console */
-  HAL_UART_Receive(&huart2, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
-  HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
-  return ch;
-}
-
-void microDelay(uint16_t delay)
-{
-  __HAL_TIM_SET_COUNTER(&htim2, 0);
-  while (__HAL_TIM_GET_COUNTER(&htim2) < delay);
-}
-
-int32_t getHX711(void)
-{
-  uint32_t data = 0;
-  uint32_t startTime = HAL_GetTick();
-  while(HAL_GPIO_ReadPin(DT_PORT, DT_PIN) == GPIO_PIN_SET)
-  {
-    if(HAL_GetTick() - startTime > 200)
-      return 0;
-  }
-  for(int8_t len=0; len<24 ; len++)
-  {
-    HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_SET);
-    microDelay(1);
-    data = data << 1;
-    HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_RESET);
-    microDelay(1);
-    if(HAL_GPIO_ReadPin(DT_PORT, DT_PIN) == GPIO_PIN_SET)
-      data ++;
-  }
-  data = data ^ 0x800000;
-  HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_SET);
-  microDelay(1);
-  HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_RESET);
-  microDelay(1);
-  return data;
-}
-
-/*########################################################################################################*/
-
-int weigh()
-{
-  int64_t  total = 0;
-  int32_t  samples = 50;
-
-  int milligram = 0;
-  float coefficient = 0;
-  int32_t average = 0;
-
-  for(uint16_t i=0 ; i<samples ; i++)
-  {
-      total += getHX711();
-  }
-  average = (int32_t)(total / samples);
-  coefficient = knownOriginal / knownHX711;
-  milligram = (int)(average - tare)*coefficient;
-  return milligram;
-}
-
-int32_t weighRaw()
-{
-  int64_t  total = 0;
-  int32_t  samples = 50;
-  int32_t average = 0;
-
-  for(uint16_t i=0 ; i<samples ; i++)
-  {
-      total += getHX711();
-  }
-  average = (int32_t)(total / samples);
-  return average;
-}
-
-int32_t weighRawTare(){
-
-  int64_t  total = 0;
-  int32_t  samples = 50;
-  int32_t average = 0;
-  int32_t avgTare = 0;
-
-  for(uint16_t i=0 ; i<samples ; i++)
-  {
-      total += getHX711();
-  }
-  average = (int32_t)(total / samples);
-  avgTare = average - tare;
-  return avgTare;
-}
-
-void setTare(){
-	printf("Gathering initial Tare of Load Cell...\n\r");
-	int weight_temp = 0;
-	int weight_tare = 0;
-
-	for(uint16_t i = 0; i < 4; i++){
-		weight_temp = weighRaw();
-		printf("%d\n\r", weight_temp);
-		HAL_Delay(10);
-	}
-
-	HAL_Delay(100);
-	weight_tare = weighRaw();
-
-	tare = weight_tare;
-
-	printf("Tare Set: %d\n\r", weight_tare);
-}
-
-void setOffset(){
-	printf("Input the weight of the object in miligrams\n\r");
-	float tempOffsetWeight = 0;
-	scanf("%f", &tempOffsetWeight);
-
-	knownOriginal = tempOffsetWeight;
-
-	printf("Setting weight of the HX711 readable weight...\n\r");
-
-	HAL_Delay(10);
-	int weight_offset = weighRawTare();
-	HAL_Delay(10);
-
-	printf("Read weight: %d\n\r", weight_offset);
-	knownHX711 = weight_offset;
-
-}
-
-void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
-  if(control){
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, A);
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, B);
-    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, C);
-  }
-  else{
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, A);
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, B);
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, C);
-  }
-}
-
-struct MuxCombo {
-  unsigned char C;
-  unsigned char B;
-  unsigned char A;
-};
-
-const struct MuxCombo MuxCombos[] = {
-  {0, 0, 0},
-  {0, 0, 1},
-  {0, 1, 0},
-  {0, 1, 1},
-  {1, 0, 0},
-  {1, 0, 1},
-  {1, 1, 0}
-};
 
 /* USER CODE END 0 */
 
@@ -312,54 +131,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
-	while(1){
+  Calibrate();
+  main_function();
 
 
-	for(uint16_t i = 0; i <= 3; i++){
-		A_mast = MuxCombos[i].A;
-		B_mast = MuxCombos[i].B;
-		C_mast = MuxCombos[i].C;
+  /* USER CODE END WHILE */
 
-    muxSET(A_mast, B_mast, C_mast, 1);
-
-		for(uint16_t k = 0; k <= 6; k++){
-
-			/* Reset Initial Variables */
-			tare = 0;
-		  knownOriginal = 1;  // in milli-gram
-		  knownHX711 = 1;
-		  weight = 0;
-
-		  A_slave = MuxCombos[k].A;
-		  B_slave = MuxCombos[k].B;
-		  C_slave = MuxCombos[k].C;
-
-		  muxSET(A_slave, B_slave, C_slave, 0);
-
-		  setTare();
-		  setOffset();
-
-		  uint16_t count = 0;
-
-	  	printf("Row: %d, Drawer: %d\n\r", i, k);
-
-		  while(count <= 9){
-		  	weight = weigh();
-
-		  	printf("Weight: %d\n\r", weight);
-
-        HAL_Delay(100);
-
-		  	count++;
-				}
-			}
-		}
-	}
-
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+  /* USER CODE BEGIN 3 */
   /* USER CODE END 3 */
 }
 

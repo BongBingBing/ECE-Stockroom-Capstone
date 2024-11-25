@@ -1,0 +1,13 @@
+/*
+ * Manager.c
+ *
+ *  Created on: Nov 18, 2024
+ *      Author: andyb
+ */
+
+#include <main_fuction.h>
+#include "stdio.h"
+#include <stdbool.h>
+
+
+

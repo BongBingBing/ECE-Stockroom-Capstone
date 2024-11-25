@@ -15,14 +15,38 @@ RM := rm -rf
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
+endif
+ifneq ($(strip $(C++_DEPS)),)
+-include $(C++_DEPS)
+endif
+ifneq ($(strip $(CCM_DEPS)),)
+-include $(CCM_DEPS)
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif
 ifneq ($(strip $(S_DEPS)),)
 -include $(S_DEPS)
 endif
 ifneq ($(strip $(S_UPPER_DEPS)),)
 -include $(S_UPPER_DEPS)
 endif
+ifneq ($(strip $(CXXM_DEPS)),)
+-include $(CXXM_DEPS)
+endif
+ifneq ($(strip $(C++M_DEPS)),)
+-include $(C++M_DEPS)
+endif
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
+endif
+ifneq ($(strip $(CPP_DEPS)),)
+-include $(CPP_DEPS)
 endif
 endif
 
@@ -60,13 +84,8 @@ all: main-build
 main-build: test_case.elf secondary-outputs
 
 # Tool invocations
-<<<<<<< HEAD:test_case/Debug/makefile
 test_case.elf test_case.map: $(OBJS) $(USER_OBJS) C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "test_case.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-=======
-test_cases.elf test_cases.map: $(OBJS) $(USER_OBJS) C:\Users\buchi\Desktop\Capstone\ECE-Stockroom-Capstone\test_cases\STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "test_cases.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\buchi\Desktop\Capstone\ECE-Stockroom-Capstone\test_cases\STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_cases.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
->>>>>>> 19eee56a0a20e18314704494c1765dc1f5a35e2e:test_cases/Debug/makefile
+	arm-none-eabi-g++ -o "test_case.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

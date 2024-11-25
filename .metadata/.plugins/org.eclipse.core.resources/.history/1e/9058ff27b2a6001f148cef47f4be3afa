@@ -1,0 +1,65 @@
+/*
+ * Calibration_Manager.c
+ *
+ *  Created on: Nov 18, 2024
+ *      Author: andyb
+ */
+
+#include "stdio.h"
+#include <stdbool.h>
+
+#include "weightManager.h"
+
+struct MuxCombo {
+  unsigned char C;
+  unsigned char B;
+  unsigned char A;
+};
+
+const struct MuxCombo MuxCombos[] = {
+  {0, 0, 0},
+  {0, 0, 1},
+  {0, 1, 0},
+  {0, 1, 1},
+  {1, 0, 0},
+  {1, 0, 1},
+  {1, 1, 0}
+};
+
+uint32_t setTare(){
+	printf("Gathering initial Tare of Load Cell...\n\r");
+	int weight_temp = 0;
+	int weight_tare = 0;
+
+	for(uint16_t i = 0; i < 4; i++){
+		weight_temp = weighRaw();
+		printf("%d\n\r", weight_temp);
+		HAL_Delay(10);
+	}
+
+	HAL_Delay(100);
+	weight_tare = weighRaw();
+
+	tare = weight_tare;
+
+	printf("Tare Set: %d\n\r", weight_tare);
+}
+
+void setOffset(){
+	printf("Input the weight of the object in miligrams\n\r");
+	float tempOffsetWeight = 0;
+	scanf("%f", &tempOffsetWeight);
+
+	knownOriginal = tempOffsetWeight;
+
+	printf("Setting weight of the HX711 readable weight...\n\r");
+
+	HAL_Delay(10);
+	int weight_offset = weighRawTare();
+	HAL_Delay(10);
+
+	printf("Read weight: %d\n\r", weight_offset);
+	knownHX711 = weight_offset;
+
+}
+

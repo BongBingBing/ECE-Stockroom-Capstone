@@ -1,0 +1,126 @@
+/*
+ * Calibration_Manager.c
+ *
+ *  Created on: Nov 18, 2024
+ *      Author: andyb
+ */
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+#include <usart.h>
+#include <tim.h>
+
+#include <weight_manager.h>
+#include <mux_manager.h>
+#include <io_manager.h>
+#include <file_manager.h>
+
+#define DT_PIN GPIO_PIN_8
+#define DT_PORT GPIOA
+#define SCK_PIN GPIO_PIN_5
+#define SCK_PORT GPIOB
+
+
+uint32_t tare = 0;
+float knownOriginal = 20000;  // in milli-gram
+float knownHX711 = 1;
+int weight = 0;
+int thresh = 0;
+
+uint16_t A_mast;
+uint16_t B_mast;
+uint16_t C_mast;
+
+uint16_t A_slave;
+uint16_t B_slave;
+uint16_t C_slave;
+
+uint32_t getTare(){
+	printf("Remove all weight from the drawer(5 seconds)\n\r");
+	HAL_Delay(5000);
+	printf("Gathering initial Tare of Load Cell...\n\r");
+	int weight_temp = 0;
+
+	for(uint16_t i = 1; i <= 4; i++){
+			weight_temp = (int)weighRaw();
+			printf("Tare attempt %d: %d\n\r", i, weight_temp);
+			HAL_Delay(10);
+		}
+	printf("Tare Set: %d\n\r", weight_temp);
+	return weight_temp;
+}
+
+void Calibrate(){
+	printf("Beginning with Row: 1 Drawer: 1\n\r");
+
+
+	for(int i = 1; i <= 4; i++){
+		printf("Row %d", i);
+
+		A_mast = MuxCombos[i].A;
+		B_mast = MuxCombos[i].B;
+		C_mast = MuxCombos[i].C;
+
+		muxSET(A_mast, B_mast, C_mast, 1);
+
+		if(i == 1){
+			for(int j = 1; j <= 4; j++){
+
+				A_slave = MuxCombos[j].A;
+				B_slave = MuxCombos[j].B;
+				C_slave = MuxCombos[j].C;
+
+				muxSET(A_slave, B_slave, C_slave, 0);
+
+				printf("Drawer %d", j);
+				tare = getTare();
+				printf("Place the calibration weight on the drawer(5 seconds)\n\r");
+				HAL_Delay(5000);
+
+				knownHX711 = weighRawTare(tare);
+				printf("Read weight: %f", knownHX711);
+
+				float calFactor = getCalFactor(knownHX711);
+
+				for(int p = 0; p < 4; p++){
+					int weight = weigh(tare, calFactor);
+					printf("Weight: %d", weight);
+					HAL_Delay(400);
+				}
+
+				saveCalFactor(getCalFactor(knownHX711), i, j, tare);
+			}
+		}
+		else{
+			for(int k = 1; k <= 7; k++){
+
+				A_slave = MuxCombos[k].A;
+				B_slave = MuxCombos[k].B;
+				C_slave = MuxCombos[k].C;
+
+				muxSET(A_slave, B_slave, C_slave, 0);
+
+				printf("Drawer %d", k);
+				tare = getTare();
+				printf("Place the calibration weight on the drawer(5 seconds)\n\r");
+				HAL_Delay(5000);
+
+				knownHX711 = weighRawTare(tare);
+				printf("Read weight: %f", knownHX711);
+
+				for(int p = 0; p < 4; p++){
+					int weight = weigh(tare, knownHX711);
+					printf("Weight: %d", weight);
+					HAL_Delay(400);
+				}
+
+				saveCalFactor(getCalFactor(knownHX711), i, k, tare);
+
+
+			}
+		}
+
+	}
+}
+

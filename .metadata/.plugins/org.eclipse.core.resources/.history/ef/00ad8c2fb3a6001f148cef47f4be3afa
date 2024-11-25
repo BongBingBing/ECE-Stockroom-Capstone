@@ -1,0 +1,18 @@
+
+
+
+
+#include "stdio.h"
+
+
+
+
+void microDelay(uint16_t delay);
+
+int32_t getHX711(void);
+
+int weigh();
+
+int32_t weighRaw();
+
+int32_t weighRawTare();

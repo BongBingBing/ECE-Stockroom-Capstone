@@ -1,0 +1,34 @@
+/*
+ * Calibration_Manager.h
+ *
+ *  Created on: Nov 19, 2024
+ *      Author: andyb
+ */
+
+#include "stdio.h"
+#include "usart.h"
+#include <stdbool.h>
+
+#ifndef INC_CALIBRATION_FUNCTION_H_
+#define INC_CALIBRATION_FUNCTION_H_
+
+class Drawer {
+public:
+    unsigned char DrawerID;        // Drawer identifier
+    float calibrationFactor;       // Calibration factor
+    float tare;                    // Tare weight
+    unsigned int row;              // Row number
+    unsigned int drawerNum;        // Drawer number
+
+    // Constructor
+    Drawer(unsigned char id, float calFactor, float t, unsigned int r, unsigned int d)
+        : DrawerID(id), calibrationFactor(calFactor), tare(t), row(r), drawerNum(d) {}
+};
+
+uint32_t getTare();
+
+void saveCalFactor(float calFactor, int row, int drawer);
+
+void Calibrate();
+
+#endif /* INC_CALIBRATION_FUNCTION_H_ */
