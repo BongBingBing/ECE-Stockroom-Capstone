@@ -6,6 +6,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include "gpio.h"
@@ -16,50 +17,124 @@
 #define FILENAME_SIZE 512
 #define MAX_FILELINE 1024
 
-FILE *drawerconfig, *temp;
+FILE *drawerConfig, *temp;
 
 const char filename[FILENAME_SIZE];
 const char temp_filename[FILENAME_SIZE];
 
 char buffer[MAX_FILELINE];
-char addon[MAX_FILELINE];
+char previousLine[MAX_FILELINE];
 
-void saveCalFactor(float calFactor, int row, int drawer, uint32_t Tare){
+void saveDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t Tare, float thresh){
 
 
-	drawerConfig = fopen(filename, "a");
+	drawerConfig = fopen(filename, "w");
 	if (drawerConfig == NULL){
 		printf("Could not open file\n\r");
 	}
 	else{
-		snprintf(buffer, sizeof(buffer),"Row:%d;Drawer:%d;CalFactor:%f;Tare:%d", row, drawer, calFactor, Tare);
+		snprintf(buffer, sizeof(buffer),"Row:%d;Drawer:%d;CalFactor:%f;Tare:%lu;Thresh:%f", row, drawer, calFactor, Tare, thresh);
 		fputs(buffer, drawerConfig);
 	}
 }
 
-char* getFileInfo(){
-
-	static char array[4];
-
-	Drawer drawer;
+void updateDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t Tare, float thresh){ //will need to add ID marker and compare if they are the same, if not then change both locations
 
 	drawerConfig = fopen(filename, "r");
+	temp = fopen(temp_filename, "w");
+
+	bool keep_reading = true;
+	uint16_t lineMarker = getLineMarker(row, drawer);
+	uint16_t currentLine = 1;
+	do{
+
+		fgets(buffer, MAX_FILELINE, drawerConfig);
+
+		if(feof(drawerConfig)) keep_reading = false;
+		else if(currentLine == lineMarker){ //ID matching would go here, check if IDs match, if not then save previous line, update line, then search for original location of ID and replace that line
+			snprintf(buffer, sizeof(buffer), "Row:%d;Drawer:%d;CalFactor:%f;Tare:%lu;Thresh:%f", );
+		}
+
+	}while(keep_reading);
+
+
+
+}
+
+uint16_t getData(char* token){
+	for(uint16_t i = 0; i <= 1; i++){
+		char* temp_token = strtok(token, ":");
+		if(i == 1){
+
+			return atoi(temp_token);
+		}
+	}
+}
+
+uint16_t getLineMarker(uint16_t row, uint16_t drawer){
+	drawerConfig = fopen(filename, "r");
+	uint16_t fileIndex = 1;
+	static char array[2];
+
 	if (drawerConfig == NULL){
 		printf("Could not open file\n\r");
 	}
 	else{
-		char fileLine = fgets(buffer, MAX_FILELINE, drawerConfig);
-		char* token = strtok(fileLine, ";");
 
-		for(int i = 0; i <= 3; i++){
-			char* temp_token = strtok(fileLine )
+		while(fgets(buffer, MAX_FILELINE, drawerConfig)){
+
+			char* fileLine = fgets(buffer, MAX_FILELINE, drawerConfig);
+			char* token = strtok(fileLine, ";");
+
+				for(uint16_t i = 0; i <= 1 ; i++){
+					array[i] = getData(token);
+				}
+
+			if(row == array[0] && drawer == array[1]){
+					return fileIndex;
+			}
+			else{
+				fileIndex++;
+
+			}
 		}
+	}
+}
 
+uint16_t* getFileInfo(uint16_t row, uint16_t drawer){
 
+	static uint16_t array[4];
 
+	uint16_t lineMarker = getLineMarker(row, drawer);
+	uint16_t fileIndex = 1;
 
+	drawerConfig = fopen(filename, "r");
+	if (drawerConfig == NULL) {
+	        printf("Could not open file\n\r");
+	        return 0; // Error case
+	}
+	else {
+		while (fgets(buffer, MAX_FILELINE, drawerConfig)) {
+				char* fileLine = fgets(buffer, MAX_FILELINE, drawerConfig);
+
+				if (fileIndex == lineMarker) {
+						char* token = strtok(fileLine, ";");
+						unsigned int index = 0;
+
+						while (token != NULL) {
+								array[index] = getData(token);
+								token = strtok(NULL, ";");
+								index++;
+						}
+						fclose(drawerConfig);
+						return array;
+				}
+				fileIndex++;
+		}
 	}
 
-
-	return array;
+	fclose(drawerConfig);
+	printf("An error occurred during info extraction.");
+	return 0;
 }
+

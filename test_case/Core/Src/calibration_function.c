@@ -86,9 +86,9 @@ void Calibrate(){
 		else{
 			for(int k = 1; k <= 7; k++){
 
-				A_slave = MuxCombos[k].A;
-				B_slave = MuxCombos[k].B;
-				C_slave = MuxCombos[k].C;
+				uint16_t A_slave = MuxCombos[k].A;
+				uint16_t B_slave = MuxCombos[k].B;
+				uint16_t C_slave = MuxCombos[k].C;
 
 				muxSET(A_slave, B_slave, C_slave, 0);
 

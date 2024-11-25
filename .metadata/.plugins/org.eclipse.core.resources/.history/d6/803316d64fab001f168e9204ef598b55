@@ -1,0 +1,116 @@
+/*
+ * file_manager.c
+ *
+ *  Created on: Nov 24, 2024
+ *      Author: andyb
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+#include "gpio.h"
+#include "usart.h"
+
+#include <file_manager.h>
+
+#define FILENAME_SIZE 512
+#define MAX_FILELINE 1024
+
+FILE *drawerConfig, *temp;
+
+const char filename[FILENAME_SIZE];
+const char temp_filename[FILENAME_SIZE];
+
+char buffer[MAX_FILELINE];
+char addon[MAX_FILELINE];
+
+void saveCalFactor(float calFactor, int row, int drawer, uint32_t Tare){
+
+
+	drawerConfig = fopen(filename, "a");
+	if (drawerConfig == NULL){
+		printf("Could not open file\n\r");
+	}
+	else{
+		snprintf(buffer, sizeof(buffer),"Row:%d;Drawer:%d;CalFactor:%f;Tare:%lu", row, drawer, calFactor, Tare);
+		fputs(buffer, drawerConfig);
+	}
+}
+
+uint16_t getData(char* token){
+	for(uint16_t i = 0; i <= 1; i++){
+		char* temp_token = strtok(token, ":");
+		if(i == 1){
+
+			return atoi(temp_token);
+		}
+}
+
+uint16_t getLineMarker(uint16_t row, uint16_t drawer){
+	drawerConfig = fopen(filename, "r");
+	uint16_t fileIndex = 1;
+	static char array[2];
+
+	if (drawerConfig == NULL){
+		printf("Could not open file\n\r");
+	}
+	else{
+
+		while(fgets(buffer, MAX_FILELINE, drawerConfig)){
+
+			char* fileLine = fgets(buffer, MAX_FILELINE, drawerConfig);
+			char* token = strtok(fileLine, ";");
+
+				for(uint16_t i = 0; i <= 1 ; i++){
+					array[i] = getData(token);
+				}
+
+			if(row == array[0] && drawer == array[1]){
+					return fileIndex;
+			}
+			else{
+				fileIndex++;
+
+			}
+		}
+	}
+}
+
+uint16_t* getFileInfo(uint16_t row, uint16_t drawer){
+
+	static uint16_t array[4];
+
+	uint16_t lineMarker = getLineMarker(row, drawer);
+	uint16_t fileIndex = 1;
+
+	drawerConfig = fopen(filename, "r");
+	if (drawerConfig == NULL) {
+	        printf("Could not open file\n\r");
+	        return 0; // Error case
+	}
+	else {
+		while (fgets(buffer, MAX_FILELINE, drawerConfig)) {
+				char* fileLine = fgets(buffer, MAX_FILELINE, drawerConfig);
+
+				if (fileIndex == lineMarker) {
+						char* token = strtok(fileLine, ";");
+						unsigned int index = 0;
+
+						while (token != NULL) {
+								array[index] = getData(token);
+								token = strtok(NULL, ";");
+								index++;
+						}
+						fclose(drawerConfig);
+						return array;
+				}
+				fileIndex++;
+		}
+	}
+
+	fclose(drawerConfig);
+	printf("An error occurred during info extraction.");
+	return 0;
+}
+

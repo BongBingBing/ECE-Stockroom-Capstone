@@ -1,0 +1,2 @@
+../Core/Src/io_manager.c:19:5:_write	1
+../Core/Src/io_manager.c:25:1:__io_getchar	1

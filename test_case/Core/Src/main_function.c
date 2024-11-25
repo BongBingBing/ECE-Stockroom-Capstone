@@ -25,12 +25,11 @@
 void main_function(){
 
 	uint32_t tare = 0;
-	float knownOriginal = 20000;
-	float knownHX711 = 1;
+	float calFactor = 1;
 	int weight = 0;
 	int thresh = 0;
 
-	for(int i = 1; i <= 4; i++){
+	for(uint16_t i = 1; i <= 4; i++){
 			printf("Row %d", i);
 
 			uint16_t A_mast = MuxCombos[i].A;
@@ -40,19 +39,26 @@ void main_function(){
 			muxSET(A_mast, B_mast, C_mast, 1);
 
 			if(i == 1){
-				for(int j = 1; j <= 4; j++){
+				for(uint16_t j = 1; j <= 4; j++){
 
 					uint16_t A_slave = MuxCombos[j].A;
 					uint16_t B_slave = MuxCombos[j].B;
 					uint16_t C_slave = MuxCombos[j].C;
 
+					static uint16_t drawerInfo[4];
+
 					muxSET(A_slave, B_slave, C_slave, 0);
 
 					printf("Drawer %d", j);
 
+					drawerInfo = getFileInfo(i, j);
+
+					tare = drawerInfo[2];
+					calFactor = drawerInfo[3];
+
 					for(int p = 0; p < 4; p++){
 
-						int weight = weigh(tare, knownHX711);
+						int weight = weigh(tare, calFactor);
 						printf("Weight: %d", weight);
 						HAL_Delay(400);
 					}
@@ -73,7 +79,6 @@ void main_function(){
 					printf("Place the calibration weight on the drawer(5 seconds)\n\r");
 					HAL_Delay(5000);
 
-					knownHX711 = weighRawTare(tare);
 					printf("Read weight: %f", knownHX711);
 
 					for(int p = 0; p < 4; p++){

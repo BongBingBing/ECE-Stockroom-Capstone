@@ -8,8 +8,14 @@
 #ifndef INC_FILE_MANAGER_H_
 #define INC_FILE_MANAGER_H_
 
-void saveCalFactor(float calFactor, int row, int drawer, uint32_t tare);
+void saveDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t Tare, float thresh);
 
-char* getFileInfo();
+void updateDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t Tare, float thresh);
+
+uint16_t getData(char* token);
+
+uint16_t getLineMarker(uint16_t row, uint16_t drawer);
+
+uint16_t* getFileInfo(uint16_t row, uint16_t drawer);
 
 #endif /* INC_FILE_MANAGER_H_ */
