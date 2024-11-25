@@ -5775,3 +5775,1702 @@ make: *** Waiting for unfinished jobs....
       |             ^~~~~~
 make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
 "make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:20:56 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/main_function.c:78:48: warning: implicit declaration of function 'getTare' [-Wimplicit-function-declaration]
+   78 |                                         tare = getTare();
+      |                                                ^~~~~~~
+../Core/Src/main_function.c:82:67: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                         printf("Read weight: %f", knownHX711);
+      |                                                                   ^~~~~~~~~~
+../Core/Src/main_function.c:82:67: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/main_function.c:30:13: warning: unused variable 'thresh' [-Wunused-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:85:33: warning: implicit declaration of function 'saveCalFactor'; did you mean 'getCalFactor'? [-Wimplicit-function-declaration]
+   85 |                                 saveCalFactor(getCalFactor(knownHX711), i, j, tare);
+      |                                 ^~~~~~~~~~~~~
+      |                                 getCalFactor
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:21:52 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint16_t *' {aka 'short unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint16_t *' {aka 'short unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/main_function.c:78:48: warning: implicit declaration of function 'getTare' [-Wimplicit-function-declaration]
+   78 |                                         tare = getTare();
+      |                                                ^~~~~~~
+../Core/Src/main_function.c:82:67: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                         printf("Read weight: %f", knownHX711);
+      |                                                                   ^~~~~~~~~~
+../Core/Src/main_function.c:82:67: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: unused variable 'thresh' [-Wunused-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:22:24 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint16_t *' {aka 'short unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint16_t *' {aka 'short unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/main_function.c:78:48: warning: implicit declaration of function 'getTare' [-Wimplicit-function-declaration]
+   78 |                                         tare = getTare();
+      |                                                ^~~~~~~
+../Core/Src/main_function.c:82:67: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                         printf("Read weight: %f", knownHX711);
+      |                                                                   ^~~~~~~~~~
+../Core/Src/main_function.c:82:67: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: unused variable 'thresh' [-Wunused-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:29:19 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/file_manager.c: At top level:
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/file_manager.c:73:10: error: conflicting types for 'getData'; have 'uint32_t(char *)' {aka 'long unsigned int(char *)'}
+   73 | uint32_t getData(char* token){
+      |          ^~~~~~~
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint16_t *' {aka 'short unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+In file included from ../Core/Src/file_manager.c:15:
+../Core/Inc/file_manager.h:15:10: note: previous declaration of 'getData' with type 'uint16_t(char *)' {aka 'short unsigned int(char *)'}
+   15 | uint16_t getData(char* token);
+      |          ^~~~~~~
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint16_t *' {aka 'short unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/main_function.c:78:48: warning: implicit declaration of function 'getTare' [-Wimplicit-function-declaration]
+   78 |                                         tare = getTare();
+      |                                                ^~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/calibration_function.c:86:33: warning: implicit declaration of function 'saveCalFactor'; did you mean 'getCalFactor'? [-Wimplicit-function-declaration]
+   86 |                                 saveCalFactor(i, j, calFactor, tare, thresh);
+      |                                 ^~~~~~~~~~~~~
+      |                                 getCalFactor
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+../Core/Src/main_function.c:82:67: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                         printf("Read weight: %f", knownHX711);
+      |                                                                   ^~~~~~~~~~
+../Core/Src/main_function.c:82:67: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: unused variable 'thresh' [-Wunused-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:29:28 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+../Core/Src/main_function.c: In function 'main_function':
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/calibration_function.c:86:33: warning: implicit declaration of function 'saveCalFactor'; did you mean 'getCalFactor'? [-Wimplicit-function-declaration]
+   86 |                                 saveCalFactor(i, j, calFactor, tare, thresh);
+      |                                 ^~~~~~~~~~~~~
+      |                                 getCalFactor
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint16_t *' {aka 'short unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint16_t *' {aka 'short unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/main_function.c:78:48: warning: implicit declaration of function 'getTare' [-Wimplicit-function-declaration]
+   78 |                                         tare = getTare();
+      |                                                ^~~~~~~
+../Core/Src/main_function.c:82:67: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                         printf("Read weight: %f", knownHX711);
+      |                                                                   ^~~~~~~~~~
+../Core/Src/main_function.c:82:67: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: unused variable 'thresh' [-Wunused-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:32:29 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint32_t *' {aka 'long unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/main_function.c:78:48: warning: implicit declaration of function 'getTare' [-Wimplicit-function-declaration]
+   78 |                                         tare = getTare();
+      |                                                ^~~~~~~
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+../Core/Src/main_function.c:82:67: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                         printf("Read weight: %f", knownHX711);
+      |                                                                   ^~~~~~~~~~
+../Core/Src/main_function.c:82:67: note: each undeclared identifier is reported only once for each function it appears in
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/main_function.c:30:13: warning: unused variable 'thresh' [-Wunused-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:139:56: warning: returning 'uint16_t *' {aka 'short unsigned int *'} from a function with incompatible return type 'uint32_t *' {aka 'long unsigned int *'} [-Wincompatible-pointer-types]
+  139 |                                                 return array;
+      |                                                        ^~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/calibration_function.c:86:33: warning: implicit declaration of function 'saveCalFactor'; did you mean 'getCalFactor'? [-Wimplicit-function-declaration]
+   86 |                                 saveCalFactor(i, j, calFactor, tare, thresh);
+      |                                 ^~~~~~~~~~~~~
+      |                                 getCalFactor
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:34:00 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+../Core/Src/main_function.c: In function 'main_function':
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint32_t *' {aka 'long unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/main_function.c:78:48: warning: implicit declaration of function 'getTare' [-Wimplicit-function-declaration]
+   78 |                                         tare = getTare();
+      |                                                ^~~~~~~
+../Core/Src/main_function.c:82:67: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                         printf("Read weight: %f", knownHX711);
+      |                                                                   ^~~~~~~~~~
+../Core/Src/main_function.c:82:67: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: unused variable 'thresh' [-Wunused-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:36:12 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint32_t *' {aka 'long unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/main_function.c:58:48: warning: assignment to 'int' from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   58 |                                         thresh = drawerInfo[4];
+      |                                                ^
+../Core/Src/main_function.c:82:74: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                                 int weight = weigh(tare, knownHX711);
+      |                                                                          ^~~~~~~~~~
+../Core/Src/main_function.c:82:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:50:35 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+../Core/Src/main_function.c: In function 'main_function':
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/file_manager.c: At top level:
+../Core/Src/file_manager.c:113:19: error: conflicting types for 'getFileInfo'; have 'struct drawerInfo(uint16_t,  uint16_t)' {aka 'struct drawerInfo(short unsigned int,  short unsigned int)'}
+  113 | struct drawerInfo getFileInfo(uint16_t row, uint16_t drawer){ //add ID parameter here later
+      |                   ^~~~~~~~~~~
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+In file included from ../Core/Src/file_manager.c:15:
+../Core/Inc/file_manager.h:28:11: note: previous declaration of 'getFileInfo' with type 'uint32_t *(uint16_t,  uint16_t)' {aka 'long unsigned int *(short unsigned int,  short unsigned int)'}
+   28 | uint32_t* getFileInfo(uint16_t row, uint16_t drawer);
+      |           ^~~~~~~~~~~
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint32_t *' {aka 'long unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:115:27: error: 'drawer' redeclared as different kind of symbol
+  115 |         struct drawerInfo drawer;
+      |                           ^~~~~~
+../Core/Src/main_function.c:58:48: warning: assignment to 'int' from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   58 |                                         thresh = drawerInfo[4];
+      |                                                ^
+../Core/Src/file_manager.c:113:54: note: previous definition of 'drawer' with type 'uint16_t' {aka 'short unsigned int'}
+  113 | struct drawerInfo getFileInfo(uint16_t row, uint16_t drawer){ //add ID parameter here later
+      |                                             ~~~~~~~~~^~~~~~
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  124 |                 return 1; // Error case
+      |                        ^
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c:115:27: warning: unused variable 'drawer' [-Wunused-variable]
+  115 |         struct drawerInfo drawer;
+      |                           ^~~~~~
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+../Core/Src/main_function.c:82:74: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                                 int weight = weigh(tare, knownHX711);
+      |                                                                          ^~~~~~~~~~
+../Core/Src/main_function.c:82:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/calibration_function.c:86:33: warning: implicit declaration of function 'saveCalFactor'; did you mean 'getCalFactor'? [-Wimplicit-function-declaration]
+   86 |                                 saveCalFactor(i, j, calFactor, tare, thresh);
+      |                                 ^~~~~~~~~~~~~
+      |                                 getCalFactor
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:50:59 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:115:27: error: 'drawer' redeclared as different kind of symbol
+  115 |         struct drawerInfo drawer;
+      |                           ^~~~~~
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/file_manager.c:113:54: note: previous definition of 'drawer' with type 'uint16_t' {aka 'short unsigned int'}
+  113 | struct drawerInfo getFileInfo(uint16_t row, uint16_t drawer){ //add ID parameter here later
+      |                                             ~~~~~~~~~^~~~~~
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  124 |                 return 1; // Error case
+      |                        ^
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint32_t *' {aka 'long unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/file_manager.c:115:27: warning: unused variable 'drawer' [-Wunused-variable]
+  115 |         struct drawerInfo drawer;
+      |                           ^~~~~~
+../Core/Src/main_function.c:58:48: warning: assignment to 'int' from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   58 |                                         thresh = drawerInfo[4];
+      |                                                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+../Core/Src/main_function.c:82:74: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                                 int weight = weigh(tare, knownHX711);
+      |                                                                          ^~~~~~~~~~
+../Core/Src/main_function.c:82:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/calibration_function.c:86:33: warning: implicit declaration of function 'saveCalFactor'; did you mean 'getCalFactor'? [-Wimplicit-function-declaration]
+   86 |                                 saveCalFactor(i, j, calFactor, tare, thresh);
+      |                                 ^~~~~~~~~~~~~
+      |                                 getCalFactor
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:51:29 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+../Core/Src/main_function.c: In function 'main_function':
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/file_manager.c:115:27: error: 'drawer' redeclared as different kind of symbol
+  115 |         struct drawerInfo drawer;
+      |                           ^~~~~~
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint32_t *' {aka 'long unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/file_manager.c:113:54: note: previous definition of 'drawer' with type 'uint16_t' {aka 'short unsigned int'}
+  113 | struct drawerInfo getFileInfo(uint16_t row, uint16_t drawer){ //add ID parameter here later
+      |                                             ~~~~~~~~~^~~~~~
+../Core/Src/main_function.c:58:48: warning: assignment to 'int' from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   58 |                                         thresh = drawerInfo[4];
+      |                                                ^
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  124 |                 return 0; // Error case
+      |                        ^
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c:115:27: warning: unused variable 'drawer' [-Wunused-variable]
+  115 |         struct drawerInfo drawer;
+      |                           ^~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+../Core/Src/main_function.c:82:74: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                                 int weight = weigh(tare, knownHX711);
+      |                                                                          ^~~~~~~~~~
+../Core/Src/main_function.c:82:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:51:35 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+../Core/Src/main_function.c: In function 'main_function':
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint32_t *' {aka 'long unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/main_function.c:58:48: warning: assignment to 'int' from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   58 |                                         thresh = drawerInfo[4];
+      |                                                ^
+../Core/Src/file_manager.c:115:27: error: 'drawer' redeclared as different kind of symbol
+  115 |         struct drawerInfo drawer;
+      |                           ^~~~~~
+../Core/Src/file_manager.c:113:54: note: previous definition of 'drawer' with type 'uint16_t' {aka 'short unsigned int'}
+  113 | struct drawerInfo getFileInfo(uint16_t row, uint16_t drawer){ //add ID parameter here later
+      |                                             ~~~~~~~~~^~~~~~
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'void *' but 'struct drawerInfo' was expected
+  124 |                 return NULL; // Error case
+      |                        ^~~~
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c:115:27: warning: unused variable 'drawer' [-Wunused-variable]
+  115 |         struct drawerInfo drawer;
+      |                           ^~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+../Core/Src/main_function.c:82:74: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                                 int weight = weigh(tare, knownHX711);
+      |                                                                          ^~~~~~~~~~
+../Core/Src/main_function.c:82:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:52:56 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'void *' but 'struct drawerInfo' was expected
+  124 |                 return NULL; // Error case
+      |                        ^~~~
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:54:52: error: assignment to expression with array type
+   54 |                                         drawerInfo = getFileInfo(i, j);
+      |                                                    ^
+../Core/Src/main_function.c:56:46: warning: assignment to 'uint32_t' {aka 'long unsigned int'} from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |                                         tare = drawerInfo[2];
+      |                                              ^
+../Core/Src/main_function.c:57:53: error: incompatible types when assigning to type 'float' from type 'uint32_t *' {aka 'long unsigned int *'}
+   57 |                                         calFactor = drawerInfo[3];
+      |                                                     ^~~~~~~~~~
+../Core/Src/main_function.c:58:48: warning: assignment to 'int' from 'uint32_t *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   58 |                                         thresh = drawerInfo[4];
+      |                                                ^
+../Core/Src/main_function.c:82:74: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                                 int weight = weigh(tare, knownHX711);
+      |                                                                          ^~~~~~~~~~
+../Core/Src/main_function.c:82:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:30:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   30 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
+   29 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:56:36 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+../Core/Src/main_function.c: In function 'main_function':
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+../Core/Src/main_function.c:58:58: error: request for member 'Tare' in something not a structure or union
+   58 |                                         tare = drawerInfo.Tare;
+      |                                                          ^
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/main_function.c:59:63: error: request for member 'calFactor' in something not a structure or union
+   59 |                                         calFactor = drawerInfo.calFactor;
+      |                                                               ^
+../Core/Src/main_function.c:60:60: error: request for member 'thresh' in something not a structure or union
+   60 |                                         thresh = drawerInfo.thresh;
+      |                                                            ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'void *' but 'struct drawerInfo' was expected
+  124 |                 return NULL; // Error case
+      |                        ^~~~
+../Core/Src/main_function.c:50:51: warning: variable 'drawerInfo' set but not used [-Wunused-but-set-variable]
+   50 |                                         uint32_t* drawerInfo[4];
+      |                                                   ^~~~~~~~~~
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+../Core/Src/main_function.c:84:74: error: 'knownHX711' undeclared (first use in this function)
+   84 |                                                 int weight = weigh(tare, knownHX711);
+      |                                                                          ^~~~~~~~~~
+../Core/Src/main_function.c:84:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:32:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   32 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:31:13: warning: unused variable 'weight' [-Wunused-variable]
+   31 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:28:27: warning: variable 'drawerInst' set but not used [-Wunused-but-set-variable]
+   28 |         struct drawerInfo drawerInst;
+      |                           ^~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:56:46 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'void *' but 'struct drawerInfo' was expected
+  124 |                 return NULL; // Error case
+      |                        ^~~~
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:56:48: error: 'drawerInfo' undeclared (first use in this function)
+   56 |                                         tare = drawerInfo.Tare;
+      |                                                ^~~~~~~~~~
+../Core/Src/main_function.c:56:48: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main_function.c:82:74: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                                 int weight = weigh(tare, knownHX711);
+      |                                                                          ^~~~~~~~~~
+../Core/Src/main_function.c:32:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   32 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:31:13: warning: unused variable 'weight' [-Wunused-variable]
+   31 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:28:27: warning: variable 'drawerInst' set but not used [-Wunused-but-set-variable]
+   28 |         struct drawerInfo drawerInst;
+      |                           ^~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:57:06 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'void *' but 'struct drawerInfo' was expected
+  124 |                 return NULL; // Error case
+      |                        ^~~~
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:82:74: error: 'knownHX711' undeclared (first use in this function)
+   82 |                                                 int weight = weigh(tare, knownHX711);
+      |                                                                          ^~~~~~~~~~
+../Core/Src/main_function.c:82:74: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main_function.c:32:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   32 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:31:13: warning: unused variable 'weight' [-Wunused-variable]
+   31 |         int weight = 0;
+      |             ^~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:58:03 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'void *' but 'struct drawerInfo' was expected
+  124 |                 return NULL; // Error case
+      |                        ^~~~
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:32:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   32 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/main_function.c:31:13: warning: unused variable 'weight' [-Wunused-variable]
+   31 |         int weight = 0;
+      |             ^~~~~~
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:58:41 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:31:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   31 |         int thresh;
+      |             ^~~~~~
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'void *' but 'struct drawerInfo' was expected
+  124 |                 return NULL; // Error case
+      |                        ^~~~
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:59:23 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:31:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   31 |         int thresh;
+      |             ^~~~~~
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'void *' but 'struct drawerInfo' was expected
+  124 |                 return NULL; // Error case
+      |                        ^~~~
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+17:40:05 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:124:24: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  124 |                 return 0; // Error case
+      |                        ^
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+17:55:50 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:124:24: error: expected expression before '{' token
+  124 |                 return {0}; // Error case
+      |                        ^
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:40:15: error: 'pressFlag' undeclared (first use in this function)
+   40 |         while(pressFlag){
+      |               ^~~~~~~~~
+../Core/Src/refill_function.c:40:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+17:56:51 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:155:16: error: incompatible types when returning type 'int' but 'struct drawerInfo' was expected
+  155 |         return 0;
+      |                ^
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:40:15: error: 'pressFlag' undeclared (first use in this function)
+   40 |         while(pressFlag){
+      |               ^~~~~~~~~
+../Core/Src/refill_function.c:40:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+17:57:13 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getFileInfo':
+../Core/Src/file_manager.c:155:16: warning: 'drawerInst' may be used uninitialized [-Wmaybe-uninitialized]
+  155 |         return drawerInst;
+      |                ^~~~~~~~~~
+../Core/Src/file_manager.c:115:27: note: 'drawerInst' declared here
+  115 |         struct drawerInfo drawerInst;
+      |                           ^~~~~~~~~~
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:40:15: error: 'pressFlag' undeclared (first use in this function)
+   40 |         while(pressFlag){
+      |               ^~~~~~~~~
+../Core/Src/refill_function.c:40:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+17:57:32 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:40:15: error: 'pressFlag' undeclared (first use in this function)
+   40 |         while(pressFlag){
+      |               ^~~~~~~~~
+../Core/Src/refill_function.c:40:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+17:58:21 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:67:16: warning: passing argument 1 of 'remove' from incompatible pointer type [-Wincompatible-pointer-types]
+   67 |         remove(drawerConfig);
+      |                ^~~~~~~~~~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:252:17: note: expected 'const char *' but argument is of type 'FILE *'
+  252 | int     remove (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                ^~~~
+      |                |
+      |                FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c:68:22: warning: passing argument 2 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, drawerConfig);
+      |                      ^~~~~~~~~~~~
+      |                      |
+      |                      FILE *
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:31: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                               ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:40:15: error: 'pressFlag' undeclared (first use in this function)
+   40 |         while(pressFlag){
+      |               ^~~~~~~~~
+../Core/Src/refill_function.c:40:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+18:00:19 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'updateDrawerConfig':
+../Core/Src/file_manager.c:68:16: warning: passing argument 1 of 'rename' from incompatible pointer type [-Wincompatible-pointer-types]
+   68 |         rename(temp, filename);
+      |                ^~~~
+      |                |
+      |                FILE *
+In file included from ../Core/Src/file_manager.c:8:
+C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:253:17: note: expected 'const char *' but argument is of type 'FILE *'
+  253 | int     rename (const char *, const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:40:15: error: 'pressFlag' undeclared (first use in this function)
+   40 |         while(pressFlag){
+      |               ^~~~~~~~~
+../Core/Src/refill_function.c:40:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+18:00:39 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/file_manager.c: In function 'getData':
+../Core/Src/file_manager.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+   81 | }
+      | ^
+../Core/Src/file_manager.c: In function 'getLineMarker':
+../Core/Src/file_manager.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:40:15: error: 'pressFlag' undeclared (first use in this function)
+   40 |         while(pressFlag){
+      |               ^~~~~~~~~
+../Core/Src/refill_function.c:40:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+18:05:11 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:40:15: error: 'pressFlag' undeclared (first use in this function)
+   40 |         while(pressFlag){
+      |               ^~~~~~~~~
+../Core/Src/refill_function.c:40:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.

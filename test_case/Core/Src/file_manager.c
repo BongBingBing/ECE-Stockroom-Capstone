@@ -19,8 +19,8 @@
 
 FILE *drawerConfig, *temp;
 
-const char filename[FILENAME_SIZE];
-const char temp_filename[FILENAME_SIZE];
+const char filename[FILENAME_SIZE] = "drawerConfig.txt";
+const char temp_filename[FILENAME_SIZE] = "temp.txt";
 
 char buffer[MAX_FILELINE];
 char previousLine[MAX_FILELINE];
@@ -52,23 +52,33 @@ void updateDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t
 
 		if(feof(drawerConfig)) keep_reading = false;
 		else if(currentLine == lineMarker){ //ID matching would go here, check if IDs match, if not then save previous line, update line, then search for original location of ID and replace that line
-			snprintf(buffer, sizeof(buffer), "Row:%d;Drawer:%d;CalFactor:%f;Tare:%lu;Thresh:%f", );
+			snprintf(buffer, sizeof(buffer), "Row:%d;Drawer:%d;CalFactor:%f;Tare:%lu;Thresh:%f", row, drawer, calFactor, Tare, thresh);
+			fputs(buffer, temp);
 		}
+		else fputs(buffer, temp);
+
+		currentLine++;
 
 	}while(keep_reading);
 
+	fclose(drawerConfig);
+	fclose(temp);
+
+	remove(filename);
+	rename(temp_filename, filename);
 
 
 }
 
-uint16_t getData(char* token){
+uint32_t getData(char* token){
 	for(uint16_t i = 0; i <= 1; i++){
 		char* temp_token = strtok(token, ":");
 		if(i == 1){
 
-			return atoi(temp_token);
+			return strtol(temp_token, NULL, 10);
 		}
 	}
+	return 0;
 }
 
 uint16_t getLineMarker(uint16_t row, uint16_t drawer){
@@ -99,11 +109,13 @@ uint16_t getLineMarker(uint16_t row, uint16_t drawer){
 			}
 		}
 	}
+	return 0;
 }
 
-uint16_t* getFileInfo(uint16_t row, uint16_t drawer){
+struct drawerInfo getFileInfo(uint16_t row, uint16_t drawer){ //add ID parameter here later
 
-	static uint16_t array[4];
+	struct drawerInfo drawerInst = { 0 };
+	static unsigned int array[5];
 
 	uint16_t lineMarker = getLineMarker(row, drawer);
 	uint16_t fileIndex = 1;
@@ -111,14 +123,14 @@ uint16_t* getFileInfo(uint16_t row, uint16_t drawer){
 	drawerConfig = fopen(filename, "r");
 	if (drawerConfig == NULL) {
 	        printf("Could not open file\n\r");
-	        return 0; // Error case
+	        return drawerInst; // Error case
 	}
 	else {
 		while (fgets(buffer, MAX_FILELINE, drawerConfig)) {
-				char* fileLine = fgets(buffer, MAX_FILELINE, drawerConfig);
+				fgets(buffer, MAX_FILELINE, drawerConfig);
 
 				if (fileIndex == lineMarker) {
-						char* token = strtok(fileLine, ";");
+						char* token = strtok(buffer, ";");
 						unsigned int index = 0;
 
 						while (token != NULL) {
@@ -127,7 +139,14 @@ uint16_t* getFileInfo(uint16_t row, uint16_t drawer){
 								index++;
 						}
 						fclose(drawerConfig);
-						return array;
+
+						drawerInst.row = array[0];
+						drawerInst.drawer = array[1];
+						drawerInst.calFactor = array[2];
+						drawerInst.Tare = array[3];
+						drawerInst.thresh = array[4];
+
+						return drawerInst;
 				}
 				fileIndex++;
 		}
@@ -135,6 +154,6 @@ uint16_t* getFileInfo(uint16_t row, uint16_t drawer){
 
 	fclose(drawerConfig);
 	printf("An error occurred during info extraction.");
-	return 0;
+	return drawerInst;
 }
 

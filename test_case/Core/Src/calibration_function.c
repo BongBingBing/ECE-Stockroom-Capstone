@@ -66,8 +66,9 @@ void Calibrate(){
 
 				printf("Drawer %d", j);
 				tare = getTare();
-				printf("Place the calibration weight on the drawer(5 seconds)\n\r");
-				HAL_Delay(5000);
+				printf("Place the calibration weight on the drawer\n\rPress the button once when ready to calibrate\n\r");
+
+				//single press confirmation here
 
 				knownHX711 = weighRawTare(tare);
 				printf("Read weight: %f", knownHX711);
@@ -80,7 +81,9 @@ void Calibrate(){
 					HAL_Delay(400);
 				}
 
-				saveCalFactor(getCalFactor(knownHX711), i, j, tare);
+				float thresh = refillDrawer(tare, calFactor);
+
+				saveCalFactor(i, j, calFactor, tare, thresh);
 			}
 		}
 		else{

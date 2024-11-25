@@ -1,56 +1,15 @@
-13:02:45 **** Incremental Build of configuration Debug for project test_case ****
+18:05:11 **** Incremental Build of configuration Debug for project test_case ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
 arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
-arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
 arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
-../Core/Src/file_manager.c: In function 'updateDrawerConfig':
-../Core/Src/file_manager.c:55:110: error: expected expression before ')' token
-   55 |                         snprintf(buffer, sizeof(buffer), "Row:%d;Drawer:%d;CalFactor:%f;Tare:%lu;Thresh:%f", );
-      |                                                                                                              ^
-../Core/Src/file_manager.c: In function 'getData':
-../Core/Src/file_manager.c:72:1: warning: control reaches end of non-void function [-Wreturn-type]
-   72 | }
-      | ^
-../Core/Src/file_manager.c: In function 'getLineMarker':
-../Core/Src/file_manager.c:102:1: warning: control reaches end of non-void function [-Wreturn-type]
-  102 | }
-      | ^
-../Core/Src/calibration_function.c: In function 'Calibrate':
-../Core/Src/calibration_function.c:83:33: warning: implicit declaration of function 'saveCalFactor'; did you mean 'getCalFactor'? [-Wimplicit-function-declaration]
-   83 |                                 saveCalFactor(getCalFactor(knownHX711), i, j, tare);
-      |                                 ^~~~~~~~~~~~~
-      |                                 getCalFactor
-../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
-   47 |         int thresh = 0;
-      |             ^~~~~~
-../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
-   46 |         int weight = 0;
-      |             ^~~~~~
-../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
-   44 |         float knownOriginal = 20000;  // in milli-gram
-      |               ^~~~~~~~~~~~~
-make: *** [Core/Src/subdir.mk:64: Core/Src/file_manager.o] Error 1
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:40:15: error: 'pressFlag' undeclared (first use in this function)
+   40 |         while(pressFlag){
+      |               ^~~~~~~~~
+../Core/Src/refill_function.c:40:15: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
 make: *** Waiting for unfinished jobs....
-../Core/Src/main_function.c: In function 'main_function':
-../Core/Src/main_function.c:54:52: error: assignment to expression with array type
-   54 |                                         drawerInfo = getFileInfo(i, j);
-      |                                                    ^
-../Core/Src/main_function.c:78:48: warning: implicit declaration of function 'getTare' [-Wimplicit-function-declaration]
-   78 |                                         tare = getTare();
-      |                                                ^~~~~~~
-../Core/Src/main_function.c:82:67: error: 'knownHX711' undeclared (first use in this function)
-   82 |                                         printf("Read weight: %f", knownHX711);
-      |                                                                   ^~~~~~~~~~
-../Core/Src/main_function.c:82:67: note: each undeclared identifier is reported only once for each function it appears in
-../Core/Src/main_function.c:30:13: warning: unused variable 'thresh' [-Wunused-variable]
-   30 |         int thresh = 0;
-      |             ^~~~~~
-../Core/Src/main_function.c:29:13: warning: unused variable 'weight' [-Wunused-variable]
-   29 |         int weight = 0;
-      |             ^~~~~~
-make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
 "make -j16 all" terminated with exit code 2. Build might be incomplete.
 
-13:02:46 Build Failed. 6 errors, 9 warnings. (took 568ms)
+18:05:11 Build Failed. 3 errors, 0 warnings. (took 565ms)
 
