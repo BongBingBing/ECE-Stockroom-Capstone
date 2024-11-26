@@ -1,2 +1,2 @@
-../Core/Src/calibration_function.c:25:10:getTare	16	static
-../Core/Src/calibration_function.c:40:6:Calibrate	96	static
+../Core/Src/calibration_function.c:27:10:getTare	16	static
+../Core/Src/calibration_function.c:42:6:Calibrate	80	static

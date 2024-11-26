@@ -18,15 +18,7 @@ struct MuxCombo {
   unsigned char A;
 };
 
-const struct MuxCombo MuxCombos[] = {
-  {0, 0, 0},
-  {0, 0, 1},
-  {0, 1, 0},
-  {0, 1, 1},
-  {1, 0, 0},
-  {1, 0, 1},
-  {1, 1, 0}
-};
+extern const struct MuxCombo MuxCombos[];
 
 void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control);
 

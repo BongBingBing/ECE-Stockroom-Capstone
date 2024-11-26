@@ -16,8 +16,17 @@
 #include <io_manager.h>
 #include <file_manager.h>
 
+#define GROUP GPIOA
+#define PIN GPIO_PIN_10
 
-float getThresh(uint32_t tare, float calFactor){
+
+GPIO_PinState last_state = GPIO_PIN_RESET;
+
+uint32_t DP_Threshold = 2000; // 2 second threshold
+uint32_t press_time = 0;  // Timestamp of the first press
+uint8_t press_count = 0;  // A Flag that's used for indicating a second press
+
+int getThresh(uint32_t tare, float calFactor){
 	uint32_t sum = 0;
 	float avg = 0;
 
@@ -32,17 +41,17 @@ float getThresh(uint32_t tare, float calFactor){
 
 }
 
-float refillDrawer(uint32_t tare, float calFactor){
+
+
+int refillDrawer(uint32_t tare, float calFactor){
 	printf("Please refill the current drawer\n\rPress the button twice when ready\n\r");
 
 	//function to wait for a double press then a confirmation press
+	doublePress(GROUP, PIN);
 
-	while(pressFlag){
-		//detect double press and then set looping flag to false
-
-	}
-
-	return getThresh(tare, calFactor);
+	int thresh = getThresh(tare, calFactor);
+	printf("Threshold set to %d", thresh);
+	return thresh;
 
 
 }

@@ -16,6 +16,8 @@
 #include <io_manager.h>
 #include <file_manager.h>
 
+#include <refill_function.h>
+
 
 #define DT_PIN GPIO_PIN_8
 #define DT_PORT GPIOA
@@ -30,6 +32,9 @@ void main_function(){
 	float calFactor = 1;
 	int thresh;
 
+	uint32_t sum;
+	uint16_t normalizedWeight;
+
 	for(uint16_t i = 1; i <= 4; i++){
 			printf("Row %d", i);
 
@@ -41,6 +46,9 @@ void main_function(){
 
 			if(i == 1){
 				for(uint16_t j = 1; j <= 4; j++){
+
+					sum = 0;
+					normalizedWeight = 0;
 
 					uint16_t A_slave = MuxCombos[j].A;
 					uint16_t B_slave = MuxCombos[j].B;
@@ -59,8 +67,18 @@ void main_function(){
 					for(int p = 0; p < 4; p++){
 
 						int weight = weigh(tare, calFactor);
-						printf("Weight: %d", weight);
+						sum += weight;
 						HAL_Delay(400);
+					}
+
+					normalizedWeight = sum / 4;
+
+					if((thresh + 100) > normalizedWeight){
+						printf("This drawer is low on components\n\rPlease refill the drawer");
+						printf("Press the selector button ONCE to continue\n\r");
+
+						thresh = refillDrawer(tare, calFactor);
+						updateDrawerConfig(i, j, calFactor, tare, thresh);
 					}
 
 
@@ -70,37 +88,39 @@ void main_function(){
 			else{
 				for(int k = 1; k <= 7; k++){
 
+					sum = 0;
+					normalizedWeight = 0;
+
 					uint16_t A_slave = MuxCombos[k].A;
 					uint16_t B_slave = MuxCombos[k].B;
 					uint16_t C_slave = MuxCombos[k].C;
 
 					muxSET(A_slave, B_slave, C_slave, 0);
 
-					if(i == 1){
-						for(uint16_t j = 1; j <= 4; j++){
+					printf("Drawer %d", k);
 
-							uint16_t A_slave = MuxCombos[j].A;
-							uint16_t B_slave = MuxCombos[j].B;
-							uint16_t C_slave = MuxCombos[j].C;
+					drawerInst = getFileInfo(i, k);
 
-							muxSET(A_slave, B_slave, C_slave, 0);
+					tare = drawerInst.Tare;
+					calFactor = drawerInst.calFactor;
+					thresh = drawerInst.thresh;
 
-							printf("Drawer %d", j);
+					for(int p = 0; p < 4; p++){
 
-							drawerInst = getFileInfo(i, j);
+						int weight = weigh(tare, calFactor);
+						sum += weight;
+						HAL_Delay(400);
+					}
 
-							tare = drawerInst.Tare;
-							calFactor = drawerInst.calFactor;
-							thresh = drawerInst.thresh;
+					normalizedWeight = sum / 4;
 
-							for(int p = 0; p < 4; p++){
+					if((thresh + 100) > normalizedWeight){
+						printf("This drawer is low on components\n\rPlease refill the drawer");
+						printf("Press the selector button ONCE to continue\n\r");
 
-								int weight = weigh(tare, calFactor);
-								printf("Weight: %d", weight);
-								HAL_Delay(400);
-							}
-
-						}}
+						thresh = refillDrawer(tare, calFactor);
+						updateDrawerConfig(i, k, calFactor, tare, thresh);
+					}
 
 
 

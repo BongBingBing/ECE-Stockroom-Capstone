@@ -16,6 +16,8 @@
 #include <io_manager.h>
 #include <file_manager.h>
 
+#include <refill_function.h>
+
 #define DT_PIN GPIO_PIN_8
 #define DT_PORT GPIOA
 #define SCK_PIN GPIO_PIN_5
@@ -41,9 +43,7 @@ void Calibrate(){
 	printf("Beginning with Row: 1 Drawer: 1\n\r");
 
 	uint32_t tare = 0;
-	float knownOriginal = 20000;  // in milli-gram
 	float knownHX711 = 1;
-	int weight = 0;
 	int thresh = 0;
 
 	for(int i = 1; i <= 4; i++){
@@ -81,9 +81,9 @@ void Calibrate(){
 					HAL_Delay(400);
 				}
 
-				float thresh = refillDrawer(tare, calFactor);
+				thresh = refillDrawer(tare, calFactor);
 
-				saveCalFactor(i, j, calFactor, tare, thresh);
+				saveDrawerConfig(i, j, calFactor, tare, thresh);
 			}
 		}
 		else{
@@ -97,24 +97,27 @@ void Calibrate(){
 
 				printf("Drawer %d", k);
 				tare = getTare();
-				printf("Place the calibration weight on the drawer(5 seconds)\n\r");
-				HAL_Delay(5000);
+				printf("Place the calibration weight on the drawer\n\rPress the button once when ready to calibrate\n\r");
+
+				//single press confirmation here
 
 				knownHX711 = weighRawTare(tare);
 				printf("Read weight: %f", knownHX711);
 
+				float calFactor = getCalFactor(knownHX711);
+
 				for(int p = 0; p < 4; p++){
-					int weight = weigh(tare, knownHX711);
+					int weight = weigh(tare, calFactor);
 					printf("Weight: %d", weight);
 					HAL_Delay(400);
 				}
 
-				saveCalFactor(getCalFactor(knownHX711), i, k, tare);
+				int thresh = refillDrawer(tare, calFactor);
 
+				saveDrawerConfig(i, k, calFactor, tare, thresh);
 
 			}
 		}
-
 	}
 }
 

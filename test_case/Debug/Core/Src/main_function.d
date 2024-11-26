@@ -29,7 +29,7 @@ Core/Src/main_function.o: ../Core/Src/main_function.c ../Core/Inc/usart.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/tim.h ../Core/Inc/weight_manager.h ../Core/Inc/gpio.h \
  ../Core/Inc/mux_manager.h ../Core/Inc/io_manager.h \
- ../Core/Inc/file_manager.h
+ ../Core/Inc/file_manager.h ../Core/Inc/refill_function.h
 ../Core/Inc/usart.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -66,3 +66,4 @@ Core/Src/main_function.o: ../Core/Src/main_function.c ../Core/Inc/usart.h \
 ../Core/Inc/mux_manager.h:
 ../Core/Inc/io_manager.h:
 ../Core/Inc/file_manager.h:
+../Core/Inc/refill_function.h:

@@ -36,6 +36,9 @@ void saveDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t T
 		snprintf(buffer, sizeof(buffer),"Row:%d;Drawer:%d;CalFactor:%f;Tare:%lu;Thresh:%f", row, drawer, calFactor, Tare, thresh);
 		fputs(buffer, drawerConfig);
 	}
+
+	fclose(drawerConfig);
+
 }
 
 void updateDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t Tare, float thresh){ //will need to add ID marker and compare if they are the same, if not then change both locations
@@ -109,6 +112,7 @@ uint16_t getLineMarker(uint16_t row, uint16_t drawer){
 			}
 		}
 	}
+	fclose(drawerConfig);
 	return 0;
 }
 

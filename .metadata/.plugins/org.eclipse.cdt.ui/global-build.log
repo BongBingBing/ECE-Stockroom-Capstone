@@ -7474,3 +7474,412 @@ arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3
 make: *** [Core/Src/subdir.mk:64: Core/Src/refill_function.o] Error 1
 make: *** Waiting for unfinished jobs....
 "make -j16 all" terminated with exit code 2. Build might be incomplete.
+18:20:53 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/calibration_function.o: in function `Calibrate':
+C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Src/calibration_function.c:86: undefined reference to `saveCalFactor'
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Src/calibration_function.c:112: undefined reference to `saveCalFactor'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:11:23 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/io_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/io_manager.d" -MT"Core/Src/io_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/io_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/io_manager.c: In function 'doublePress':
+../Core/Src/io_manager.c:41:17: error: 'button_state' undeclared (first use in this function)
+   41 |                 button_state = HAL_GPIO_ReadPin( port, pin);
+      |                 ^~~~~~~~~~~~
+../Core/Src/io_manager.c:41:17: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/io_manager.c:43:37: error: 'last_state' undeclared (first use in this function)
+   43 |                 if (button_state != last_state) { // Button state changed
+      |                                     ^~~~~~~~~~
+../Core/Src/io_manager.c:47:37: error: 'press_count' undeclared (first use in this function)
+   47 |                                 if (press_count == 0) {
+      |                                     ^~~~~~~~~~~
+../Core/Src/io_manager.c:52:41: error: 'press_time' undeclared (first use in this function)
+   52 |                                         press_time = HAL_GetTick(); // saves the time of the first press
+      |                                         ^~~~~~~~~~
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:47:9: warning: implicit declaration of function 'doublePress' [-Wimplicit-function-declaration]
+   47 |         doublePress();
+      |         ^~~~~~~~~~~
+../Core/Src/io_manager.c:56:82: error: 'DP_Threshold' undeclared (first use in this function)
+   56 |                                         else if ((HAL_GetTick() - press_time) <= DP_Threshold){ // if the press_count = 1 and the button is pressed again, it is a double press
+      |                                                                                  ^~~~~~~~~~~~
+../Core/Src/io_manager.c: In function 'singlePress':
+../Core/Src/io_manager.c:68:17: error: 'button_state' undeclared (first use in this function)
+   68 |                 button_state = HAL_GPIO_ReadPin(port, pin);
+      |                 ^~~~~~~~~~~~
+../Core/Src/io_manager.c:72:32: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   72 |                         return 0;
+      |                                ^
+../Core/Src/io_manager.c:66:6: note: declared here
+   66 | void singlePress(GPIO_TypeDef* port,uint16_t pin){
+      |      ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/io_manager.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:12:34 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/io_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/io_manager.d" -MT"Core/Src/io_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/io_manager.o"
+../Core/Src/io_manager.c: In function 'singlePress':
+../Core/Src/io_manager.c:75:17: error: 'button_state' undeclared (first use in this function)
+   75 |                 button_state = HAL_GPIO_ReadPin(port, pin);
+      |                 ^~~~~~~~~~~~
+../Core/Src/io_manager.c:75:17: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/io_manager.c:79:32: warning: 'return' with a value, in function returning void [-Wreturn-type]
+   79 |                         return 0;
+      |                                ^
+../Core/Src/io_manager.c:73:6: note: declared here
+   73 | void singlePress(GPIO_TypeDef* port,uint16_t pin){
+      |      ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/io_manager.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:12:59 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/io_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/io_manager.d" -MT"Core/Src/io_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/io_manager.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/calibration_function.o: in function `Calibrate':
+C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Src/calibration_function.c:86: undefined reference to `saveCalFactor'
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Src/calibration_function.c:112: undefined reference to `saveCalFactor'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:14:17 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/calibration_function.c:112:53: error: 'j' undeclared (first use in this function)
+  112 |                                 saveDrawerConfig(i, j, calFactor, tare, thresh);
+      |                                                     ^
+../Core/Src/calibration_function.c:112:53: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/calibration_function.c:112:56: error: 'calFactor' undeclared (first use in this function); did you mean 'getCalFactor'?
+  112 |                                 saveDrawerConfig(i, j, calFactor, tare, thresh);
+      |                                                        ^~~~~~~~~
+      |                                                        getCalFactor
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/calibration_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:14:38 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:22:51 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/refill_function.c: In function 'refillDrawer':
+../Core/Src/refill_function.c:50:9: warning: implicit declaration of function 'doublePress' [-Wimplicit-function-declaration]
+   50 |         doublePress(GROUP, PIN);
+      |         ^~~~~~~~~~~
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:23:28 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:31:13: warning: variable 'thresh' set but not used [-Wunused-but-set-variable]
+   31 |         int thresh;
+      |             ^~~~~~
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:36:58 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:75:58: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   75 |                                                 thresh = refillDrawer(tare, calFactor);
+      |                                                          ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:37:45 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:40:20 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:78:58: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   78 |                                                 thresh = refillDrawer(tare, calFactor);
+      |                                                          ^~~~~~~~~~~~
+../Core/Src/main_function.c:98:61: error: 'j' undeclared (first use in this function)
+   98 |                                         printf("Drawer %d", j);
+      |                                                             ^
+../Core/Src/main_function.c:98:61: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:41:21 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:100:61: error: 'j' undeclared (first use in this function)
+  100 |                                         printf("Drawer %d", j);
+      |                                                             ^
+../Core/Src/main_function.c:100:61: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:41:40 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+../Core/Src/main_function.c: In function 'main_function':
+../Core/Src/main_function.c:102:69: error: 'j' undeclared (first use in this function)
+  102 |                                         drawerInst = getFileInfo(i, j);
+      |                                                                     ^
+../Core/Src/main_function.c:102:69: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:64: Core/Src/main_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:41:55 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+15:13:25 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:27:23 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:31:44 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/calibration_function.c:98:53: error: 'j' undeclared (first use in this function)
+   98 |                                 printf("Drawer %d", j);
+      |                                                     ^
+../Core/Src/calibration_function.c:98:53: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/calibration_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:31:54 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/calibration_function.c:117:53: error: 'j' undeclared (first use in this function)
+  117 |                                 saveDrawerConfig(i, j, calFactor, tare, thresh);
+      |                                                     ^
+../Core/Src/calibration_function.c:117:53: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:64: Core/Src/calibration_function.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:32:05 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/calibration_function.c:84:48: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 float thresh = refillDrawer(tare, calFactor);
+      |                                                ^~~~~~~~~~~~
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:32:47 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/calibration_function.c:84:46: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   84 |                                 int thresh = refillDrawer(tare, calFactor);
+      |                                              ^~~~~~~~~~~~
+../Core/Src/calibration_function.c:47:13: warning: unused variable 'thresh' [-Wunused-variable]
+   47 |         int thresh = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:46:13: warning: unused variable 'weight' [-Wunused-variable]
+   46 |         int weight = 0;
+      |             ^~~~~~
+../Core/Src/calibration_function.c:44:15: warning: unused variable 'knownOriginal' [-Wunused-variable]
+   44 |         float knownOriginal = 20000;  // in milli-gram
+      |               ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:33:37 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+../Core/Src/calibration_function.c: In function 'Calibrate':
+../Core/Src/calibration_function.c:82:42: warning: implicit declaration of function 'refillDrawer' [-Wimplicit-function-declaration]
+   82 |                                 thresh = refillDrawer(tare, calFactor);
+      |                                          ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:35:16 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/mux_manager.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/refill_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: multiple definition of `MuxCombos'; ./Core/Src/calibration_function.o:C:/Users/andyb/OneDrive/Desktop/School_Fall_24/Capstone/ECE-Stockroom-Capstone/test_case/Debug/../Core/Inc/mux_manager.h:21: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: test_case.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+16:46:50 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/calibration_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/calibration_function.d" -MT"Core/Src/calibration_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/calibration_function.o"
+arm-none-eabi-gcc "../Core/Src/file_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/file_manager.d" -MT"Core/Src/file_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/file_manager.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/main_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_function.d" -MT"Core/Src/main_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_function.o"
+arm-none-eabi-gcc "../Core/Src/mux_manager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/mux_manager.d" -MT"Core/Src/mux_manager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/mux_manager.o"
+arm-none-eabi-gcc "../Core/Src/refill_function.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/refill_function.d" -MT"Core/Src/refill_function.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/refill_function.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_case.elf
+ 
+arm-none-eabi-size  test_case.elf 
+arm-none-eabi-objdump -h -S test_case.elf  > "test_case.list"
+   text	   data	    bss	    dec	    hex	filename
+  42336	    468	   3108	  45912	   b358	test_case.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_case.list
+ 
+16:48:01 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42336	    468	   3108	  45912	   b358	test_case.elf
+Finished building: default.size.stdout
+ 
