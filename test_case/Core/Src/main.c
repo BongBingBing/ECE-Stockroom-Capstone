@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 
+#include <function_calibration.h>
 #include "stdio.h"
 #include "stdbool.h"
 #include "main.h"
@@ -30,10 +31,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include <calibration_function.h>
-#include <main_function.h>
-#include <mux_manager.h>
-#include <weight_manager.h>
+#include <function_main.h>
+#include <manager_mux.h>
+#include <manager_weight.h>
 
 /* USER CODE END Includes */
 
