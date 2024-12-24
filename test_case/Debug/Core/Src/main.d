@@ -28,10 +28,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/tim.h ../Core/Inc/main.h ../Core/Inc/usart.h \
- ../Core/Inc/gpio.h ../Core/Inc/calibration_function.h \
- ../Core/Inc/usart.h ../Core/Inc/main_function.h \
- ../Core/Inc/mux_manager.h ../Core/Inc/gpio.h \
- ../Core/Inc/weight_manager.h
+ ../Core/Inc/gpio.h ../Core/Inc/function_calibration.h \
+ ../Core/Inc/usart.h ../Core/Inc/function_main.h \
+ ../Core/Inc/manager_mux.h ../Core/Inc/gpio.h \
+ ../Core/Inc/manager_weight.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -65,9 +65,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/main.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/gpio.h:
-../Core/Inc/calibration_function.h:
+../Core/Inc/function_calibration.h:
 ../Core/Inc/usart.h:
-../Core/Inc/main_function.h:
-../Core/Inc/mux_manager.h:
+../Core/Inc/function_main.h:
+../Core/Inc/manager_mux.h:
 ../Core/Inc/gpio.h:
-../Core/Inc/weight_manager.h:
+../Core/Inc/manager_weight.h:

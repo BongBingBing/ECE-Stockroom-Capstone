@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 
+
 #include "stdio.h"
 #include "stdbool.h"
 #include "main.h"
@@ -29,11 +30,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
-#include <calibration_function.h>
-#include <main_function.h>
-#include <mux_manager.h>
-#include <weight_manager.h>
+#include <function_calibration.h>
+#include <function_main.h>
+#include <manager_mux.h>
+#include <manager_weight.h>
 
 /* USER CODE END Includes */
 
@@ -108,29 +108,30 @@ int main(void)
 	HAL_Delay(10);
   /* USER CODE END 1 */
 
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-
   /* USER CODE BEGIN Init */
   /* USER CODE END Init */
 
-  /* Configure the system clock */
-  SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
   /* USER CODE END SysInit */
 
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_TIM2_Init();
-  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  while(1){
+  	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 1);
+  	printf("ON");
+  	HAL_Delay(2000);
+
+  	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
+  	printf("OFF");
+  	HAL_Delay(2000);
+
+  }
+
   Calibrate();
   main_function();
 
