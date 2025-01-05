@@ -52,22 +52,21 @@ void doublePress(GPIO_TypeDef* port,uint16_t pin){
 
 			if (button_state == GPIO_PIN_SET) { // Button pressed
 				if (press_count == 0) {
-
-				}
 					// Reads First press
-					printf("Button press\n");
+					printf("Button press\n\r");
 					press_time = HAL_GetTick(); // saves the time of the first press
 					press_count = 1;    // proof of first button press
-
 				}
-					else if ((HAL_GetTick() - press_time) <= DP_Threshold){	// if the press_count = 1 and the button is pressed again, it is a double press
-						printf("Double press\n");
-						press_count = 0; // Reset state
-						break;
+				else if ((HAL_GetTick() - press_time) <= DP_Threshold){	// if the press_count = 1 and the button is pressed again, it is a double press
+					printf("Double press\n\r");
+					press_count = 0; // Reset state
+					break;
 				}
 			}
+		}
 	}
 }
+
 
 
 void singlePress(GPIO_TypeDef* port,uint16_t pin){

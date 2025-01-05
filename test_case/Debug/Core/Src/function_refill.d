@@ -25,11 +25,12 @@ Core/Src/function_refill.o: ../Core/Src/function_refill.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/usart.h ../Core/Inc/usart.h ../Core/Inc/tim.h \
- ../Core/Inc/manager_io.h ../Core/Inc/manager_mux.h \
+ ../Core/Inc/main.h ../Core/Inc/manager_io.h ../Core/Inc/manager_mux.h \
  ../Core/Inc/manager_weight.h
 ../Core/Inc/manager_file.h:
 ../Core/Inc/gpio.h:
@@ -59,12 +60,14 @@ Core/Src/function_refill.o: ../Core/Src/function_refill.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/tim.h:
+../Core/Inc/main.h:
 ../Core/Inc/manager_io.h:
 ../Core/Inc/manager_mux.h:
 ../Core/Inc/manager_weight.h:

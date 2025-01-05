@@ -11,6 +11,8 @@
 #include <string.h>
 #include <usart.h>
 #include <tim.h>
+#include <fatfs.h>
+
 
 
 #include <function_refill.h>
@@ -21,14 +23,7 @@
 #include <manager_relay.h>
 
 
-#define DT_PIN GPIO_PIN_8
-#define DT_PORT GPIOA
-#define SCK_PIN GPIO_PIN_5
-#define SCK_PORT GPIOB
 
-#define SELECT_PIN GPIO_PIN_2
-#define RESET_PIN GPIO_PIN_1
-#define BUTTON_PORT GPIOB
 
 
 uint32_t getTare(){
@@ -50,11 +45,14 @@ void Calibrate(){
 	printf("Beginning with Row: 1 Drawer: 1\n\r");
 
 	uint32_t tare = 0;
-	float knownHX711 = 1;
-	int thresh = 0;
+	int knownHX711 = 1;
+	uint32_t thresh = 0;
+
+	f_unlink("drawerConfig.txt"); //deletes the original file
+	f_unlink("temp_drawerConfig.txt"); //deletes the original file
+
 
 	for(int i = 1; i <= 4; i++){
-		printf("Row %d", i);
 
 		uint16_t A_mast = MuxCombos[i-1].A;
 		uint16_t B_mast = MuxCombos[i-1].B;
@@ -73,26 +71,28 @@ void Calibrate(){
 
 				muxSET(A_slave, B_slave, C_slave, 0);
 
-				printf("Drawer %d", j);
+				printf("ROW %d | DRAWER %d\n\r", i, j);
 				tare = getTare();
 				printf("Place the calibration weight on the drawer\n\rPress the button once when ready to calibrate\n\r");
 
 				//single press confirmation here
 
-				singlePress(BUTTON_PORT, SELECT_PIN);
+				singlePress(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
 
 				knownHX711 = weighRawTare(tare);
-				printf("Read weight: %f", knownHX711);
+				printf("Read weight: %d\n\r", knownHX711);
 
 				float calFactor = getCalFactor(knownHX711);
 
 				for(int p = 0; p < 4; p++){
 					int weight = weigh(tare, calFactor);
-					printf("Weight: %d", weight);
+					printf("Weight: %d\n\r", weight);
 					HAL_Delay(400);
 				}
 
 				thresh = refillDrawer(tare, calFactor);
+
+				SD_init();
 
 				saveDrawerConfig(i, j, calFactor, tare, thresh);
 			}
@@ -106,25 +106,27 @@ void Calibrate(){
 
 				muxSET(A_slave, B_slave, C_slave, 0);
 
-				printf("Drawer %d", k);
+				printf("ROW %d | DRAWER %d\n\r", i, k);
 				tare = getTare();
 				printf("Place the calibration weight on the drawer\n\rPress the button once when ready to calibrate\n\r");
 
 				//single press confirmation here
-				singlePress(BUTTON_PORT, SELECT_PIN);
+				singlePress(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
 
 				knownHX711 = weighRawTare(tare);
-				printf("Read weight: %f", knownHX711);
+				printf("Read weight: %d\n\r", knownHX711);
 
 				float calFactor = getCalFactor(knownHX711);
 
 				for(int p = 0; p < 4; p++){
 					int weight = weigh(tare, calFactor);
-					printf("Weight: %d", weight);
+					printf("Weight: %d\n\r", weight);
 					HAL_Delay(400);
 				}
 
-				int thresh = refillDrawer(tare, calFactor);
+				thresh = refillDrawer(tare, calFactor);
+
+				SD_init();
 
 				saveDrawerConfig(i, k, calFactor, tare, thresh);
 

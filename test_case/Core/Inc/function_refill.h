@@ -15,7 +15,7 @@
 #ifndef INC_FUNCTION_REFILL_H_
 #define INC_FUNCTION_REFILL_H_
 
-int getThresh(uint32_t tare, float calFactor);
+uint32_t getThresh(uint32_t tare, float calFactor);
 
 int refillDrawer(uint32_t tare, float calFactor);
 

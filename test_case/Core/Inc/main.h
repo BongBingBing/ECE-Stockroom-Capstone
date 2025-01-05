@@ -57,9 +57,39 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define SLAVE_C_Pin GPIO_PIN_0
+#define SLAVE_C_GPIO_Port GPIOC
+#define SLAVE_B_Pin GPIO_PIN_1
+#define SLAVE_B_GPIO_Port GPIOC
+#define MAST_A_Pin GPIO_PIN_0
+#define MAST_A_GPIO_Port GPIOA
+#define MAST_B_Pin GPIO_PIN_1
+#define MAST_B_GPIO_Port GPIOA
+#define MAST_C_Pin GPIO_PIN_4
+#define MAST_C_GPIO_Port GPIOA
+#define SLAVE_A_Pin GPIO_PIN_0
+#define SLAVE_A_GPIO_Port GPIOB
+#define RESET_BTN_Pin GPIO_PIN_1
+#define RESET_BTN_GPIO_Port GPIOB
+#define CONFIRM_BTN_Pin GPIO_PIN_2
+#define CONFIRM_BTN_GPIO_Port GPIOB
+#define SCK_DRW_Pin GPIO_PIN_10
+#define SCK_DRW_GPIO_Port GPIOB
+#define DAT_IN_Pin GPIO_PIN_8
+#define DAT_IN_GPIO_Port GPIOA
+#define SPI1_CS_Pin GPIO_PIN_15
+#define SPI1_CS_GPIO_Port GPIOA
+#define REL_1_Pin GPIO_PIN_10
+#define REL_1_GPIO_Port GPIOC
+#define REL_3_Pin GPIO_PIN_11
+#define REL_3_GPIO_Port GPIOC
+#define REL_2_Pin GPIO_PIN_12
+#define REL_2_GPIO_Port GPIOC
+#define REL_4_Pin GPIO_PIN_2
+#define REL_4_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
-
+#define SD_SPI_HANDLE hspi1
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

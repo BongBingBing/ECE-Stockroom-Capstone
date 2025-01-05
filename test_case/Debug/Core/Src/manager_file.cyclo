@@ -1,5 +1,6 @@
-../Core/Src/manager_file.c:30:6:saveDrawerConfig	2
-../Core/Src/manager_file.c:46:6:updateDrawerConfig	4
-../Core/Src/manager_file.c:78:10:getData	3
-../Core/Src/manager_file.c:89:10:getLineMarker	6
-../Core/Src/manager_file.c:121:19:getFileInfo	5
+../Core/Src/manager_file.c:49:7:SD_init	3
+../Core/Src/manager_file.c:70:6:saveDrawerConfig	4
+../Core/Src/manager_file.c:102:10:getData	3
+../Core/Src/manager_file.c:113:10:getLineMarker	6
+../Core/Src/manager_file.c:148:6:updateDrawerConfig	8
+../Core/Src/manager_file.c:205:19:getFileInfo	5

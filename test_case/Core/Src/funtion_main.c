@@ -22,11 +22,6 @@
 
 
 
-#define DT_PIN GPIO_PIN_8
-#define DT_PORT GPIOA
-#define SCK_PIN GPIO_PIN_5
-#define SCK_PORT GPIOB
-
 void main_function(){
 
 

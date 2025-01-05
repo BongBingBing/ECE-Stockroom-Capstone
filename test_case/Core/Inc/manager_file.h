@@ -23,10 +23,11 @@ struct drawerInfo{
 	float thresh;
 };
 
+void  SD_init();
 
-void saveDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t Tare, float thresh);
+void saveDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t Tare, uint32_t thresh);
 
-void updateDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t Tare, float thresh);
+void updateDrawerConfig(uint16_t row, uint16_t drawer, float calFactor, uint32_t Tare, uint32_t thresh);
 
 uint32_t getData(char* token);
 
