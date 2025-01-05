@@ -1,5 +1,0 @@
-../Core/Src/manager_file.c:30:6:saveDrawerConfig	72	static
-../Core/Src/manager_file.c:46:6:updateDrawerConfig	80	static
-../Core/Src/manager_file.c:78:10:getData	24	static
-../Core/Src/manager_file.c:89:10:getLineMarker	32	static
-../Core/Src/manager_file.c:121:19:getFileInfo	56	static

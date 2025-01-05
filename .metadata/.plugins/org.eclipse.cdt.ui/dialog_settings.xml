@@ -8,7 +8,7 @@
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_height" value="890"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x" value="807"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y" value="0"/>
-	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="-u _scanf_float"/>
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="-u _printf_float"/>
 	<item key="LastUsedSourceTemplate" value="Default C source template"/>
 	<item key="LastUsedHeaderTemplate" value="Default C header template"/>
 	<section name="completion_proposal_size">
