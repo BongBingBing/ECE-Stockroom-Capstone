@@ -1,0 +1,6 @@
+../Display/display.c:6:6:Display_Round_Icon_40x40	3
+../Display/display.c:22:6:Display_Square_Icon_40x40	3
+../Display/display.c:36:6:Display_Menu	3
+../Display/display.c:85:6:Display_Picture	3
+../Display/display.c:102:6:Display_Text	1
+../Display/display.c:123:6:Display_Color_Picture	3
