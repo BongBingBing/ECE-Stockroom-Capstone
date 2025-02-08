@@ -63,8 +63,13 @@ all: main-build
 main-build: ILI9341\ TFT\ Test.elf secondary-outputs
 
 # Tool invocations
+<<<<<<< HEAD
 ILI9341\ TFT\ Test.elf ILI9341\ TFT\ Test.map: $(OBJS) $(USER_OBJS) C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\ILI9341\ TFT\ Test\STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-gcc -o "ILI9341 TFT Test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\ILI9341 TFT Test\STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ILI9341 TFT Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+=======
+ILI9341\ TFT\ Test.elf ILI9341\ TFT\ Test.map: $(OBJS) $(USER_OBJS) C:\Users\Andyrew\Desktop\Capstone\ECE-Stockroom-Capstone\ILI9341\ TFT\ Test\STM32L152RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ILI9341 TFT Test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Andyrew\Desktop\Capstone\ECE-Stockroom-Capstone\ILI9341 TFT Test\STM32L152RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ILI9341 TFT Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+>>>>>>> c4f9c3215e11aefed8f37feac314fac4b0e6ce0f
 	@echo 'Finished building target: $@'
 	@echo ' '
 
