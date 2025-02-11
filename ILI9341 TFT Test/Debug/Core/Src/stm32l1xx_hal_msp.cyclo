@@ -1,7 +1,0 @@
-../Core/Src/stm32l1xx_hal_msp.c:63:6:HAL_MspInit	1
-../Core/Src/stm32l1xx_hal_msp.c:87:6:HAL_SPI_MspInit	2
-<<<<<<< HEAD
-../Core/Src/stm32l1xx_hal_msp.c:125:6:HAL_SPI_MspDeInit	2
-=======
-../Core/Src/stm32l1xx_hal_msp.c:124:6:HAL_SPI_MspDeInit	2
->>>>>>> c4f9c3215e11aefed8f37feac314fac4b0e6ce0f

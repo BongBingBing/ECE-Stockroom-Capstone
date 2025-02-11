@@ -1,14 +1,10 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=19eee56a0a20e18314704494c1765dc1f5a35e2e
+>>>>>>>=c4f9c3215e11aefed8f37feac314fac4b0e6ce0f
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-<<<<<<< HEAD
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SD_CARD_TEST Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:test_case Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ILI9341 TFT Test Debug
-=======
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ILI9341 TFT Test Debug
->>>>>>> c4f9c3215e11aefed8f37feac314fac4b0e6ce0f
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SD_CARD_TEST Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:test_case Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Autonomous_Inventory_Differential_Array\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Autonomous_Inventory_Differential_Array\ Debug/activeLaunchTarget=null\:---
