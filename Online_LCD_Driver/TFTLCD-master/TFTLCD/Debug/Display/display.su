@@ -1,6 +1,0 @@
-../Display/display.c:6:6:Display_Round_Icon_40x40	40	static
-../Display/display.c:22:6:Display_Square_Icon_40x40	32	static
-../Display/display.c:36:6:Display_Menu	24	static
-../Display/display.c:85:6:Display_Picture	16	static
-../Display/display.c:102:6:Display_Text	16	static
-../Display/display.c:123:6:Display_Color_Picture	16	static

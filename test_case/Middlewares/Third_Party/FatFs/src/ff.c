@@ -20,7 +20,7 @@
 
 #include "ff.h"			/* Declarations of FatFs API */
 #include "diskio.h"		/* Declarations of device I/O functions */
-#include <ctype.h>
+
 
 /*--------------------------------------------------------------------------
 
@@ -1690,7 +1690,7 @@ int cmp_lfn (				/* 1:matched, 0:not matched */
 	for (wc = 1, s = 0; s < 13; s++) {		/* Process all characters in the entry */
 		uc = ld_word(dir + LfnOfs[s]);		/* Pick an LFN character */
 		if (wc) {
-			if (i >= _MAX_LFN || /* ff_w */ toupper(uc) != /* ff_w */ toupper(lfnbuf[i++])) {	/* Compare it */
+			if (i >= _MAX_LFN || ff_wtoupper(uc) != ff_wtoupper(lfnbuf[i++])) {	/* Compare it */
 				return 0;					/* Not matched */
 			}
 			wc = uc;
@@ -2643,7 +2643,7 @@ FRESULT create_name (	/* FR_OK: successful, FR_INVALID_NAME: could not create */
 			w = (w << 8) + b;			/* Create a DBC */
 			if (!IsDBCS2(b)) return FR_INVALID_NAME;	/* Reject invalid sequence */
 		}
-		// w = ff_convert(w, 1);			/* Convert ANSI/OEM to Unicode */
+		w = ff_convert(w, 1);			/* Convert ANSI/OEM to Unicode */
 		if (!w) return FR_INVALID_NAME;	/* Reject invalid code */
 #endif
 		if (w < 0x80 && chk_chr("\"*:<>\?|\x7F", w)) return FR_INVALID_NAME;	/* Reject illegal characters for LFN */
@@ -2695,7 +2695,7 @@ FRESULT create_name (	/* FR_OK: successful, FR_INVALID_NAME: could not create */
 
 		if (w >= 0x80) {				/* Non ASCII character */
 #ifdef _EXCVT
-			//w = ff_convert(w, 0);		/* Unicode -> OEM code */
+			w = ff_convert(w, 0);		/* Unicode -> OEM code */
 			if (w) w = ExCvt[w - 0x80];	/* Convert extended character to upper (SBCS) */
 #else
 			w = ff_convert(ff_wtoupper(w), 0);	/* Upper converted Unicode -> OEM code */
