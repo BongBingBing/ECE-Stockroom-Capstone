@@ -39,8 +39,8 @@ FRESULT fres_temp;
 
 FILE *drawerConfig, *temp;
 
-const char* filename = "drawerConfig.txt";
-const char* temp_filename = "temp_drawerConfig.txt";
+const char* filename = "drwConf.txt";
+const char* temp_filename = "tmpConf.txt";
 
 static char buffer[MAX_FILELINE];
 BYTE previousLine[MAX_FILELINE];

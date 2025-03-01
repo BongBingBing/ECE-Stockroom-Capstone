@@ -98,65 +98,68 @@ int main(void)
   /* USER CODE BEGIN 2 */
   ILI9341_Init();
 
+  int rectXStart = 80;
+  int rectYStart = 80;
+
     // Simple Text writing (Text, Font, X, Y, Color, BackColor)
     // Available Fonts are FONT1, FONT2, FONT3 and FONT4
     ILI9341_FillScreen(BLACK);
     ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
-    ILI9341_DrawText("HELLO WORLD", FONT4, 90, 110, BLACK, WHITE);
+    ILI9341_DrawText("HELLO WORLD", FONT4, 90, 110, WHITE, BLACK);
     HAL_Delay(1000);
 
     //Writing numbers
-    ILI9341_FillScreen(WHITE);
-    static char BufferText[30];
-    for(uint8_t i = 0; i <= 5; i++)
-    {
-      sprintf(BufferText, "COUNT : %d", i);
-      ILI9341_DrawText(BufferText, FONT3, 10, 10, BLACK, WHITE);
-      ILI9341_DrawText(BufferText, FONT3, 10, 30, BLUE, WHITE);
-      ILI9341_DrawText(BufferText, FONT3, 10, 50, RED, WHITE);
-      ILI9341_DrawText(BufferText, FONT3, 10, 70, GREEN, WHITE);
-      ILI9341_DrawText(BufferText, FONT3, 10, 90, YELLOW, WHITE);
-      ILI9341_DrawText(BufferText, FONT3, 10, 110, PURPLE, WHITE);
-      ILI9341_DrawText(BufferText, FONT3, 10, 130, ORANGE, WHITE);
-      ILI9341_DrawText(BufferText, FONT3, 10, 150, MAROON, WHITE);
-      ILI9341_DrawText(BufferText, FONT3, 10, 170, WHITE, BLACK);
-      ILI9341_DrawText(BufferText, FONT3, 10, 190, BLUE, BLACK);
-    }
+    ILI9341_FillScreen(BLACK);
+//    static char BufferText[30];
+//    for(uint8_t i = 0; i <= 5; i++)
+//    {
+//      sprintf(BufferText, "COUNT : %d", i);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 10, BLACK, WHITE);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 30, BLUE, WHITE);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 50, RED, WHITE);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 70, GREEN, WHITE);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 90, YELLOW, WHITE);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 110, PURPLE, WHITE);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 130, ORANGE, WHITE);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 150, MAROON, WHITE);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 170, WHITE, BLACK);
+//      ILI9341_DrawText(BufferText, FONT3, 10, 190, BLUE, BLACK);
+//    }
 
     // Horizontal Line (X, Y, Length, Color)
-    ILI9341_FillScreen(WHITE);
-    ILI9341_DrawHLine(50, 120, 200, NAVY);
-    HAL_Delay(1000);
-
-    // Vertical Line (X, Y, Length, Color)
-    ILI9341_FillScreen(WHITE);
-    ILI9341_DrawVLine(160, 40, 150, DARKGREEN);
-    HAL_Delay(1000);
-
-    // Hollow Circle (Centre X, Centre Y, Radius, Color)
-    ILI9341_FillScreen(WHITE);
-    ILI9341_DrawHollowCircle(160, 120, 80, PINK);
-    HAL_Delay(1000);
-
-    // Filled Circle (Centre X, Centre Y, Radius, Color)
-    ILI9341_FillScreen(WHITE);
-    ILI9341_DrawFilledCircle(160, 120, 50, CYAN);
-    HAL_Delay(1000);
-
-    // Filled Rectangle (Start X, Start Y, Length X, Length Y)
-    ILI9341_FillScreen(WHITE);
-    ILI9341_DrawRectangle(50, 50, 220, 140, GREENYELLOW);
-    HAL_Delay(1000);
+//    ILI9341_FillScreen(WHITE);
+//    ILI9341_DrawHLine(50, 120, 200, NAVY);
+//    HAL_Delay(1000);
+//
+//    // Vertical Line (X, Y, Length, Color)
+//    ILI9341_FillScreen(WHITE);
+//    ILI9341_DrawVLine(160, 40, 150, DARKGREEN);
+//    HAL_Delay(1000);
+//
+//    // Hollow Circle (Centre X, Centre Y, Radius, Color)
+//    ILI9341_FillScreen(WHITE);
+//    ILI9341_DrawHollowCircle(160, 120, 80, PINK);
+//    HAL_Delay(1000);
+//
+//    // Filled Circle (Centre X, Centre Y, Radius, Color)
+//    ILI9341_FillScreen(WHITE);
+//    ILI9341_DrawFilledCircle(160, 120, 50, CYAN);
+//    HAL_Delay(1000);
+//
+//    // Filled Rectangle (Start X, Start Y, Length X, Length Y)
+//    ILI9341_FillScreen(WHITE);
+//    ILI9341_DrawRectangle(50, 50, 220, 140, GREENYELLOW);
+//    HAL_Delay(1000);
 
     // Hollow Rectangle (Start X, Start Y, End X, End Y)
-    ILI9341_FillScreen(WHITE);
-    ILI9341_DrawHollowRectangleCoord(50, 50, 270, 190, DARKCYAN);
-    HAL_Delay(1000);
+//    ILI9341_FillScreen(WHITE);
+//    ILI9341_DrawHollowRectangleCoord(50, 50, 270, 190, WHITE);
+//    HAL_Delay(1000);
 
-    // Simple Pixel Only (X, Y, Color)
-    ILI9341_FillScreen(WHITE);
-    ILI9341_DrawPixel(100, 100, BLACK);
-    HAL_Delay(1000);
+//    // Simple Pixel Only (X, Y, Color)
+//    ILI9341_FillScreen(WHITE);
+//    ILI9341_DrawPixel(100, 100, BLACK);
+//    HAL_Delay(1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -164,6 +167,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    ILI9341_DrawHollowRectangleCoord(80, 80, 310, 230, WHITE);
+
+  while(1){
+
+
+  }
   /* USER CODE END 3 */
 }
 

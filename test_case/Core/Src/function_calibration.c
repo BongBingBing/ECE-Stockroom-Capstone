@@ -48,8 +48,8 @@ void Calibrate(){
 	int knownHX711 = 1;
 	uint32_t thresh = 0;
 
-	f_unlink("drawerConfig.txt"); //deletes the original file
-	f_unlink("temp_drawerConfig.txt"); //deletes the original file
+	f_unlink("drwConf.txt"); //deletes the original file
+	f_unlink("tmpConf.txt"); //deletes the original file
 
 
 	for(int i = 1; i <= 4; i++){
