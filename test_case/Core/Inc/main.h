@@ -71,8 +71,10 @@ void Error_Handler(void);
 #define SLAVE_A_GPIO_Port GPIOB
 #define RESET_BTN_Pin GPIO_PIN_1
 #define RESET_BTN_GPIO_Port GPIOB
+#define RESET_BTN_EXTI_IRQn EXTI1_IRQn
 #define CONFIRM_BTN_Pin GPIO_PIN_2
 #define CONFIRM_BTN_GPIO_Port GPIOB
+#define CONFIRM_BTN_EXTI_IRQn EXTI2_IRQn
 #define SCK_DRW_Pin GPIO_PIN_10
 #define SCK_DRW_GPIO_Port GPIOB
 #define DAT_IN_Pin GPIO_PIN_8

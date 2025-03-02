@@ -24,7 +24,7 @@
 
 
 
-
+int num = 2;
 
 uint32_t getTare(){
 	printf("Remove all weight from the drawer(5 seconds)\n\r");
@@ -48,8 +48,8 @@ void Calibrate(){
 	int knownHX711 = 1;
 	uint32_t thresh = 0;
 
-	f_unlink("drwConf.txt"); //deletes the original file
-	f_unlink("tmpConf.txt"); //deletes the original file
+	f_unlink("drawerConfig.txt"); //deletes the original file
+	f_unlink("temp_drawerConfig.txt"); //deletes the original file
 
 
 	for(int i = 1; i <= 4; i++){
@@ -73,11 +73,11 @@ void Calibrate(){
 
 				printf("ROW %d | DRAWER %d\n\r", i, j);
 				tare = getTare();
-				printf("Place the calibration weight on the drawer\n\rPress the button once when ready to calibrate\n\r");
+				printf("Place the calibration weight on the drawer\n\rPress the button twice when ready to calibrate\n\r");
 
-				//single press confirmation here
+				//double press confirmation here
+						button_output(num);
 
-				singlePress(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
 
 				knownHX711 = weighRawTare(tare);
 				printf("Read weight: %d\n\r", knownHX711);
@@ -108,10 +108,11 @@ void Calibrate(){
 
 				printf("ROW %d | DRAWER %d\n\r", i, k);
 				tare = getTare();
-				printf("Place the calibration weight on the drawer\n\rPress the button once when ready to calibrate\n\r");
+				printf("Place the calibration weight on the drawer\n\rPress the button twice when ready to calibrate\n\r");
 
-				//single press confirmation here
-				singlePress(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
+				//double press confirmation here
+				button_output(num);
+
 
 				knownHX711 = weighRawTare(tare);
 				printf("Read weight: %d\n\r", knownHX711);

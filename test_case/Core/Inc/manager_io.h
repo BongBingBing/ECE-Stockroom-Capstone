@@ -7,11 +7,19 @@
 
 #ifndef INC_MANAGER_IO_H_
 #define INC_MANAGER_IO_H_
+#include <stdbool.h>
 
 int _write(int file, char *data, int len);
 
-void doublePress(GPIO_TypeDef* port,uint16_t pin);
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 
-void singlePress(GPIO_TypeDef* port,uint16_t pin);
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
+
+void button_output(int button_num);
+
+
+extern bool confirm_button;
+extern bool reset_button;
+
 
 #endif /* INC_MANAGER_IO_H_ */

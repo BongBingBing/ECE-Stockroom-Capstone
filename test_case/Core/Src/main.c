@@ -123,6 +123,8 @@ int main(void)
   MX_FATFS_Init();
   MX_SPI1_Init();
   MX_SPI2_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 
