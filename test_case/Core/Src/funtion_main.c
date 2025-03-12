@@ -19,6 +19,8 @@
 #include <manager_mux.h>
 #include <manager_weight.h>
 #include <manager_relay.h>
+#include "ILI9341_STM32_Driver.h"
+#include "ILI9341_GFX.h"
 
 
 

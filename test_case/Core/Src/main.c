@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "fatfs.h"
 #include "spi.h"
 #include "tim.h"
@@ -30,6 +31,9 @@
 #include <function_main.h>
 #include <manager_mux.h>
 #include <manager_weight.h>
+#include <stdio.h>
+#include "ILI9341_STM32_Driver.h"
+#include "ILI9341_GFX.h"
 
 /* USER CODE END Includes */
 
@@ -118,6 +122,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM2_Init();
   MX_USART2_UART_Init();
   MX_FATFS_Init();
@@ -126,6 +131,19 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+  ILI9341_Init();
+
+  int rectXStart = 80;
+  int rectYStart = 80;
+
+  // Simple Text writing (Text, Font, X, Y, Color, BackColor)
+  // Available Fonts are FONT1, FONT2, FONT3 and FONT4
+  ILI9341_FillScreen(BLACK);
+  ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
+  ILI9341_DrawText("Hello from STM32 UART!", FONT4, 55, 110, WHITE, BLACK);
+  HAL_Delay(3000);
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

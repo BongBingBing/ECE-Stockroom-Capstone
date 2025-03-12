@@ -16,6 +16,8 @@
 #include <manager_io.h>
 #include <manager_mux.h>
 #include <manager_weight.h>
+#include "ILI9341_STM32_Driver.h"
+#include "ILI9341_GFX.h"
 
 
 
