@@ -106,10 +106,29 @@ int main(void)
     ILI9341_FillScreen(BLACK);
     ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
     ILI9341_DrawText("HELLO WORLD", FONT4, 90, 110, WHITE, BLACK);
+    HAL_Delay(3000);
+/*
+    ILI9341_FillScreen(BLACK);
+    ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
+    ILI9341_DrawText("HOW ARE YOU", FONT3, 200, 220, BLACK, WHITE);
     HAL_Delay(1000);
 
-    //Writing numbers
+    ILI9341_FillScreen(WHITE);
+    ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
+    ILI9341_DrawText("I Am Fine", FONT4, 50, 70, WHITE, BLACK);
+    HAL_Delay(1000);
+    ILI9341_DrawText("Thank You", FONT4, 130, 150, BLACK, WHITE);
+*/
+    HAL_Delay(1000);
     ILI9341_FillScreen(BLACK);
+    ILI9341_DrawHollowRectangleCoord(50, 50, 220, 140, WHITE);
+    HAL_Delay(1000);
+    ILI9341_DrawText("Testing", FONT3, 95, 85, WHITE, BLACK);
+    HAL_Delay(1000);
+    ILI9341_DrawPixel(160, 95, WHITE);
+
+    //Writing numbers
+    //ILI9341_FillScreen(BLACK);
 //    static char BufferText[30];
 //    for(uint8_t i = 0; i <= 5; i++)
 //    {
@@ -167,7 +186,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    ILI9341_DrawHollowRectangleCoord(80, 80, 310, 230, WHITE);
+    //ILI9341_DrawHollowRectangleCoord(80, 80, 310, 230, WHITE);
 
   while(1){
 
