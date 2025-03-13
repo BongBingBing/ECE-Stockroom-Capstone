@@ -1465,8 +1465,8 @@ void Calibrate(){
  8001150:	f007 fb4d 	bl	80087ee <f_unlink>
 
 
-	for(int i = 1; i <= 4; i++){
- 8001154:	2301      	movs	r3, #1
+	for(int i = 2; i <= 4; i++){
+ 8001154:	2302      	movs	r3, #2
  8001156:	647b      	str	r3, [r7, #68]	@ 0x44
  8001158:	e114      	b.n	8001384 <Calibrate+0x254>
 
@@ -1783,7 +1783,7 @@ void Calibrate(){
  8001378:	6bbb      	ldr	r3, [r7, #56]	@ 0x38
  800137a:	2b07      	cmp	r3, #7
  800137c:	dd8f      	ble.n	800129e <Calibrate+0x16e>
-	for(int i = 1; i <= 4; i++){
+	for(int i = 2; i <= 4; i++){
  800137e:	6c7b      	ldr	r3, [r7, #68]	@ 0x44
  8001380:	3301      	adds	r3, #1
  8001382:	647b      	str	r3, [r7, #68]	@ 0x44

@@ -56,7 +56,7 @@ void main_function(){
 
 					muxSET(A_slave, B_slave, C_slave, 0);
 
-					printf("Drawer %d", j);
+					printf("Drawer %d\n", j);
 
 					drawerInst = getFileInfo(i, j);
 
@@ -74,8 +74,6 @@ void main_function(){
 					normalizedWeight = sum / 4;
 
 					if((thresh + 100) > normalizedWeight){
-						printf("This drawer is low on components\n\rPlease refill the drawer");
-						printf("Press the selector button ONCE to continue\n\r");
 
 						thresh = refillDrawer(tare, calFactor);
 						updateDrawerConfig(i, j, calFactor, tare, thresh);

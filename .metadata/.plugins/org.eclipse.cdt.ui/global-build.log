@@ -19,3 +19,185 @@ arm-none-eabi-size  LCD_Test_Case_V2.elf
   40528	    472	   2088	  43088	   a850	LCD_Test_Case_V2.elf
 Finished building: default.size.stdout
  
+20:09:20 **** Incremental Build of configuration Debug for project LCD_Test_Case_V2 ****
+make -j16 all 
+arm-none-eabi-size  LCD_Test_Case_V2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  40528	    472	   2088	  43088	   a850	LCD_Test_Case_V2.elf
+Finished building: default.size.stdout
+ 
+20:09:27 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+20:10:11 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+20:12:22 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+20:16:52 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+21:35:04 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/function_calibration.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function_calibration.d" -MT"Core/Src/function_calibration.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function_calibration.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_case.elf
+ 
+arm-none-eabi-size  test_case.elf 
+arm-none-eabi-objdump -h -S test_case.elf  > "test_case.list"
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_case.list
+ 
+21:53:29 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+21:57:44 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+22:03:27 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/function_calibration.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function_calibration.d" -MT"Core/Src/function_calibration.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function_calibration.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_case.elf
+ 
+arm-none-eabi-size  test_case.elf 
+arm-none-eabi-objdump -h -S test_case.elf  > "test_case.list"
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_case.list
+ 
+22:04:03 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+22:08:03 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/function_calibration.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function_calibration.d" -MT"Core/Src/function_calibration.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function_calibration.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_case.elf
+ 
+arm-none-eabi-size  test_case.elf 
+arm-none-eabi-objdump -h -S test_case.elf  > "test_case.list"
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_case.list
+ 
+22:09:13 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+22:09:33 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+22:15:57 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/function_calibration.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function_calibration.d" -MT"Core/Src/function_calibration.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function_calibration.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_case.elf
+ 
+arm-none-eabi-size  test_case.elf 
+arm-none-eabi-objdump -h -S test_case.elf  > "test_case.list"
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_case.list
+ 
+22:16:34 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+22:17:01 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+22:20:18 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/function_calibration.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function_calibration.d" -MT"Core/Src/function_calibration.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function_calibration.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_case.elf
+ 
+arm-none-eabi-size  test_case.elf 
+arm-none-eabi-objdump -h -S test_case.elf  > "test_case.list"
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_case.list
+ 
+22:25:08 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/function_calibration.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/function_calibration.d" -MT"Core/Src/function_calibration.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/function_calibration.o"
+arm-none-eabi-gcc -o "test_case.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\andyb\OneDrive\Desktop\School_Fall_24\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_case.elf
+ 
+arm-none-eabi-size  test_case.elf 
+arm-none-eabi-objdump -h -S test_case.elf  > "test_case.list"
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_case.list
+ 
+22:37:54 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
+22:38:21 **** Incremental Build of configuration Debug for project test_case ****
+make -j16 all 
+arm-none-eabi-size  test_case.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57696	    500	   5028	  63224	   f6f8	test_case.elf
+Finished building: default.size.stdout
+ 
