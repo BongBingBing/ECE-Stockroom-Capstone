@@ -50,11 +50,15 @@ void Calibrate(){
 	int knownHX711 = 1;
 	uint32_t thresh = 0;
 
-	f_unlink("drawerConfig.txt"); //deletes the original file
+	FRESULT res = f_unlink("drwConf.txt"); //deletes the original file
+
+	if(res == FR_OK){
+		printf("Removed old 'drwConf.txt'\n\r");
+	}
 	f_unlink("temp_drawerConfig.txt"); //deletes the original file
 
 
-	for(int i = 1; i <= 4; i++){
+	for(int i = 1; i <= 1; i++){
 
 		uint16_t A_mast = MuxCombos[i-1].A;
 		uint16_t B_mast = MuxCombos[i-1].B;
@@ -75,10 +79,10 @@ void Calibrate(){
 
 				printf("ROW %d | DRAWER %d\n\r", i, j);
 				tare = getTare();
-				printf("Place the calibration weight on the drawer\n\rPress the button twice when ready to calibrate\n\r");
+				printf("Place the calibration weight on the drawer\n\rPress the button once when ready to calibrate\n\r");
 
 				//double press confirmation here
-						button_output(num);
+				button_output(num);
 
 
 				knownHX711 = weighRawTare(tare);

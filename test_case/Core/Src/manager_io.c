@@ -57,6 +57,7 @@ int num_button = 0;
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	// D7
 	if (GPIO_Pin == RESET_BTN_Pin) {
+		printf("Reset button Pressed");
 		num_button = 1;
 		if 	(timer_active == 0){
 			if(HAL_GPIO_ReadPin(RESET_BTN_GPIO_Port, RESET_BTN_Pin) == GPIO_PIN_SET && i == 0){
@@ -78,7 +79,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 	//D8
 		else if (GPIO_Pin == CONFIRM_BTN_Pin){
-			//num_button = 2;
+			printf("Confirm button Pressed");
+			num_button = 2;
 			if(count != 2){
 				if ( count == 0){
 					// starts general timer
@@ -158,12 +160,12 @@ void button_output(int button_num){
 						  break;
 					  }
 
-			else if (button_press == press_double) {
-					printf("double %d\n\r",i);
-					num_button = 0;
-					button_press = press_none;
-					break;
-			}
+				else if (button_press == press_double) {
+						printf("double %d\n\r",i);
+						num_button = 0;
+						button_press = press_none;
+						break;
+				}
 		  }
 			 // displays if user presses wrong button
 			 else {

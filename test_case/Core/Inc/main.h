@@ -87,8 +87,8 @@ void Error_Handler(void);
 #define REL_3_GPIO_Port GPIOC
 #define REL_2_Pin GPIO_PIN_12
 #define REL_2_GPIO_Port GPIOC
-#define REL_4_Pin GPIO_PIN_2
-#define REL_4_GPIO_Port GPIOD
+#define REL_4_Pin GPIO_PIN_8
+#define REL_4_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 #define SD_SPI_HANDLE hspi1
