@@ -29,6 +29,16 @@ uint8_t press_count = 0;  // A Flag that's used for indicating a second press
 
 int num2 = 1;
 
+void buttonPress2(){
+	while(1){
+		uint8_t button = HAL_GPIO_ReadPin(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
+		if(button){
+			break;
+		}
+
+	}
+}
+
 uint32_t getThresh(uint32_t tare, float calFactor){
 	uint32_t sum = 0;
 	float avg = 0;
@@ -50,7 +60,9 @@ int refillDrawer(uint32_t tare, float calFactor){
 	printf("Please refill the current drawer\n\rPress and Hold the button when ready\n\r");
 
 	//function to wait for a double press then a confirmation press
-	button_output(num2);
+	//button_output(num2);
+
+	buttonPress2();
 
 	//doublePress(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
 

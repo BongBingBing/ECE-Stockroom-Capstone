@@ -12,6 +12,8 @@
 #include <usart.h>
 #include <tim.h>
 #include <fatfs.h>
+#include <main.h>
+#include <time.h>
 
 
 
@@ -26,7 +28,18 @@
 
 
 
-int num = 2;
+
+
+void buttonPress(){
+	while(1){
+		uint8_t button = HAL_GPIO_ReadPin(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
+		if(button){
+			break;
+		}
+
+	}
+}
+
 
 uint32_t getTare(){
 	printf("Remove all weight from the drawer(5 seconds)\n\r");
@@ -79,10 +92,11 @@ void Calibrate(){
 
 				printf("ROW %d | DRAWER %d\n\r", i, j);
 				tare = getTare();
-				printf("Place the calibration weight on the drawer\n\rPress the button once when ready to calibrate\n\r");
+				printf("Place the calibration weight on the drawer\n\rPress the CONFIRMATION button when ready to calibrate\n\r");
 
 				//double press confirmation here
-				button_output(num);
+				//button_output(num);
+				buttonPress();
 
 
 				knownHX711 = weighRawTare(tare);
@@ -114,10 +128,12 @@ void Calibrate(){
 
 				printf("ROW %d | DRAWER %d\n\r", i, k);
 				tare = getTare();
-				printf("Place the calibration weight on the drawer\n\rPress the button twice when ready to calibrate\n\r");
+				printf("Place the calibration weight on the drawer\n\rPress the CONFIRMATION button when ready to calibrate\n\r");
 
 				//double press confirmation here
-				button_output(num);
+				//button_output(num);
+				buttonPress();
+
 
 
 				knownHX711 = weighRawTare(tare);

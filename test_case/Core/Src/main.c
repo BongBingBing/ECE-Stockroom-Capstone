@@ -62,6 +62,7 @@
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -94,8 +95,8 @@ int main(void)
 	MX_GPIO_Init();
 	MX_USART2_UART_Init();
 	MX_TIM2_Init();
-  MX_FATFS_Init();
-  MX_SPI1_Init();
+	MX_FATFS_Init();
+	MX_SPI1_Init();
 
 	printf("Hello from STM32 UART!\n\r");
 
@@ -130,6 +131,7 @@ int main(void)
   MX_SPI2_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
   ILI9341_Init();
 

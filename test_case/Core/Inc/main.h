@@ -67,6 +67,8 @@ void Error_Handler(void);
 #define MAST_B_GPIO_Port GPIOA
 #define MAST_C_Pin GPIO_PIN_4
 #define MAST_C_GPIO_Port GPIOA
+#define REL_2_Pin GPIO_PIN_5
+#define REL_2_GPIO_Port GPIOC
 #define SLAVE_A_Pin GPIO_PIN_0
 #define SLAVE_A_GPIO_Port GPIOB
 #define RESET_BTN_Pin GPIO_PIN_1
@@ -77,18 +79,18 @@ void Error_Handler(void);
 #define CONFIRM_BTN_EXTI_IRQn EXTI2_IRQn
 #define SCK_DRW_Pin GPIO_PIN_10
 #define SCK_DRW_GPIO_Port GPIOB
+#define REL_1_Pin GPIO_PIN_6
+#define REL_1_GPIO_Port GPIOC
 #define DAT_IN_Pin GPIO_PIN_8
 #define DAT_IN_GPIO_Port GPIOA
 #define SPI1_CS_Pin GPIO_PIN_15
 #define SPI1_CS_GPIO_Port GPIOA
-#define REL_1_Pin GPIO_PIN_10
-#define REL_1_GPIO_Port GPIOC
-#define REL_3_Pin GPIO_PIN_11
-#define REL_3_GPIO_Port GPIOC
-#define REL_2_Pin GPIO_PIN_12
-#define REL_2_GPIO_Port GPIOC
+#define EEPROM_CS_Pin GPIO_PIN_2
+#define EEPROM_CS_GPIO_Port GPIOD
 #define REL_4_Pin GPIO_PIN_8
 #define REL_4_GPIO_Port GPIOB
+#define REL_3_Pin GPIO_PIN_9
+#define REL_3_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 #define SD_SPI_HANDLE hspi1

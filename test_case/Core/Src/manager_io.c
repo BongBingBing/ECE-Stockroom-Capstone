@@ -18,7 +18,7 @@
 #define GETCHAR_PROTOTYPE int fgetc(FILE *f)
 #endif
 
-//Code to enable printf statements
+// Code to enable printf statements
 int _write(int file, char *data, int len) {
     HAL_UART_Transmit(&huart2, (uint8_t*)data, len, HAL_MAX_DELAY); // Replace &huart2 with your UART instance
     return len;
@@ -57,12 +57,12 @@ int num_button = 0;
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	// D7
 	if (GPIO_Pin == RESET_BTN_Pin) {
-		printf("Reset button Pressed");
+		// printf("Reset button Pressed");
 		num_button = 1;
 		if 	(timer_active == 0){
 			if(HAL_GPIO_ReadPin(RESET_BTN_GPIO_Port, RESET_BTN_Pin) == GPIO_PIN_SET && i == 0){
 					i = 1; // states the button already been pressed to ignore interrupts
-					//printf("%d i\n\r", i);
+					// printf("%d i\n\r", i);
 					time_start = HAL_GetTick(); // reads when button is pressed
 				}
 
@@ -79,7 +79,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 	//D8
 		else if (GPIO_Pin == CONFIRM_BTN_Pin){
-			printf("Confirm button Pressed");
+			// printf("Confirm button Pressed");
 			num_button = 2;
 			if(count != 2){
 				if ( count == 0){
@@ -132,7 +132,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	}
 
 		else if (htim -> Instance == TIM4){
-			printf("%d\n\r",count);
+			// printf("%d\n\r",count);
 			HAL_TIM_Base_Stop_IT(&htim4); // stops timer interrupt
 			// resets flags
 			i = 0;
@@ -148,20 +148,20 @@ void button_output(int button_num){
 			 if (button_num == num_button){
 // different button states
 			  if (button_press == press_short){
-				  printf("short %d\n\r",i);
+				//   printf("short %d\n\r",i);
 				  num_button = 0;
 				  button_press = press_none;
 				  break;
 			  }
 				else if (button_press == press_long){
-						  printf("long %d\n\r",i);
+						//   printf("long %d\n\r",i);
 						  num_button = 0;
 						  button_press = press_none;
 						  break;
 					  }
 
 				else if (button_press == press_double) {
-						printf("double %d\n\r",i);
+						// printf("double %d\n\r",i);
 						num_button = 0;
 						button_press = press_none;
 						break;
@@ -169,7 +169,7 @@ void button_output(int button_num){
 		  }
 			 // displays if user presses wrong button
 			 else {
-				 printf("Wrong Button, Please Wait Three Seconds To Try Again \n\r");
+				//  printf("Wrong Button, Please Wait Three Seconds To Try Again \n\r");
 				 HAL_Delay(500);
 				 num_button = 0;
 				 count = 0;
