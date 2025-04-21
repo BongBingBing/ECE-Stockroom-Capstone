@@ -127,11 +127,11 @@ void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control){
     HAL_GPIO_WritePin(MAST_B_GPIO_Port, MAST_B_Pin, B);
     HAL_GPIO_WritePin(MAST_C_GPIO_Port, MAST_C_Pin, C);
   }
-//  else{
-//    HAL_GPIO_WritePin(SLAVE_A_GPIO_Port, SLAVE_A_Pin, A);
-//    HAL_GPIO_WritePin(SLAVE_B_GPIO_Port, SLAVE_B_Pin, B);
-//    HAL_GPIO_WritePin(SLAVE_C_GPIO_Port, SLAVE_C_Pin, C);
-//  }
+  else{
+    HAL_GPIO_WritePin(SLAVE_A_GPIO_Port, SLAVE_A_Pin, A);
+    HAL_GPIO_WritePin(SLAVE_B_GPIO_Port, SLAVE_B_Pin, B);
+    HAL_GPIO_WritePin(SLAVE_C_GPIO_Port, SLAVE_C_Pin, C);
+  }
 }
 
 void EEPROM_Write(uint8_t addr, uint8_t writeData){
@@ -216,23 +216,32 @@ int main(void)
 //	  EEPROM_CS_LOW();
 //	}
 
-	for(uint8_t i = 0; i <= 1; i++){
-		EEPROM_CS_HIGH();
-		A = MuxCombos[i].A;
-		B = MuxCombos[i].B;
-		C = MuxCombos[i].C;
+	for (uint8_t j = 0; j <= 1; j++){
+
+		A = MuxCombos[j].A;
+		B = MuxCombos[j].B;
+		C = MuxCombos[j].C;
 
 		muxSET(A, B, C, 1);
-		//printf("A: %d, B: %d, C: %d\n\r", A, B, C);
-		HAL_Delay(10); // delay to allow muxxes to set
-		//EEPROM_CS_LOW();
 
-		EEPROM_Write(addr, writeData[i]);
-		HAL_Delay(100);
-		uint8_t readData = 0;
-		readData = EEPROM_ReadByte(addr);
-		printf("EEPROM %d, Read back: 0x%02X\r\n", i + 1, readData);
+		for(uint8_t i = 0; i <= 1; i++){
+			EEPROM_CS_HIGH();
+			A = MuxCombos[i].A;
+			B = MuxCombos[i].B;
+			C = MuxCombos[i].C;
 
+			muxSET(A, B, C, 0);
+			//printf("A: %d, B: %d, C: %d\n\r", A, B, C);
+			HAL_Delay(10); // delay to allow muxxes to set
+			//EEPROM_CS_LOW();
+
+			EEPROM_Write(addr, writeData[i]);
+			HAL_Delay(100);
+			uint8_t readData = 0;
+			readData = EEPROM_ReadByte(addr);
+			printf("EEPROM %d, Read back: 0x%02X\r\n", i + 1, readData);
+
+		}
 	}
 	printf("Completed writing to all EEPROMs\n\r");
 
@@ -415,19 +424,33 @@ static void MX_USART2_UART_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+  /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, SLAVE_C_Pin|SLAVE_B_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, MAST_A_Pin|MAST_B_Pin|MAST_C_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(SLAVE_A_GPIO_Port, SLAVE_A_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(EEPROM_CS_GPIO_Port, EEPROM_CS_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : SLAVE_C_Pin SLAVE_B_Pin */
+  GPIO_InitStruct.Pin = SLAVE_C_Pin|SLAVE_B_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : MAST_A_Pin MAST_B_Pin MAST_C_Pin */
   GPIO_InitStruct.Pin = MAST_A_Pin|MAST_B_Pin|MAST_C_Pin;
@@ -436,6 +459,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : SLAVE_A_Pin */
+  GPIO_InitStruct.Pin = SLAVE_A_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(SLAVE_A_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : EEPROM_CS_Pin */
   GPIO_InitStruct.Pin = EEPROM_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -443,8 +473,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(EEPROM_CS_GPIO_Port, &GPIO_InitStruct);
 
-/* USER CODE BEGIN MX_GPIO_Init_2 */
-/* USER CODE END MX_GPIO_Init_2 */
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
+  /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
