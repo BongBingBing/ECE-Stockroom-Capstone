@@ -60,8 +60,8 @@ all: main-build
 main-build: EEPROM\ Testing.elf secondary-outputs
 
 # Tool invocations
-EEPROM\ Testing.elf EEPROM\ Testing.map: $(OBJS) $(USER_OBJS) C:\Users\Soup\ Machine\Desktop\Capstone\ Instance\ECE-Stockroom-Capstone\EEPROM\ Testing\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "EEPROM Testing.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\EEPROM Testing\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EEPROM Testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+EEPROM\ Testing.elf EEPROM\ Testing.map: $(OBJS) $(USER_OBJS) /home/soup/Desktop/Capstone/ECE-Stockroom-Capstone/EEPROM\ Testing/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "EEPROM Testing.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/soup/Desktop/Capstone/ECE-Stockroom-Capstone/EEPROM Testing/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EEPROM Testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

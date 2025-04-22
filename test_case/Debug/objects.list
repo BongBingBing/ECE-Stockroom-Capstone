@@ -7,6 +7,7 @@
 "./Core/Src/funtion_main.o"
 "./Core/Src/gpio.o"
 "./Core/Src/main.o"
+"./Core/Src/manager_EEPROM.o"
 "./Core/Src/manager_file.o"
 "./Core/Src/manager_io.o"
 "./Core/Src/manager_mux.o"

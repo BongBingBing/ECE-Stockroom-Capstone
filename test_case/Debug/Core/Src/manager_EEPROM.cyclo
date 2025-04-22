@@ -1,0 +1,5 @@
+../Core/Src/manager_EEPROM.c:20:6:EEPROM_WriteEnable	1
+../Core/Src/manager_EEPROM.c:30:6:EEPROM_WriteByte	1
+../Core/Src/manager_EEPROM.c:40:9:EEPROM_ReadByte	1
+../Core/Src/manager_EEPROM.c:52:9:EEPROM_ReadStatus	1
+../Core/Src/manager_EEPROM.c:65:6:EEPROM_Write	3

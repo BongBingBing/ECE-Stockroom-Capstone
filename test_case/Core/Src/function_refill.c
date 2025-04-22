@@ -57,7 +57,7 @@ uint32_t getThresh(uint32_t tare, float calFactor){
 
 
 int refillDrawer(uint32_t tare, float calFactor){
-	printf("Please refill the current drawer\n\rPress and Hold the button when ready\n\r");
+	printf("Please refill the current drawer\n\rPress the CONFIRM button when ready\n\r");
 
 	//function to wait for a double press then a confirmation press
 	//button_output(num2);
