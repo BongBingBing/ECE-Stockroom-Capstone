@@ -216,7 +216,7 @@ int main(void)
 //	  EEPROM_CS_LOW();
 //	}
 
-	for (uint8_t j = 0; j <= 1; j++){
+	for (uint8_t j = 0; j <= 0; j++){
 
 		A = MuxCombos[j].A;
 		B = MuxCombos[j].B;
@@ -224,7 +224,7 @@ int main(void)
 
 		muxSET(A, B, C, 1);
 
-		for(uint8_t i = 0; i <= 1; i++){
+		for(uint8_t i = 0; i <= 4; i++){
 			EEPROM_CS_HIGH();
 			A = MuxCombos[i].A;
 			B = MuxCombos[i].B;
@@ -245,9 +245,17 @@ int main(void)
 	}
 	printf("Completed writing to all EEPROMs\n\r");
 
+
+	A = MuxCombos[0].A;
+	B = MuxCombos[0].B;
+	C = MuxCombos[0].C;
+
+	muxSET(A, B, C, 0);
+
+
 	int index = 0;
 	while(1){
-		index = index % 2;
+		index = index % 5;
 
 		EEPROM_CS_HIGH(); // Deselect EEPROM before switching MUX
 		HAL_Delay(10);    // Tiny delay for CS settling
@@ -257,7 +265,7 @@ int main(void)
 		B = MuxCombos[index].B;
 		C = MuxCombos[index].C;
 
-		muxSET(A, B, C, 1);
+		muxSET(A, B, C, 0);
 
 		HAL_Delay(10);
 
