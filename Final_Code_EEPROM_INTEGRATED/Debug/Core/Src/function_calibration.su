@@ -1,0 +1,3 @@
+../Core/Src/function_calibration.c:34:6:buttonPress	16	static
+../Core/Src/function_calibration.c:45:10:getTare	16	static
+../Core/Src/function_calibration.c:60:6:Calibrate	88	static
