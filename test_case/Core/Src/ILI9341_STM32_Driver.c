@@ -3,6 +3,9 @@
 volatile uint16_t LCD_HEIGHT = ILI9341_SCREEN_HEIGHT;
 volatile uint16_t LCD_WIDTH	 = ILI9341_SCREEN_WIDTH;
 
+// added
+extern int tft_y;
+
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
 {
   /* Deselect when Tx Complete */
@@ -304,8 +307,16 @@ void ILI9341_DrawColorBurst(uint16_t color, uint32_t size)
 
 void ILI9341_FillScreen(uint16_t color)
 {
+	// width = 320 & height = 240
 	ILI9341_SetAddress(0, 0, LCD_WIDTH, LCD_HEIGHT);
 	ILI9341_DrawColorBurst(color, LCD_WIDTH*LCD_HEIGHT);
+}
+
+// Added
+void ILI9341_TopScreen(uint16_t color){
+	tft_y = 0;
+	ILI9341_SetAddress(0,0,LCD_WIDTH, 80 );
+	ILI9341_DrawColorBurst(color,LCD_WIDTH*80);
 }
 
 void ILI9341_DrawPixel(uint16_t x,uint16_t y,uint16_t color)

@@ -104,7 +104,9 @@ void MX_TIM3_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM3_Init 2 */
-
+  __HAL_TIM_SET_COUNTER(&htim3, 0);           // Reset counter
+    HAL_TIM_Base_Stop_IT(&htim3);               // Ensure it's stopped and not running from startup
+    __HAL_TIM_CLEAR_FLAG(&htim3, TIM_FLAG_UPDATE); // Clear any pending update events
   /* USER CODE END TIM3_Init 2 */
 
 }
@@ -144,7 +146,9 @@ void MX_TIM4_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM4_Init 2 */
-
+  __HAL_TIM_SET_COUNTER(&htim4, 0);           // Reset counter
+    HAL_TIM_Base_Stop_IT(&htim4);               // Ensure it's stopped and not running from startup
+    __HAL_TIM_CLEAR_FLAG(&htim4, TIM_FLAG_UPDATE); // Clear any pending update events
   /* USER CODE END TIM4_Init 2 */
 
 }

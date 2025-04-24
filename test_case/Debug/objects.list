@@ -1,6 +1,7 @@
 "./Core/Src/ILI9341_GFX.o"
 "./Core/Src/ILI9341_STM32_Driver.o"
 "./Core/Src/dma.o"
+"./Core/Src/drawer_table.o"
 "./Core/Src/fonts.o"
 "./Core/Src/function_calibration.o"
 "./Core/Src/function_refill.o"

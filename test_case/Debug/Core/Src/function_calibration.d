@@ -39,7 +39,8 @@ Core/Src/function_calibration.o: ../Core/Src/function_calibration.c \
  ../Core/Inc/manager_file.h ../Core/Inc/manager_io.h \
  ../Core/Inc/manager_mux.h ../Core/Inc/manager_weight.h \
  ../Core/Inc/manager_relay.h ../Core/Inc/ILI9341_STM32_Driver.h \
- ../Core/Inc/ILI9341_GFX.h ../Core/Inc/fonts.h
+ ../Core/Inc/ILI9341_GFX.h ../Core/Inc/fonts.h ../Core/Src/drawer_table.h \
+ ../Core/Inc/fonts.h
 ../Core/Inc/usart.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -91,4 +92,6 @@ Core/Src/function_calibration.o: ../Core/Src/function_calibration.c \
 ../Core/Inc/manager_relay.h:
 ../Core/Inc/ILI9341_STM32_Driver.h:
 ../Core/Inc/ILI9341_GFX.h:
+../Core/Inc/fonts.h:
+../Core/Src/drawer_table.h:
 ../Core/Inc/fonts.h:

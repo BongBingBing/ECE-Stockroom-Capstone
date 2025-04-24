@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
+#include "drawer_table.h"
 
 /* USER CODE END Includes */
 
@@ -68,6 +69,11 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 // change these GPIO to the peripherals and pins we are using for project
 
+int row_num;
+int drawer_num;
+
+extern volatile bool reset_requested;
+extern volatile uint32_t reset_request_time;
 
 /* USER CODE END 0 */
 
@@ -143,6 +149,7 @@ int main(void)
   ILI9341_DrawText("Hello from STM32 UART!", FONT4, 55, 110, WHITE, BLACK);
   HAL_Delay(3000);
 
+  //drawer_table();
 
   /* USER CODE END 2 */
 
