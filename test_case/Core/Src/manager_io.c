@@ -59,14 +59,13 @@ volatile int timer_active = 0; // flag timer
 volatile unsigned int time_start;  // Timestamp of the button press
 unsigned int released_time; // Timestamp of the button released
 
-volatile bool reset_confirm_window_active = false;
-volatile uint32_t reset_button_time_start = 0;
+volatile bool reset_confirm_window_active = false; // checks if reset button was pressed
+volatile uint32_t reset_button_time_start = 0; // tracks the time when the reset button was pressed
 
+// tracks which button is read and what state it is in
 int num_button = 0;
 volatile uint8_t previous_button_state = 0;
-volatile uint32_t confirm_last_edge = 0;
 
-#define DEBOUNCE_DELAY 20
 #define NVIC_RESET_KEY 0x5FA0000
 
 // TFT
@@ -83,7 +82,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
 
 }
-
 
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
@@ -113,7 +111,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 				if (released_time >= 900){
 					LP_flag = 1;
-					//button_press = LONG_PRESS;
 					printf("LP\n\r");
 
 				}
@@ -131,6 +128,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 			HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
 }
+
 	else if (htim -> Instance == TIM4 && num_button == 1){
 		HAL_TIM_Base_Stop_IT(&htim4);
 
@@ -174,33 +172,27 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
         // Determine the result
         if (LP_flag == 1)
         {
-            //printf("LONG PRESS\n");
-        	input_type = 3;
+        	input_type = 3; // LONG PRESS
             printf("%d\n\r", input_type);
         }
         else if (count >= 2)
         {
-           // printf("DOUBLE PRESS\n");
-        	input_type = 2;
+        	input_type = 2; // DOUBLE PRESS
             printf("%d\n\r", input_type);
         }
         else if (count == 1 && button_press == PRESS_DETECTED)
         {
-            //printf("SINGLE PRESS\n");
-        	input_type = 1;
+        	input_type = 1; // SINGLE PRESS
             printf("%d\n\r", input_type);
         }
 
         // Reset everything
         else {
-        	//printf("Nope\n\r");
     		count = 0;
-    		//printf("%d\n\r", count);
     		LP_flag = 0;
     		button_press = IDLE;
 			}
 		count = 0;
-		//printf("%d\n\r", count);
 		LP_flag = 0;
 		button_press = IDLE;
 		}
@@ -208,8 +200,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	else if (htim->Instance == TIM3 && num_button == 1 && reset_confirm_window_active){
 	    HAL_TIM_Base_Stop_IT(&htim3);
 	    reset_confirm_window_active = false;
-
 	    printf("\n\rReset canceled. Returning to normal operation.\n\r");
+	    //TFT
 	    ILI9341_DrawText("Reset canceled. Returning to normal operation.", FONT4, 0, tft_y, WHITE, BLACK);
 	    HAL_Delay(2500);
 		ILI9341_TopScreen(BLACK);
