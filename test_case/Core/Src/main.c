@@ -148,8 +148,8 @@ int main(void)
   ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
   ILI9341_DrawText("Hello from STM32 UART!", FONT4, 55, 110, WHITE, BLACK);
   HAL_Delay(3000);
-
-  //drawer_table();
+  ILI9341_FillScreen(BLACK);
+  drawer_table();
 
   /* USER CODE END 2 */
 

@@ -11,6 +11,8 @@
 #include "tim.h"
 #include "gpio.h"
 #include <manager_io.h>
+#include "ILI9341_STM32_Driver.h"
+#include "ILI9341_GFX.h"
 
 #ifdef __GNUC__
 #define GETCHAR_PROTOTYPE int __io_getchar(void)
@@ -18,6 +20,7 @@
 #define GETCHAR_PROTOTYPE int fgetc(FILE *f)
 #endif
 
+//extern int tft_y;
 //Code to enable printf statements
 int _write(int file, char *data, int len) {
     HAL_UART_Transmit(&huart2, (uint8_t*)data, len, HAL_MAX_DELAY); // Replace &huart2 with your UART instance
@@ -43,25 +46,21 @@ GETCHAR_PROTOTYPE
 enum press_type {     IDLE,
     PRESS_DETECTED,
     WAIT_RELEASE,
-    LONG_PRESS,
+   // LONG_PRESS,
     TIME_WINDOW_END };
 volatile enum press_type button_press;
+
 // button states flags
-int i = 0;
-int j;
-int k = 0;
-// counts button presses
-int count = 0;
+int LP_flag = 0; // Long Press Flag
+int input_type; // Reads For Three Different Button Inputs
+
+int count = 0; // counts button presses
 volatile int timer_active = 0; // flag timer
 volatile unsigned int time_start;  // Timestamp of the button press
 unsigned int released_time; // Timestamp of the button released
-volatile bool reset_requested = false;
-volatile uint32_t reset_request_time = 0;
 
-volatile bool reset_debounce_pending = false;
 volatile bool reset_confirm_window_active = false;
 volatile uint32_t reset_button_time_start = 0;
-
 
 int num_button = 0;
 volatile uint8_t previous_button_state = 0;
@@ -70,21 +69,12 @@ volatile uint32_t confirm_last_edge = 0;
 #define DEBOUNCE_DELAY 20
 #define NVIC_RESET_KEY 0x5FA0000
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-    //uint32_t current_time = HAL_GetTick();
-	// D7
-	/*if (GPIO_Pin == RESET_BTN_Pin) {
-		//printf("Reset button Pressed");
-		num_button = 1;
+// TFT
+extern int tft_y;
 
-	    HAL_NVIC_DisableIRQ(EXTI1_IRQn); // assuming EXTI1 used for RESET
-	    __HAL_TIM_SET_COUNTER(&htim4, 0);
-	    HAL_TIM_Base_Start_IT(&htim4);
-	}
-*/
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	//D8
 		 if (GPIO_Pin == CONFIRM_BTN_Pin){
-			//printf("Confirm button Pressed");
 			num_button = 2;
 	        HAL_NVIC_DisableIRQ(EXTI0_IRQn); // Disable EXTI
 	        __HAL_TIM_SET_COUNTER(&htim4, 0);
@@ -103,7 +93,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 		 uint8_t current_button_state = HAL_GPIO_ReadPin(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
 
-			if(current_button_state == GPIO_PIN_SET && current_button_state != previous_button_state/*&& i == 0*/){
+			if(current_button_state == GPIO_PIN_SET && current_button_state != previous_button_state){
 				time_start = HAL_GetTick();
 				if (!timer_active){
 					 HAL_TIM_Base_Start_IT(&htim3);
@@ -122,8 +112,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 				released_time = HAL_GetTick() - time_start;
 
 				if (released_time >= 900){
-					i = 1;
-					button_press = LONG_PRESS;
+					LP_flag = 1;
+					//button_press = LONG_PRESS;
 					printf("LP\n\r");
 
 				}
@@ -150,25 +140,29 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		        uint32_t now = HAL_GetTick();
 
 		        if (!reset_confirm_window_active) {
-		            // First press → open confirmation window
+		            // First press -> open confirmation window
 		            reset_confirm_window_active = true;
 		            reset_button_time_start = now;
 
 		            printf("\n\rReset requested. Press again within 3 seconds to confirm.\n\r");
 
+		            //TFT
+		            ILI9341_DrawText("Reset requested. Press again within 3 seconds to confirm.", FONT4, 0, tft_y, WHITE, BLACK);
+		            tft_y+=20;
 		            __HAL_TIM_SET_COUNTER(&htim3, 0);
 		            HAL_TIM_Base_Start_IT(&htim3); // Start 3s countdown
 		        } else {
-		            // Second press within window → reset
+		            // Second press within window -> reset
 		            if ((now - reset_button_time_start) <= 3000) {
 		                printf("\n\rReset confirmed. Performing system reset...\n\r");
+		                //TFT
+		                ILI9341_DrawText("Reset confirmed. Performing system reset...", FONT4, 0, tft_y, WHITE, BLACK);
 		                HAL_NVIC_SystemReset();
 
 		            }
 		        }
 		    }
 
-		    reset_debounce_pending = false;
 		    __HAL_GPIO_EXTI_CLEAR_IT(RESET_BTN_Pin);
 		    HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 	}
@@ -178,36 +172,36 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
         timer_active = 0;
 
         // Determine the result
-        if (i == 1)
+        if (LP_flag == 1)
         {
             //printf("LONG PRESS\n");
-            j = 3;
-            printf("%d\n\r", j);
+        	input_type = 3;
+            printf("%d\n\r", input_type);
         }
         else if (count >= 2)
         {
            // printf("DOUBLE PRESS\n");
-            j = 2;
-            printf("%d\n\r", j);
+        	input_type = 2;
+            printf("%d\n\r", input_type);
         }
         else if (count == 1 && button_press == PRESS_DETECTED)
         {
             //printf("SINGLE PRESS\n");
-            j = 1;
-            printf("%d\n\r", j);
+        	input_type = 1;
+            printf("%d\n\r", input_type);
         }
 
         // Reset everything
-        /**/else {
+        else {
         	//printf("Nope\n\r");
     		count = 0;
     		//printf("%d\n\r", count);
-    		i = 0;
+    		LP_flag = 0;
     		button_press = IDLE;
 			}
 		count = 0;
 		//printf("%d\n\r", count);
-		i = 0;
+		LP_flag = 0;
 		button_press = IDLE;
 		}
 
@@ -216,6 +210,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	    reset_confirm_window_active = false;
 
 	    printf("\n\rReset canceled. Returning to normal operation.\n\r");
+	    ILI9341_DrawText("Reset canceled. Returning to normal operation.", FONT4, 0, tft_y, WHITE, BLACK);
+	    HAL_Delay(2500);
+		ILI9341_TopScreen(BLACK);
+
 		}
 
 	}
@@ -223,33 +221,48 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 void button_output(int button_num){
 	  while (true){
-		if(j == 1){
+		if(input_type == 1){
 			printf("SINGLE PRESS\n\r");
-			j = 0;
+			//TFT
+			ILI9341_TopScreen(BLACK);
+			ILI9341_DrawText("SINGLE PRESS", FONT4, 0, 0, WHITE, BLACK);
+			HAL_Delay(2000);
+			ILI9341_TopScreen(BLACK);
+			input_type = 0;
 
 	        // Reset everything
 	        count = 0;
-	        i = 0;
+	        LP_flag = 0;
 	        button_press = IDLE;
 			break;
 		}
-		else if (j == 2){
+		else if (input_type == 2){
 			printf("DOUBLE PRESS\n\r");
-			j = 0;
+			//TFT
+			ILI9341_TopScreen(BLACK);
+			ILI9341_DrawText("DOUBLE PRESS", FONT4, 0, 0, WHITE, BLACK);
+			HAL_Delay(2000);
+			ILI9341_TopScreen(BLACK);
+			input_type = 0;
 
 	        // Reset everything
 	        count = 0;
-	        i = 0;
+	        LP_flag = 0;
 	        button_press = IDLE;
 			break;
 		}
-		else if (j == 3){
+		else if (input_type == 3){
 			printf("LONG PRESS\n\r");
-			j = 0;
+			input_type = 0;
+			//TFT
+			ILI9341_TopScreen(BLACK);
+			ILI9341_DrawText("LONG PRESS", FONT4, 0, 0, WHITE, BLACK);
+			HAL_Delay(2000);
+			ILI9341_TopScreen(BLACK);
 
 	        // Reset everything
 	        count = 0;
-	        i = 0;
+	        LP_flag = 0;
 	        button_press = IDLE;
 			break;
 		}

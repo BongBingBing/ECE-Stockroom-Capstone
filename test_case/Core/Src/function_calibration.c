@@ -42,12 +42,14 @@ uint32_t getTare(){
 	char tft_attempt_num[50];
 
 	printf("Remove all weight from the drawer(5 seconds)\n\r");
-	HAL_Delay(5000);
+	HAL_Delay(1000);
 	printf("Gathering initial Tare of Load Cell...\n\r");
 	int weight_temp = 0;
 
 	//TFT
-	ILI9341_DrawText("Remove all weight from the drawer(5 seconds)", FONT4, 0, tft_y, WHITE, BLACK);
+	ILI9341_DrawText("Remove all weight from the drawer", FONT4, 0, tft_y, WHITE, BLACK);
+	tft_y +=20;
+	ILI9341_DrawText("(5 seconds)", FONT4, 0, tft_y, WHITE, BLACK);
 	tft_y +=20;
 	HAL_Delay(5000);
 	ILI9341_DrawText("Gathering initial Tare of Load Cell...", FONT4, 0, tft_y, WHITE, BLACK);
@@ -62,12 +64,19 @@ uint32_t getTare(){
 
 			//TFT
 			ILI9341_DrawText("Tare attempt ", FONT4, 0, tft_y, WHITE, BLACK);
-			snprintf(tft_weight_temp, sizeof(tft_weight_temp), "%d", tft_weight_temp);
-			ILI9341_DrawText(tft_weight_temp, FONT4, 50, tft_y, WHITE, BLACK);
-			HAL_Delay(10);
+			snprintf(tft_weight_temp, sizeof(tft_weight_temp), "%d", weight_temp);
+			ILI9341_DrawText(tft_weight_temp, FONT4, 120, tft_y, WHITE, BLACK);
+			tft_y +=20;
+			HAL_Delay(1000);
 
 		}
 	printf("Tare Set: %d\n\r", weight_temp);
+	//TFT
+	HAL_Delay(1000);
+	ILI9341_TopScreen(BLACK);
+	ILI9341_DrawText("Tare Set: ", FONT4, 0, tft_y, WHITE, BLACK);
+	ILI9341_DrawText(tft_weight_temp, FONT4, 90, tft_y, WHITE, BLACK);
+	HAL_Delay(2000);
 	return weight_temp;
 }
 
@@ -89,7 +98,7 @@ void Calibrate(){
 	f_unlink("temp_drawerConfig.txt"); //deletes the original file
 
 
-	for(int i = 2; i <= 4; i++){
+	for(int i = 1; i <= 1; i++){
 
 		uint16_t A_mast = MuxCombos[i-1].A;
 		uint16_t B_mast = MuxCombos[i-1].B;
@@ -114,7 +123,7 @@ void Calibrate(){
 				snprintf(tft_row, sizeof(tft_row), "%d", i);
 				ILI9341_DrawText("ROW ", FONT4, 0, tft_y, WHITE, BLACK);
 				ILI9341_DrawText(tft_row, FONT4, 55, tft_y, WHITE, BLACK);
-				snprintf(tft_drawer, sizeof(tft_drawer), "%d", i);
+				snprintf(tft_drawer, sizeof(tft_drawer), "%d", j);
 				ILI9341_DrawText(" | DRAWER ",FONT4, 60, tft_y, WHITE, BLACK);
 				ILI9341_DrawText(tft_drawer, FONT4, 175, tft_y, WHITE, BLACK);
 				tft_y +=20;
@@ -125,6 +134,7 @@ void Calibrate(){
 				printf("Place the calibration weight on the drawer\n\rPress the button once when ready to calibrate\n\r");
 
 				//TFT
+				ILI9341_TopScreen(BLACK);
 				ILI9341_DrawText("Place the calibration weight", FONT4, 0, tft_y, WHITE, BLACK);
 				tft_y +=20;
 				ILI9341_DrawText("on the drawer", FONT4, 0, tft_y, WHITE, BLACK);
