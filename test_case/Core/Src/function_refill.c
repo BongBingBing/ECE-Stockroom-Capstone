@@ -50,6 +50,9 @@ uint32_t getThresh(uint32_t tare, float calFactor){
 
 
 int refillDrawer(uint32_t tare, float calFactor){
+
+	uint32_t thresh;
+
 	printf("Please refill the current drawer\n\rPress and Hold the button when ready\n\r");
 
 	//TFT
@@ -62,45 +65,46 @@ int refillDrawer(uint32_t tare, float calFactor){
 	tft_y+=20;
 	drawer_lookup(row_num,drawer_num,'R');
 
-	int test;
+	int refill_output;
 	// waits for the user to press the button within 15 seconds
-	test = button_refill();
+	refill_output = button_refill();
 
-	if (test == 1){
+	if (refill_output == 1){
 		// if pressed, change dot to white
 		printf("true\n\r");
 		HAL_Delay(1500);
 
-		uint32_t thresh = getThresh(tare, calFactor);
+		 thresh = getThresh(tare, calFactor);
 		printf("Threshold set to %ld\n\r", thresh);
 
 		//TFT
 		ILI9341_DrawText("Threshold set to",FONT4, 0, tft_y, WHITE, BLACK);
-		snprintf(tft_thresh, sizeof(tft_thresh), "%d", thresh);
+		snprintf(tft_thresh, sizeof(tft_thresh), "%ld", thresh);
 		ILI9341_DrawText(tft_thresh,FONT4, 155, tft_y, WHITE, BLACK);
 		tft_y+=20;
 		drawer_lookup(row_num,drawer_num,'W');
-		return thresh;
+		//return thresh;
 
 	}
 
-	else if (test == 0){
+	else if (refill_output == 0){
 		// if timer goes off and no press is read, leave the dot as red
 		printf("false\n\r");
 		HAL_Delay(1500);
 
-		uint32_t thresh = getThresh(tare, calFactor);
+		 thresh = getThresh(tare, calFactor);
 		printf("Threshold set to %ld\n\r", thresh);
 
 		//TFT
 		ILI9341_DrawText("Threshold set to",FONT4, 0, tft_y, WHITE, BLACK);
-		snprintf(tft_thresh, sizeof(tft_thresh), "%d", thresh);
+		snprintf(tft_thresh, sizeof(tft_thresh), "%ld", thresh);
 		ILI9341_DrawText(tft_thresh,FONT4, 155, tft_y, WHITE, BLACK);
 		tft_y+=20;
-		return thresh;
+		//return thresh;
 
 	}
 
+	return thresh;
 
 
 }

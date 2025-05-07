@@ -139,8 +139,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   ILI9341_Init();
 
-  int rectXStart = 80;
-  int rectYStart = 80;
+//  int rectXStart = 80;
+//  int rectYStart = 80;
 
   // Simple Text writing (Text, Font, X, Y, Color, BackColor)
   // Available Fonts are FONT1, FONT2, FONT3 and FONT4
@@ -149,7 +149,7 @@ int main(void)
   ILI9341_DrawText("Hello from STM32 UART!", FONT4, 55, 110, WHITE, BLACK);
   HAL_Delay(3000);
   ILI9341_FillScreen(BLACK);
-  drawer_table();
+  //drawer_table();
 
   /* USER CODE END 2 */
 

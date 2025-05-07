@@ -1,5 +1,5 @@
 Core/Src/drawer_table.o: ../Core/Src/drawer_table.c \
- ../Core/Src/drawer_table.h ../Core/Inc/ILI9341_STM32_Driver.h \
+ ../Core/Inc/drawer_table.h ../Core/Inc/ILI9341_STM32_Driver.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -29,8 +29,10 @@ Core/Src/drawer_table.o: ../Core/Src/drawer_table.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/ILI9341_GFX.h ../Core/Inc/fonts.h ../Core/Inc/fonts.h
-../Core/Src/drawer_table.h:
+ ../Core/Inc/ILI9341_GFX.h ../Core/Inc/fonts.h \
+ ../Core/Inc/ILI9341_STM32_Driver.h ../Core/Inc/ILI9341_GFX.h \
+ ../Core/Inc/fonts.h
+../Core/Inc/drawer_table.h:
 ../Core/Inc/ILI9341_STM32_Driver.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -63,4 +65,6 @@ Core/Src/drawer_table.o: ../Core/Src/drawer_table.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/ILI9341_GFX.h:
 ../Core/Inc/fonts.h:
+../Core/Inc/ILI9341_STM32_Driver.h:
+../Core/Inc/ILI9341_GFX.h:
 ../Core/Inc/fonts.h:

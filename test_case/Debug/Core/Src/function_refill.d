@@ -32,8 +32,8 @@ Core/Src/function_refill.o: ../Core/Src/function_refill.c \
  ../Core/Inc/usart.h ../Core/Inc/usart.h ../Core/Inc/tim.h \
  ../Core/Inc/main.h ../Core/Inc/manager_io.h ../Core/Inc/manager_mux.h \
  ../Core/Inc/manager_weight.h ../Core/Inc/ILI9341_STM32_Driver.h \
- ../Core/Inc/ILI9341_GFX.h ../Core/Inc/fonts.h ../Core/Src/drawer_table.h \
- ../Core/Inc/fonts.h
+ ../Core/Inc/ILI9341_GFX.h ../Core/Inc/fonts.h ../Core/Inc/drawer_table.h \
+ ../Core/Inc/ILI9341_STM32_Driver.h ../Core/Inc/ILI9341_GFX.h
 ../Core/Inc/manager_file.h:
 ../Core/Inc/gpio.h:
 ../Core/Inc/main.h:
@@ -76,5 +76,6 @@ Core/Src/function_refill.o: ../Core/Src/function_refill.c \
 ../Core/Inc/ILI9341_STM32_Driver.h:
 ../Core/Inc/ILI9341_GFX.h:
 ../Core/Inc/fonts.h:
-../Core/Src/drawer_table.h:
-../Core/Inc/fonts.h:
+../Core/Inc/drawer_table.h:
+../Core/Inc/ILI9341_STM32_Driver.h:
+../Core/Inc/ILI9341_GFX.h:
