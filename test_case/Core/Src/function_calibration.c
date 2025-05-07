@@ -31,7 +31,7 @@ extern int row_num;
 extern int drawer_num;
 
 //TFT Print Variables
-int tft_y = 0;
+int tft_y = 0; // to move text to the next line
 char tft_row[50];
 char tft_drawer[50];
 char tft_knownHX711[50];
@@ -39,7 +39,6 @@ char tft_weights[50];
 
 uint32_t getTare(){
 	char tft_weight_temp[50];
-	char tft_attempt_num[50];
 
 	printf("Remove all weight from the drawer(5 seconds)\n\r");
 	HAL_Delay(1000);
