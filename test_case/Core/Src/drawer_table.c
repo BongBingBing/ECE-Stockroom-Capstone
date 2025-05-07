@@ -68,8 +68,8 @@ const Location* find_coord(const char *key){
 
 /**/
 void drawer_lookup(uint16_t rows, uint16_t drawer, char colors){
-	printf("%d\n\r", rows);
-	printf("%d\n\r", drawer);
+	//printf("%d\n\r", rows);
+	//printf("%d\n\r", drawer);
 	switch (rows){
 		case 1:
 			const Location *info = find_coord("ROW 1");
@@ -78,8 +78,8 @@ void drawer_lookup(uint16_t rows, uint16_t drawer, char colors){
 					if (i == (drawer - 1)){
 						LCD_X = info->coord[i].x;
 						LCD_Y = info->coord[i].y;
-						printf("X: %lf\n\r", LCD_X);
-						printf("Y: %lf\n\r", LCD_Y);
+						//printf("X: %lf\n\r", LCD_X);
+						//printf("Y: %lf\n\r", LCD_Y);
 						break;
 					}
 				}
@@ -223,13 +223,8 @@ void drawer_table() {
 
 	    	  }
 
-	    	 // printf("y: %lf\n\r", circley);
-	    	 // printf("x: %lf\n\r", circlex);
-
     		  circley += 36.25;
     		  circlex = 106.075;
-
-    		 // printf("x: %lf\n\r", circlex);
 
 	      }
 

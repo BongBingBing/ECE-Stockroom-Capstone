@@ -17,6 +17,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 
 void button_output(int button_num);
 
+int button_refill();
 
 extern bool confirm_button;
 extern bool reset_button;

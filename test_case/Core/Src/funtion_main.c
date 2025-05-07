@@ -97,9 +97,9 @@ void main_function(){
 
 					if((thresh + 100) > normalizedWeight){
 						//LCD CODE
-								 row_num = i;
-								 drawer_num = j;
-								//drawer_lookup(i,j,'W');
+						row_num = i;
+						drawer_num = j;
+
 						thresh = refillDrawer(tare, calFactor);
 						updateDrawerConfig(i, j, calFactor, tare, thresh);
 					}
