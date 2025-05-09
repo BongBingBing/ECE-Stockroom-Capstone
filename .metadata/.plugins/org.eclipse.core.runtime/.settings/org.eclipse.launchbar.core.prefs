@@ -10,6 +10,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Autonomous_Inventory_Differenti
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Autonomous_Inventory_Differential_Array\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:EEPROM\ Testing\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:EEPROM\ Testing\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Final_Code/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ILI9341\ TFT\ Test\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ILI9341\ TFT\ Test\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LCD_ILI9341_TouchScreen/activeLaunchMode=run

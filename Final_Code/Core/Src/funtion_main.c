@@ -53,9 +53,9 @@ void main_function(){
 			snprintf(tft_row, sizeof(tft_drawer), "%d", i);
 			ILI9341_DrawText(tft_row, FONT4, 55, tft_y, WHITE, BLACK);
 
-			uint16_t A_mast = MuxCombos[i-1].A;
-			uint16_t B_mast = MuxCombos[i-1].B;
-			uint16_t C_mast = MuxCombos[i-1].C;
+			uint16_t A_mast = MuxCombosRows[i-1].A;
+			uint16_t B_mast = MuxCombosRows[i-1].B;
+			uint16_t C_mast = MuxCombosRows[i-1].C;
 
 			muxSET(A_mast, B_mast, C_mast, 1);
 
@@ -67,9 +67,9 @@ void main_function(){
 					sum = 0;
 					normalizedWeight = 0;
 
-					uint16_t A_slave = MuxCombos[j-1].A;
-					uint16_t B_slave = MuxCombos[j-1].B;
-					uint16_t C_slave = MuxCombos[j-1].C;
+					uint16_t A_slave = MuxCombosDrawers[j-1].A;
+					uint16_t B_slave = MuxCombosDrawers[j-1].B;
+					uint16_t C_slave = MuxCombosDrawers[j-1].C;
 
 					muxSET(A_slave, B_slave, C_slave, 0);
 
@@ -114,9 +114,9 @@ void main_function(){
 					sum = 0;
 					normalizedWeight = 0;
 
-					uint16_t A_slave = MuxCombos[k-1].A;
-					uint16_t B_slave = MuxCombos[k-1].B;
-					uint16_t C_slave = MuxCombos[k-1].C;
+					uint16_t A_slave = MuxCombosDrawers[k-1].A;
+					uint16_t B_slave = MuxCombosDrawers[k-1].B;
+					uint16_t C_slave = MuxCombosDrawers[k-1].C;
 
 					muxSET(A_slave, B_slave, C_slave, 0);
 

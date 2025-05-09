@@ -24,6 +24,8 @@
 			<item value="org.eclipse.ui.Basic"/>
 			<item value="org.eclipse.cdt.ui.importWizardCategory"/>
 		</list>
+		<section name="ImportExportWizard.dialogBounds">
+		</section>
 	</section>
 	<section name="FileSystemExportWizard">
 		<item key="WizardFileSystemResourceExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID" value="false"/>

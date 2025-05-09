@@ -10,6 +10,7 @@
 #include <stdbool.h>
 #include "tim.h"
 #include "gpio.h"
+#include <function_calibration.h>
 #include <manager_io.h>
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
@@ -67,6 +68,8 @@ int num_button = 0;
 volatile uint8_t previous_button_state = 0;
 
 #define NVIC_RESET_KEY 0x5FA0000
+
+int previoous_function;
 
 // TFT
 extern int tft_y;
@@ -161,6 +164,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		            printf("\n\rReset requested. Press again within 3 seconds to confirm.\n\r");
 
 		            //TFT
+		      			ILI9341_TopScreen(BLACK);
 		            ILI9341_DrawText("Reset requested. Press again within 3 seconds to confirm.", FONT4, 0, tft_y, WHITE, BLACK);
 		            tft_y+=20;
 		            __HAL_TIM_SET_COUNTER(&htim3, 0);
@@ -170,6 +174,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		        else {
 		            // Second press within window -> reset
 		            if ((now - reset_button_time_start) <= 3000) {
+		        			ILI9341_TopScreen(BLACK);
 		                printf("\n\rReset confirmed. Performing system reset...\n\r");
 		                //TFT
 		                ILI9341_DrawText("Reset confirmed. Performing system reset...", FONT4, 0, tft_y, WHITE, BLACK);
@@ -216,13 +221,32 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		}
 
 	else if (htim->Instance == TIM3 && num_button == 1 && reset_confirm_window_active){
-	    HAL_TIM_Base_Stop_IT(&htim3);
-	    reset_confirm_window_active = false;
-	    printf("\n\rReset canceled. Returning to normal operation.\n\r");
+
+
+	  	if (previoous_function == 1){
+	  		HAL_TIM_Base_Stop_IT(&htim3);
+	  		reset_confirm_window_active = false;
+	  		printf("\n\rReset canceled. Returning to normal operation.\n\r");
+//	  		ILI9341_TopScreen(BLACK);
+//				ILI9341_DrawText("Reset canceled. Returning to normal operation.", FONT4, 0, tft_y, WHITE, BLACK);
+//				HAL_Delay(2500);
+//				ILI9341_TopScreen(BLACK);
+				//printf("\n\r Testing previous_function variable = %d",previoous_function );
+	  		return;
+	  		}
+	   // printf("\n\r previous function variable value: %d", previoous_function);
+
+
 	    //TFT
+			ILI9341_TopScreen(BLACK);
 	    ILI9341_DrawText("Reset canceled. Returning to normal operation.", FONT4, 0, tft_y, WHITE, BLACK);
 	    HAL_Delay(2500);
-		ILI9341_TopScreen(BLACK);
+	    ILI9341_TopScreen(BLACK);
+
+//		else if(previoous_function == 2){
+//
+//		}
+
 
 		}
 

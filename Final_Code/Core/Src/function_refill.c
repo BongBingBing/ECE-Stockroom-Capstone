@@ -31,6 +31,8 @@ extern int row_num;
 extern int drawer_num;
 extern int tft_y;
 
+extern int previoous_function;
+
 int num2 = 2;
 
 uint32_t getThresh(uint32_t tare, float calFactor){
@@ -50,6 +52,8 @@ uint32_t getThresh(uint32_t tare, float calFactor){
 
 
 int refillDrawer(uint32_t tare, float calFactor){
+
+	previoous_function = 2;
 
 	uint32_t thresh;
 

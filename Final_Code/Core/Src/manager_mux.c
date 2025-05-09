@@ -25,11 +25,21 @@
 //#define SLAVE_C_Pin GPIO_PIN_3
 //#define SLAVE_C_GPIO_Port GPIOB
 
-const struct MuxCombo MuxCombos[] = {
+const struct MuxCombo MuxCombosRows[] = {
 	  {0, 0, 0},
 	  {0, 0, 1},
 	  {0, 1, 1},
 	  {0, 1, 0},
+	  {1, 0, 0},
+	  {1, 0, 1},
+	  {1, 1, 0}
+	};
+
+const struct MuxCombo MuxCombosDrawers[] = {
+	  {0, 0, 0},
+	  {0, 0, 1},
+	  {0, 1, 0},
+	  {0, 1, 1},
 	  {1, 0, 0},
 	  {1, 0, 1},
 	  {1, 1, 0}

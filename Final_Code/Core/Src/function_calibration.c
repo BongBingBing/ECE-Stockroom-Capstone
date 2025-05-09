@@ -32,6 +32,8 @@ int num = 2;
 extern int row_num;
 extern int drawer_num;
 
+extern int previoous_function;
+
 //TFT Print Variables
 int tft_y = 0; // to move text to the next line
 char tft_row[50];
@@ -42,6 +44,7 @@ char tft_weights[50];
 uint8_t button = 0;
 
 void buttonPress(){
+	previoous_function = 1;
 	while(1){
 		button = HAL_GPIO_ReadPin(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
 		if(button){
@@ -95,6 +98,8 @@ uint32_t getTare(){
 }
 
 void Calibrate(){
+	previoous_function = 1;
+
 	printf("Beginning with Row: 1 Drawer: 1\n\r");
 // TFT
 	ILI9341_DrawText("Beginning with Row: 1 Drawer: 1", FONT4, 0, tft_y, WHITE, BLACK);
@@ -112,11 +117,11 @@ void Calibrate(){
 	f_unlink("temp_drawerConfig.txt"); //deletes the original file
 
 
-	for(int i = 1; i <= 2; i++){
+	for(int i = 1; i <= 4; i++){
 
-		uint16_t A_mast = MuxCombos[i-1].A;
-		uint16_t B_mast = MuxCombos[i-1].B;
-		uint16_t C_mast = MuxCombos[i-1].C;
+		uint16_t A_mast = MuxCombosRows[i-1].A;
+		uint16_t B_mast = MuxCombosRows[i-1].B;
+		uint16_t C_mast = MuxCombosRows[i-1].C;
 
 		muxSET(A_mast, B_mast, C_mast, 1);
 
@@ -125,9 +130,9 @@ void Calibrate(){
 		if(i == 1){
 			for(int j = 1; j <= 4; j++){
 
-				uint16_t A_slave = MuxCombos[j-1].A;
-				uint16_t B_slave = MuxCombos[j-1].B;
-				uint16_t C_slave = MuxCombos[j-1].C;
+				uint16_t A_slave = MuxCombosDrawers[j-1].A;
+				uint16_t B_slave = MuxCombosDrawers[j-1].B;
+				uint16_t C_slave = MuxCombosDrawers[j-1].C;
 
 				muxSET(A_slave, B_slave, C_slave, 0);
 				printf("FIRST ROW\n\r");
@@ -143,7 +148,7 @@ void Calibrate(){
 				ILI9341_DrawText("DRW:",FONT4, 0, tft_y+20, WHITE, BLACK);
 				ILI9341_DrawText(tft_drawer, FONT4, 55, tft_y+20, WHITE, BLACK);
 				tft_y +=20;
-				HAL_Delay(2000);
+				HAL_Delay(1000);
 				ILI9341_TopScreen(BLACK);
 
 				tare = getTare();
@@ -204,23 +209,24 @@ void Calibrate(){
 		else{
 			for(int k = 1; k <= 7; k++){
 
-				uint16_t A_slave = MuxCombos[k-1].A;
-				uint16_t B_slave = MuxCombos[k-1].B;
-				uint16_t C_slave = MuxCombos[k-1].C;
+				uint16_t A_slave = MuxCombosDrawers[k-1].A;
+				uint16_t B_slave = MuxCombosDrawers[k-1].B;
+				uint16_t C_slave = MuxCombosDrawers[k-1].C;
 
 				muxSET(A_slave, B_slave, C_slave, 0);
 
 				printf("ROW %d | DRAWER %d\n\r", i, k);
 
 				//TFT
+				drawer_lookup(i,k,'B');
 				snprintf(tft_row, sizeof(tft_row), "%d", i);
-				ILI9341_DrawText("ROW ", FONT4, 0, tft_y, WHITE, BLACK);
+				ILI9341_DrawText("ROW:", FONT4, 0, tft_y, WHITE, BLACK);
 				ILI9341_DrawText(tft_row, FONT4, 55, tft_y, WHITE, BLACK);
-				snprintf(tft_drawer, sizeof(tft_drawer), "%d", i);
-				ILI9341_DrawText(" | DRAWER ",FONT4, 60, tft_y, WHITE, BLACK);
-				ILI9341_DrawText(tft_drawer, FONT4, 175, tft_y, WHITE, BLACK);
+				snprintf(tft_drawer, sizeof(tft_drawer), "%d", k);
+				ILI9341_DrawText("DRW:",FONT4, 0, tft_y+20, WHITE, BLACK);
+				ILI9341_DrawText(tft_drawer, FONT4, 55, tft_y+20, WHITE, BLACK);
 				tft_y +=20;
-				HAL_Delay(2000);
+				HAL_Delay(1000);
 				ILI9341_TopScreen(BLACK);
 
 				tare = getTare();
@@ -268,6 +274,10 @@ void Calibrate(){
 					tft_y +=20;
 					HAL_Delay(400);
 				}
+
+				row_num = i;
+				drawer_num = k;
+
 
 				thresh = refillDrawer(tare, calFactor);
 

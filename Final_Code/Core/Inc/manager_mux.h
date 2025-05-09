@@ -18,7 +18,8 @@ struct MuxCombo {
   unsigned char A;
 };
 
-extern const struct MuxCombo MuxCombos[];
+extern const struct MuxCombo MuxCombosRows[];
+extern const struct MuxCombo MuxCombosDrawers[];
 
 void muxSET(uint16_t A, uint16_t B, uint16_t C, bool control);
 
