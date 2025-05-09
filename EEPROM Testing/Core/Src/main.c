@@ -31,8 +31,8 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-#define EEPROM_CS_LOW()  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_SET)
-#define EEPROM_CS_HIGH() HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_RESET)
+#define EEPROM_CS_LOW()  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_RESET)
+#define EEPROM_CS_HIGH() HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_SET)
 
 /* USER CODE END PTD */
 
@@ -215,6 +215,13 @@ int main(void)
 //	  HAL_Delay(1000);
 //	  EEPROM_CS_LOW();
 //	}
+	while(1){
+		EEPROM_Write(addr, writeData[0]);
+		HAL_Delay(100);
+		uint8_t readData = 0;
+		readData = EEPROM_ReadByte(addr);
+		printf("EEPROM %d, Read back: 0x%02X\r\n", 1, readData);
+	}
 
 	for (uint8_t j = 0; j <= 0; j++){
 

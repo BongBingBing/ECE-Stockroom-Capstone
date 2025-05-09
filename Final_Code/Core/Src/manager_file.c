@@ -103,7 +103,7 @@ uint32_t getData(char* token){
 	for(uint16_t i = 0; i <= 1; i++){
 		char* temp_token = strtok(token, ":");
 		if(i == 1){
-
+			printf("Inside of getData, converting token of %s to long of %ld\n\r", temp_token, strtol(temp_token, NULL, 10));
 			return strtol(temp_token, NULL, 10);
 		}
 	}
@@ -124,19 +124,25 @@ uint16_t getLineMarker(uint16_t row, uint16_t drawer){
 		TCHAR* rres = 0;
 		do{
 			rres = f_gets((TCHAR*)buffer, MAX_FILELINE, &fil);
+			//	printf("acquired line from file (%s)\n", rres);
 
 			//char* fileLine = fgets(buffer, MAX_FILELINE, drawerConfig);
 			char* token = strtok(rres, ";");
+			printf("acquired token (%s)\n\r", token);
 
 				for(uint16_t i = 0; i <= 1 ; i++){
 					array[i] = getData(token);
+					printf("Array index: %d | with a value of %d\n\r", i, array[i]);
 				}
 
 			if(row == array[0] && drawer == array[1]){
-					return fileIndex;
+				printf("Acquired Index: %d\n\r", fileIndex);
+				return fileIndex;
+
 			}
 			else{
 				fileIndex++;
+				printf("File Index increased: %d\n\r", fileIndex);
 
 			}
 		}while(rres != 0);
@@ -216,29 +222,36 @@ struct drawerInfo getFileInfo(uint16_t row, uint16_t drawer){ //add ID parameter
 			while(1);
 		}
 	else {
-		TCHAR* rres = 0;
+		TCHAR* rres = 1;
+
+		printf("No error opening file");
 		do {
 
 				rres = f_gets((TCHAR*) buffer, MAX_FILELINE, &fil);
 
+				printf("Acquired line from file (%s)", rres);
+
 				if (fileIndex == lineMarker) {
-						char* token = strtok(buffer, ";");
-						unsigned int index = 0;
 
-						while (token != NULL) {
-								array[index] = getData(token);
-								token = strtok(NULL, ";");
-								index++;
-						}
-						f_close(&fil);
+					printf("found correct file line marker");
+					char* token = strtok(buffer, ";");
+					unsigned int index = 0;
 
-						drawerInst.row = array[0];
-						drawerInst.drawer = array[1];
-						drawerInst.calFactor = array[2];
-						drawerInst.Tare = array[3];
-						drawerInst.thresh = array[4];
+					while (token != NULL) {
 
-						return drawerInst;
+							array[index] = getData(token);
+							token = strtok(NULL, ";");
+							index++;
+					}
+					f_close(&fil);
+
+					drawerInst.row = array[0];
+					drawerInst.drawer = array[1];
+					drawerInst.calFactor = array[2];
+					drawerInst.Tare = array[3];
+					drawerInst.thresh = array[4];
+
+					return drawerInst;
 				}
 				fileIndex++;
 		}while(rres != 0);

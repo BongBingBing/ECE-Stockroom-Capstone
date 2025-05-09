@@ -79,14 +79,14 @@ void Error_Handler(void);
 #define CONFIRM_BTN_EXTI_IRQn EXTI2_IRQn
 #define SCK_DRW_Pin GPIO_PIN_10
 #define SCK_DRW_GPIO_Port GPIOB
-#define REL_1_Pin GPIO_PIN_6
-#define REL_1_GPIO_Port GPIOC
 #define DAT_IN_Pin GPIO_PIN_8
 #define DAT_IN_GPIO_Port GPIOA
 #define SPI1_CS_Pin GPIO_PIN_15
 #define SPI1_CS_GPIO_Port GPIOA
 #define EEPROM_CS_Pin GPIO_PIN_2
 #define EEPROM_CS_GPIO_Port GPIOD
+#define REL_1_Pin GPIO_PIN_6
+#define REL_1_GPIO_Port GPIOB
 #define REL_4_Pin GPIO_PIN_8
 #define REL_4_GPIO_Port GPIOB
 #define REL_3_Pin GPIO_PIN_9

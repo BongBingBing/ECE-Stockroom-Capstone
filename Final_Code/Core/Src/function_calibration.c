@@ -1,4 +1,4 @@
-`/*
+/*
  * Calibration_Manager.c
  *
  *  Created on: Nov 18, 2024
@@ -31,8 +31,9 @@
 
 
 void buttonPress(){
+	uint8_t button = 0;
 	while(1){
-		uint8_t button = HAL_GPIO_ReadPin(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
+		button = HAL_GPIO_ReadPin(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
 		if(button){
 			break;
 		}
@@ -82,13 +83,14 @@ void Calibrate(){
 		setRelay(i);
 
 		if(i == 1){
-			for(int j = 1; j <= 4; j++){
+			for(int j = 1; j <= 1; j++){
 
 				uint16_t A_slave = MuxCombos[j-1].A;
 				uint16_t B_slave = MuxCombos[j-1].B;
 				uint16_t C_slave = MuxCombos[j-1].C;
 
 				muxSET(A_slave, B_slave, C_slave, 0);
+				printf("FIRST ROW\n\r");
 
 				printf("ROW %d | DRAWER %d\n\r", i, j);
 				tare = getTare();

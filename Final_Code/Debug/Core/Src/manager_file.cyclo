@@ -2,5 +2,5 @@
 ../Core/Src/manager_file.c:70:6:saveDrawerConfig	4
 ../Core/Src/manager_file.c:102:10:getData	3
 ../Core/Src/manager_file.c:113:10:getLineMarker	6
-../Core/Src/manager_file.c:148:6:updateDrawerConfig	8
-../Core/Src/manager_file.c:205:19:getFileInfo	5
+../Core/Src/manager_file.c:154:6:updateDrawerConfig	8
+../Core/Src/manager_file.c:211:19:getFileInfo	5

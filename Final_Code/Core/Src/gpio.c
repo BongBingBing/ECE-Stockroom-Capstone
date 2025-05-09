@@ -52,14 +52,14 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, SLAVE_C_Pin|SLAVE_B_Pin|REL_2_Pin|REL_1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, SLAVE_C_Pin|SLAVE_B_Pin|REL_2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, MAST_A_Pin|MAST_B_Pin|MAST_C_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, SLAVE_A_Pin|SCK_DRW_Pin|GPIO_PIN_14|GPIO_PIN_15
-                          |GPIO_PIN_5|REL_4_Pin|REL_3_Pin, GPIO_PIN_RESET);
+                          |GPIO_PIN_5|REL_1_Pin|REL_4_Pin|REL_3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_SET);
@@ -67,8 +67,8 @@ void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(EEPROM_CS_GPIO_Port, EEPROM_CS_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : SLAVE_C_Pin SLAVE_B_Pin REL_2_Pin REL_1_Pin */
-  GPIO_InitStruct.Pin = SLAVE_C_Pin|SLAVE_B_Pin|REL_2_Pin|REL_1_Pin;
+  /*Configure GPIO pins : SLAVE_C_Pin SLAVE_B_Pin REL_2_Pin */
+  GPIO_InitStruct.Pin = SLAVE_C_Pin|SLAVE_B_Pin|REL_2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -82,9 +82,9 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SLAVE_A_Pin SCK_DRW_Pin PB14 PB15
-                           PB5 REL_4_Pin REL_3_Pin */
+                           PB5 REL_1_Pin REL_4_Pin REL_3_Pin */
   GPIO_InitStruct.Pin = SLAVE_A_Pin|SCK_DRW_Pin|GPIO_PIN_14|GPIO_PIN_15
-                          |GPIO_PIN_5|REL_4_Pin|REL_3_Pin;
+                          |GPIO_PIN_5|REL_1_Pin|REL_4_Pin|REL_3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

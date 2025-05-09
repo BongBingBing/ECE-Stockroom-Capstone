@@ -1,14 +1,51 @@
-23:28:25 **** Incremental Build of configuration Debug for project Final_Code_EEPROM_INTEGRATED ****
+00:18:15 **** Incremental Build of configuration Debug for project Final_Code ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/funtion_main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/funtion_main.d" -MT"Core/Src/funtion_main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/funtion_main.o"
-arm-none-eabi-gcc -o "Final_Code_EEPROM_INTEGRATED.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\Final_Code_EEPROM_INTEGRATED\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final_Code_EEPROM_INTEGRATED.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Final_Code_EEPROM_INTEGRATED.elf
+arm-none-eabi-gcc "../Core/Src/manager_file.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/manager_file.d" -MT"Core/Src/manager_file.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/manager_file.o"
+arm-none-eabi-gcc -o "Final_Code.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\Final_Code\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final_Code.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final_Code.elf
  
-arm-none-eabi-size  Final_Code_EEPROM_INTEGRATED.elf 
-arm-none-eabi-objdump -h -S Final_Code_EEPROM_INTEGRATED.elf  > "Final_Code_EEPROM_INTEGRATED.list"
+arm-none-eabi-size  Final_Code.elf 
    text	   data	    bss	    dec	    hex	filename
-  71124	    504	   5392	  77020	  12cdc	Final_Code_EEPROM_INTEGRATED.elf
+  67284	    504	   4832	  72620	  11bac	Final_Code.elf
 Finished building: default.size.stdout
  
-Finished building: Final_Code_EEPROM_INTEGRATED.list
+00:18:18 **** Incremental Build of configuration Debug for project Final_Code ****
+make -j16 all 
+arm-none-eabi-size  Final_Code.elf 
+   text	   data	    bss	    dec	    hex	filename
+  67284	    504	   4832	  72620	  11bac	Final_Code.elf
+Finished building: default.size.stdout
+ 
+00:19:01 **** Incremental Build of configuration Debug for project Final_Code ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/manager_file.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/manager_file.d" -MT"Core/Src/manager_file.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/manager_file.o"
+../Core/Src/manager_file.c: In function 'getFileInfo':
+../Core/Src/manager_file.c:225:31: warning: initialization of 'TCHAR *' {aka 'char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  225 |                 TCHAR* rres = 1;
+      |                               ^
+arm-none-eabi-gcc -o "Final_Code.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\Final_Code\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final_Code.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final_Code.elf
+ 
+arm-none-eabi-size  Final_Code.elf 
+   text	   data	    bss	    dec	    hex	filename
+  67284	    504	   4832	  72620	  11bac	Final_Code.elf
+Finished building: default.size.stdout
+ 
+00:28:59 **** Incremental Build of configuration Debug for project Final_Code ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:7: warning: unused variable 'rectYStart' [-Wunused-variable]
+  139 |   int rectYStart = 80;
+      |       ^~~~~~~~~~
+../Core/Src/main.c:138:7: warning: unused variable 'rectXStart' [-Wunused-variable]
+  138 |   int rectXStart = 80;
+      |       ^~~~~~~~~~
+arm-none-eabi-gcc -o "Final_Code.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\Final_Code\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final_Code.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Final_Code.elf
+ 
+arm-none-eabi-size  Final_Code.elf 
+   text	   data	    bss	    dec	    hex	filename
+  69732	    504	   5392	  75628	  1276c	Final_Code.elf
+Finished building: default.size.stdout
  

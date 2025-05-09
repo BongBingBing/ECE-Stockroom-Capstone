@@ -11669,3 +11669,69 @@ java.lang.Exception: Resource '/Final_Code' does not exist.
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-04-23 17:42:11.939
 !MESSAGE Indexed 'Final_Code' (47 sources, 157 headers) in 5.01 sec: 15,627 declarations; 83,357 references; 1 unresolved inclusions; 93 syntax errors; 241 unresolved names (0.24%)
+!SESSION 2025-04-23 23:33:01.970 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-23 23:33:05.786
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-23 23:33:05.787
+!MESSAGE Log4j2 initialized with config file C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-23 23:33:10.366
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-04-26 18:18:09.092 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2025-04-26 18:18:11.592
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-04-26 18:18:16.165
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-04-26 18:18:16.166
+!MESSAGE Log4j2 initialized with config file C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-04-26 18:18:25.009
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-05-06 21:50:04.659 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-05-06 21:50:10.027
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-05-06 21:50:10.027
+!MESSAGE Log4j2 initialized with config file C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-05-06 21:50:18.801
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.help.base 2 0 2025-05-07 01:15:03.366
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.cdt.doc.user_11.6.1.202406241230 [186]'. The index should be rebuilt with Lucene 9.11.1
+!SESSION 2025-05-07 22:16:45.752 -----------------------------------------------
+eclipse.buildId=Version 1.18.1
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-05-07 22:16:54.140
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-05-07 22:16:54.143
+!MESSAGE Log4j2 initialized with config file C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-05-07 22:17:02.737
+!MESSAGE Started RMI Server, listening on port 41337
