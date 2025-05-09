@@ -61,6 +61,7 @@ void ILI9341_SetAddress(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
 void ILI9341_DrawColor(uint16_t color);
 void ILI9341_DrawColorBurst(uint16_t color, uint32_t size);
 void ILI9341_FillScreen(uint16_t color);
+void ILI9341_TopScreen(uint16_t color);
 void ILI9341_DrawPixel(uint16_t x,uint16_t y,uint16_t color);
 void ILI9341_DrawRectangle(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
 void ILI9341_DrawHLine(uint16_t x, uint16_t y, uint16_t width, uint16_t color);

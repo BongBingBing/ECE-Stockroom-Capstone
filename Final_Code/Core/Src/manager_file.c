@@ -261,4 +261,3 @@ struct drawerInfo getFileInfo(uint16_t row, uint16_t drawer){ //add ID parameter
 	printf("An error occurred during info extraction.");
 	return drawerInst;
 }
-

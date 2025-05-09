@@ -34,6 +34,7 @@
 #include <stdio.h>
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
+#include "drawer_table.h"
 
 /* USER CODE END Includes */
 
@@ -69,6 +70,11 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 // change these GPIO to the peripherals and pins we are using for project
 
+int row_num;
+int drawer_num;
+
+extern volatile bool reset_requested;
+extern volatile uint32_t reset_request_time;
 
 /* USER CODE END 0 */
 
@@ -135,8 +141,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   ILI9341_Init();
 
-  int rectXStart = 80;
-  int rectYStart = 80;
+//  int rectXStart = 80;
+//  int rectYStart = 80;
 
   // Simple Text writing (Text, Font, X, Y, Color, BackColor)
   // Available Fonts are FONT1, FONT2, FONT3 and FONT4
@@ -144,7 +150,8 @@ int main(void)
   ILI9341_SetRotation(SCREEN_HORIZONTAL_2);
   ILI9341_DrawText("Hello from STM32 UART!", FONT4, 55, 110, WHITE, BLACK);
   HAL_Delay(3000);
-
+  ILI9341_FillScreen(BLACK);
+  //drawer_table();
 
   /* USER CODE END 2 */
 

@@ -28,7 +28,9 @@ Core/Src/manager_io.o: ../Core/Src/manager_io.c ../Core/Inc/usart.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/tim.h ../Core/Inc/gpio.h ../Core/Inc/manager_io.h
+ ../Core/Inc/tim.h ../Core/Inc/gpio.h ../Core/Inc/manager_io.h \
+ ../Core/Inc/ILI9341_STM32_Driver.h ../Core/Inc/ILI9341_GFX.h \
+ ../Core/Inc/fonts.h
 ../Core/Inc/usart.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -63,3 +65,6 @@ Core/Src/manager_io.o: ../Core/Src/manager_io.c ../Core/Inc/usart.h \
 ../Core/Inc/tim.h:
 ../Core/Inc/gpio.h:
 ../Core/Inc/manager_io.h:
+../Core/Inc/ILI9341_STM32_Driver.h:
+../Core/Inc/ILI9341_GFX.h:
+../Core/Inc/fonts.h:

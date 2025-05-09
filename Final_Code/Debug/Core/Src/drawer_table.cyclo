@@ -1,0 +1,3 @@
+../Core/Src/drawer_table.c:60:17:find_coord	3
+../Core/Src/drawer_table.c:70:6:drawer_lookup	29
+../Core/Src/drawer_table.c:164:6:drawer_table	8

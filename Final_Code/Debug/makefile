@@ -64,8 +64,13 @@ all: main-build
 main-build: Final_Code.elf secondary-outputs
 
 # Tool invocations
+<<<<<<< HEAD:Final_Code/Debug/makefile
 Final_Code.elf Final_Code.map: $(OBJS) $(USER_OBJS) C:\Users\Soup\ Machine\Desktop\Capstone\ Instance\ECE-Stockroom-Capstone\Final_Code\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-gcc -o "Final_Code.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Soup Machine\Desktop\Capstone Instance\ECE-Stockroom-Capstone\Final_Code\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final_Code.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+=======
+test_case.elf test_case.map: $(OBJS) $(USER_OBJS) C:\Users\buchi\Desktop\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "test_case.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\buchi\Desktop\Capstone\ECE-Stockroom-Capstone\test_case\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_case.map" -Wl,--gc-sections -static -u _scanf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+>>>>>>> origin/Joel's-Code:test_case/Debug/makefile
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -21,8 +21,18 @@
 #include <manager_relay.h>
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
+#include "drawer_table.h"
 
+extern int row_num;
+extern int drawer_num;
+int selector_button = 2;
 
+//TFT Code
+extern int tft_y;
+extern char tft_row[50];
+extern char tft_drawer[50];
+extern char tft_knownHX711[50];
+extern char tft_weights[50];
 
 void main_function(){
 
@@ -36,7 +46,12 @@ void main_function(){
 	uint16_t normalizedWeight;
 
 	for(uint16_t i = 1; i <= 4; i++){
-			printf("Row %d", i);
+			printf("Row %d ", i);
+
+			//TFT
+			ILI9341_DrawText("ROW ", FONT4, 0, tft_y, WHITE, BLACK);
+			snprintf(tft_row, sizeof(tft_drawer), "%d", i);
+			ILI9341_DrawText(tft_row, FONT4, 55, tft_y, WHITE, BLACK);
 
 			uint16_t A_mast = MuxCombos[i-1].A;
 			uint16_t B_mast = MuxCombos[i-1].B;
@@ -58,7 +73,12 @@ void main_function(){
 
 					muxSET(A_slave, B_slave, C_slave, 0);
 
-					printf("Drawer %d\n", j);
+					printf("Drawer %d\n\r", j);
+
+					//TFT
+					snprintf(tft_drawer, sizeof(tft_drawer), "%d", j);
+					ILI9341_DrawText(" DRAWER ",FONT4, 60, tft_y, WHITE, BLACK);
+					ILI9341_DrawText(tft_drawer, FONT4, 175, tft_y, WHITE, BLACK);
 
 					drawerInst = getFileInfo(i, j);
 
@@ -76,15 +96,18 @@ void main_function(){
 					normalizedWeight = sum / 4;
 
 					if((thresh + 100) > normalizedWeight){
+						//LCD CODE
+						row_num = i;
+						drawer_num = j;
 
 						thresh = refillDrawer(tare, calFactor);
 						updateDrawerConfig(i, j, calFactor, tare, thresh);
 					}
 
-
-
 				}
+
 			}
+
 			else{
 				for(int k = 1; k <= 7; k++){
 
@@ -97,7 +120,7 @@ void main_function(){
 
 					muxSET(A_slave, B_slave, C_slave, 0);
 
-					printf("Drawer %d", k);
+					printf("Drawer %d\n\r", k);
 
 					drawerInst = getFileInfo(i, k);
 
@@ -115,8 +138,23 @@ void main_function(){
 					normalizedWeight = sum / 4;
 
 					if((thresh + 100) > normalizedWeight){
-						printf("This drawer is low on components\n\rPlease refill the drawer");
+						printf("This drawer is low on components\n\rPlease refill the drawer\n\r");
 						printf("Press the selector button ONCE to continue\n\r");
+
+						//TFT
+						ILI9341_TopScreen(BLACK);
+						ILI9341_DrawText("This drawer is low on components", FONT4, 0, tft_y, WHITE, BLACK);
+						tft_y +=20;
+						ILI9341_DrawText("Please refill the drawer", FONT4, 0, tft_y, WHITE, BLACK);
+						tft_y +=20;
+						ILI9341_DrawText("Press the selector button", FONT4, 0, tft_y, WHITE, BLACK);
+						tft_y +=20;
+						ILI9341_DrawText("ONCE to continue", FONT4, 0, tft_y, WHITE, BLACK);
+
+						button_output(selector_button);
+						//LCD CODE
+						 row_num = i;
+						 drawer_num = k;
 
 						thresh = refillDrawer(tare, calFactor);
 						updateDrawerConfig(i, k, calFactor, tare, thresh);
