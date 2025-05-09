@@ -174,7 +174,7 @@ void drawer_table() {
 	  // Hollow Rectangle (Start X, Start Y, End X, End Y)
 	  ILI9341_FillScreen(BLACK);
 	  ILI9341_DrawHollowRectangleCoord(90, 90, 315, 235, WHITE);
-	  HAL_Delay(2000);
+	  HAL_Delay(200);
 
 
 	  // creating the seven columns
@@ -183,12 +183,12 @@ void drawer_table() {
 		  if ( i < 2){
 			 // Vertical Line (X, Y, Length, Color)
 			  ILI9341_DrawVLine(columns, 126.25, 108.75, WHITE);
-			  HAL_Delay(1000);
+			  HAL_Delay(100);
 		  }
 		  else {
 			 // Vertical Line (X, Y, Length, Color)
 			  ILI9341_DrawVLine(columns, 90, 145, WHITE);
-			  HAL_Delay(1000);
+			  HAL_Delay(100);
 		  }
 
 	  }
@@ -198,7 +198,7 @@ void drawer_table() {
 		  rows += 36.25;
 	     // Horizontal Line (X, Y, Length, Color)
 		  ILI9341_DrawHLine(90, rows, 225, WHITE);
-		  HAL_Delay(1000);
+		  HAL_Delay(100);
 
 	  }
 
@@ -209,7 +209,7 @@ void drawer_table() {
 	    		  int row1x = 202.575;
 	    		  for (int j = 1; j <= 4; j++){
 	    			 ILI9341_DrawFilledCircle(row1x, circley, 5, WHITE);
-	    			 HAL_Delay(500);
+	    			 HAL_Delay(100);
 	    			 row1x += 32.15;
 	    		  }
 	    	  }
@@ -217,7 +217,7 @@ void drawer_table() {
 	    	  else  {
 	    		  for (int j = 1; j <= 7; j++){
 		    		  ILI9341_DrawFilledCircle(circlex, circley, 5, WHITE);
-		    		  HAL_Delay(500);
+		    		  HAL_Delay(100);
 		    		  circlex += 32.15;
 	    		  }
 

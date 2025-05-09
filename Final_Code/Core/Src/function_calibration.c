@@ -39,6 +39,19 @@ char tft_drawer[50];
 char tft_knownHX711[50];
 char tft_weights[50];
 
+uint8_t button = 0;
+
+void buttonPress(){
+	while(1){
+		button = HAL_GPIO_ReadPin(CONFIRM_BTN_GPIO_Port, CONFIRM_BTN_Pin);
+		if(button){
+			break;
+		}
+	}
+}
+
+
+
 uint32_t getTare(){
 	char tft_weight_temp[50];
 
@@ -68,16 +81,16 @@ uint32_t getTare(){
 			snprintf(tft_weight_temp, sizeof(tft_weight_temp), "%d", weight_temp);
 			ILI9341_DrawText(tft_weight_temp, FONT4, 120, tft_y, WHITE, BLACK);
 			tft_y +=20;
-			HAL_Delay(1000);
+			HAL_Delay(500);
 
 		}
 	printf("Tare Set: %d\n\r", weight_temp);
 	//TFT
-	HAL_Delay(1000);
+	HAL_Delay(10);
 	ILI9341_TopScreen(BLACK);
 	ILI9341_DrawText("Tare Set: ", FONT4, 0, tft_y, WHITE, BLACK);
 	ILI9341_DrawText(tft_weight_temp, FONT4, 90, tft_y, WHITE, BLACK);
-	HAL_Delay(2000);
+	HAL_Delay(500);
 	return weight_temp;
 }
 
@@ -99,7 +112,7 @@ void Calibrate(){
 	f_unlink("temp_drawerConfig.txt"); //deletes the original file
 
 
-	for(int i = 1; i <= 1; i++){
+	for(int i = 1; i <= 2; i++){
 
 		uint16_t A_mast = MuxCombos[i-1].A;
 		uint16_t B_mast = MuxCombos[i-1].B;
@@ -110,7 +123,7 @@ void Calibrate(){
 		setRelay(i);
 
 		if(i == 1){
-			for(int j = 1; j <= 1; j++){
+			for(int j = 1; j <= 4; j++){
 
 				uint16_t A_slave = MuxCombos[j-1].A;
 				uint16_t B_slave = MuxCombos[j-1].B;
@@ -119,15 +132,16 @@ void Calibrate(){
 				muxSET(A_slave, B_slave, C_slave, 0);
 				printf("FIRST ROW\n\r");
 
-				printf("ROW %d | DRAWER %d\n\r", i, j);
+				printf("ROW:%d\n\rDRAWER:%d\n\r", i, j);
 
 				//TFT
+				drawer_lookup(i,j,'B');
 				snprintf(tft_row, sizeof(tft_row), "%d", i);
-				ILI9341_DrawText("ROW ", FONT4, 0, tft_y, WHITE, BLACK);
+				ILI9341_DrawText("ROW:", FONT4, 0, tft_y, WHITE, BLACK);
 				ILI9341_DrawText(tft_row, FONT4, 55, tft_y, WHITE, BLACK);
 				snprintf(tft_drawer, sizeof(tft_drawer), "%d", j);
-				ILI9341_DrawText(" | DRAWER ",FONT4, 60, tft_y, WHITE, BLACK);
-				ILI9341_DrawText(tft_drawer, FONT4, 175, tft_y, WHITE, BLACK);
+				ILI9341_DrawText("DRW:",FONT4, 0, tft_y+20, WHITE, BLACK);
+				ILI9341_DrawText(tft_drawer, FONT4, 55, tft_y+20, WHITE, BLACK);
 				tft_y +=20;
 				HAL_Delay(2000);
 				ILI9341_TopScreen(BLACK);
@@ -144,12 +158,14 @@ void Calibrate(){
 				ILI9341_DrawText("Press the button once ", FONT4, 0, tft_y, WHITE, BLACK);
 				tft_y +=20;
 				ILI9341_DrawText("when ready to calibrate ", FONT4, 0, tft_y, WHITE, BLACK);
-				drawer_lookup(i,j,'B');
-				 row_num = i;
-				 drawer_num = j;
+
+				row_num = i;
+				drawer_num = j;
 
 				 //double press confirmation here
-				button_output(num);
+				//button_output(num);
+
+				buttonPress();
 
 				knownHX711 = weighRawTare(tare);
 				printf("Read weight: %d\n\r", knownHX711);
@@ -168,13 +184,13 @@ void Calibrate(){
 				for(int p = 0; p < 4; p++){
 					int weight = weigh(tare, calFactor);
 					printf("Weight: %d\n\r", weight);
-					HAL_Delay(400);
+					HAL_Delay(10);
 					//TFT
 					snprintf(tft_weights, sizeof(tft_weights), "%d", weight);
 					ILI9341_DrawText("Weight: ",FONT4, 0, tft_y, WHITE, BLACK);
 					ILI9341_DrawText(tft_weights,FONT4, 65, tft_y, WHITE, BLACK);
 					tft_y +=20;
-					HAL_Delay(400);
+					HAL_Delay(500);
 				}
 
 				thresh = refillDrawer(tare, calFactor);
@@ -186,7 +202,7 @@ void Calibrate(){
 		}
 
 		else{
-			for(int k = 7; k <= 7; k++){
+			for(int k = 1; k <= 7; k++){
 
 				uint16_t A_slave = MuxCombos[k-1].A;
 				uint16_t B_slave = MuxCombos[k-1].B;
@@ -221,6 +237,7 @@ void Calibrate(){
 
 				//double press confirmation here
 				//button_output(num);
+
 				buttonPress();
 
 

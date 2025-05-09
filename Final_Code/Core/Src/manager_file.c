@@ -128,21 +128,21 @@ uint16_t getLineMarker(uint16_t row, uint16_t drawer){
 
 			//char* fileLine = fgets(buffer, MAX_FILELINE, drawerConfig);
 			char* token = strtok(rres, ";");
-			printf("acquired token (%s)\n\r", token);
+			//printf("acquired token (%s)\n\r", token);
 
 				for(uint16_t i = 0; i <= 1 ; i++){
 					array[i] = getData(token);
-					printf("Array index: %d | with a value of %d\n\r", i, array[i]);
+					//printf("Array index: %d | with a value of %d\n\r", i, array[i]);
 				}
 
 			if(row == array[0] && drawer == array[1]){
-				printf("Acquired Index: %d\n\r", fileIndex);
+				//printf("Acquired Index: %d\n\r", fileIndex);
 				return fileIndex;
 
 			}
 			else{
 				fileIndex++;
-				printf("File Index increased: %d\n\r", fileIndex);
+				//printf("File Index increased: %d\n\r", fileIndex);
 
 			}
 		}while(rres != 0);
@@ -229,11 +229,11 @@ struct drawerInfo getFileInfo(uint16_t row, uint16_t drawer){ //add ID parameter
 
 				rres = f_gets((TCHAR*) buffer, MAX_FILELINE, &fil);
 
-				printf("Acquired line from file (%s)", rres);
+				//printf("Acquired line from file (%s)", rres);
 
 				if (fileIndex == lineMarker) {
 
-					printf("found correct file line marker");
+					//printf("found correct file line marker");
 					char* token = strtok(buffer, ";");
 					unsigned int index = 0;
 

@@ -151,7 +151,7 @@ int main(void)
   ILI9341_DrawText("Hello from STM32 UART!", FONT4, 55, 110, WHITE, BLACK);
   HAL_Delay(3000);
   ILI9341_FillScreen(BLACK);
-  //drawer_table();
+  drawer_table();
 
   /* USER CODE END 2 */
 

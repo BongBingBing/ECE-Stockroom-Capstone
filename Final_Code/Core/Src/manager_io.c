@@ -279,11 +279,16 @@ void button_output(int button_num){
 	}
 }
 
+
+
 int button_refill(){
 	int firstcall = HAL_GetTick();
 
 	while(HAL_GetTick() - firstcall <= 15000){
 		if (button_press != IDLE){
+			count = 0;
+			LP_flag = 0;
+			button_press = IDLE;
 			return 1;
 		}
 	}
